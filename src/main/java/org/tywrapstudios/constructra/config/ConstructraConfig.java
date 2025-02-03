@@ -40,19 +40,19 @@ public class ConstructraConfig extends AbstractConfig {
             public boolean does_purity_affect_rate = true;
             @Comment("""
                     The Rate at which a PURE node should give its Resource.
-                    Type: Float (in seconds)
+                    Type: Double (in seconds)
                     Default: 0.8""")
-            public float pure = 0.8f;
+            public double pure = 0.8;
             @Comment("""
                     The Rate at which a NORMAL node should give its Resource.
-                    Type: Float (in seconds)
+                    Type: Double (in seconds)
                     Default: 1.2""")
-            public float normal = 1.2f;
+            public double normal = 1.2;
             @Comment("""
                     The Rate at which an IMPURE node should give its Resource.
-                    Type: Float (in seconds)
+                    Type: Double (in seconds)
                     Default: 1.9""")
-            public float impure = 1.9f;
+            public double impure = 1.9;
         }
         @Comment("""
                 Whether to display certain visual hints as to what block is the exact ResourceNode Centre. e.g. through the use of particles.
