@@ -5,10 +5,6 @@ import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
-import net.minecraft.registry.RegistryEntryLookup;
-import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -20,10 +16,9 @@ import org.tywrapstudios.constructra.network.payload.HarvestEndEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.HarvestStartEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.NodeQueryC2SPayload;
 import org.tywrapstudios.constructra.network.payload.NodeQueryS2CPayload;
-import org.tywrapstudios.constructra.registry.CaRegistries;
 
 @Environment(EnvType.CLIENT)
-public class ClientActionTracker {
+public class ClientNodeActionTracker {
     public static boolean HARVESTING_NODE = false;
     public static boolean WATCHING_NODE = false;
     @Nullable
@@ -31,7 +26,7 @@ public class ClientActionTracker {
     @NotNull
     public static ResourceNode<?> LAST_NODE = ResourceNode.createDefaulted();
 
-    public static void initialize(MinecraftClient client) {
+    public static void initializeClient(MinecraftClient client) {
         ClientTickEvents.END_CLIENT_TICK.register(tickedClient -> {
             HitResult hit = tickedClient.crosshairTarget;
             if (hit == null || tickedClient.world == null) return;

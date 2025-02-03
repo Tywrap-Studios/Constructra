@@ -7,13 +7,15 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.PersistentState;
+import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 public class ResourceNodesState extends PersistentState {
-    private final List<ResourceNode<?>> nodes = new CopyOnWriteArrayList<>();
+    private final List<ResourceNode<?>> nodes = new ArrayList<>();
     public static final Type<ResourceNodesState> TYPE = new Type<>(ResourceNodesState::new, (nbt, wrapper) -> createFromNbt(nbt), null);
     public static final String STORAGE_ID = "resource_nodes";
 
@@ -23,6 +25,7 @@ public class ResourceNodesState extends PersistentState {
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt, RegistryWrapper.WrapperLookup registries) {
+        Constructra.LOGGER.debug("Writing NBT for " + nodes.size() + " nodes");
         NbtList nodesList = new NbtList();
         for (ResourceNode<?> node : nodes) {
             NbtCompound nodeNbt = new NbtCompound();

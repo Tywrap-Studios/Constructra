@@ -95,7 +95,7 @@ public enum ResourcePurity implements StringIdentifiable {
     /**
      * @return the modifier for harvesting time per purity, specified in the Config.
      */
-    public float getMiningTimeMultiplier() {
+    public double getMiningTimeMultiplier() {
         ConstructraConfig.ResourceConfig.PurityModifiers cc = Constructra.config().resources.purity_modifiers;
         if (!cc.does_purity_affect_rate) return cc.normal;
 

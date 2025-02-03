@@ -29,8 +29,6 @@ public class ResourceManager {
      * Inner class dedicated to specifically the network of {@link ResourceNode}{@code s}.
      */
     public static class Nodes {
-        private static final List<ResourceNode<?>> REMOVAL = new ArrayList<>();
-
         /**
          * Get or create a {@link ResourceNodesState}, aka fetch all the nodes from the .dat file in {@code run/saves/WORLD/data}
          * @param world the ServerWorld to fetch the State from.
@@ -113,6 +111,8 @@ public class ResourceManager {
          * @return a list of all the Nodes purged.
          */
         public static List<ResourceNode<?>> purge(BlockPos centre, int range, boolean destroyBlock, ServerWorld world, @Nullable Consumer<ResourceNode<?>> runWhenFound) {
+            List<ResourceNode<?>> REMOVAL = new ArrayList<>();
+
             ResourceNodesState state = getOrCreateState(world);
             List<ResourceNode<?>> purgedNodes = new ArrayList<>();
             Constructra.LOGGER.info("Attempting purge at: " + centre + " with range " + range);
@@ -129,6 +129,7 @@ public class ResourceManager {
                 }
             }
             state.markDirty();
+            state.getNodes().removeAll(REMOVAL);
             return purgedNodes;
         }
 
@@ -160,10 +161,11 @@ public class ResourceManager {
 
         private static void tick(ServerWorld serverWorld) {
             ResourceNodesState state = getOrCreateState(serverWorld);
+            List<ResourceNode<?>> REMOVAL = new ArrayList<>();
 
             for (ResourceNode<?> node : state.getNodes()) {
                 BlockPos pos = node.getCentre();
-                verifyNode(node, serverWorld, pos);
+                verifyNode(node, serverWorld, pos, REMOVAL);
 
                 if (Constructra.config().resources.visualize_centres) {
                     serverWorld.spawnParticles(ParticleTypes.SCRAPE, pos.getX(), pos.getY(), pos.getZ(), 10, 0, 0, 0, 0);
@@ -180,7 +182,7 @@ public class ResourceManager {
             state.getNodes().removeAll(REMOVAL);
         }
 
-        private static void verifyNode(ResourceNode<?> node, ServerWorld world, BlockPos pos) {
+        private static void verifyNode(ResourceNode<?> node, ServerWorld world, BlockPos pos, List<ResourceNode<?>> removal) {
             if (world.getRegistryKey() != World.OVERWORLD) {
                 Constructra.LOGGER.debug("ServerWorld for verifyNode isn't of RegistryKey Overworld. Skipping.");
                 //Constructra.LOGGER.error("Found ResourceNode that isn't in Overworld, marked for removal. This should not happen, please report this.");
@@ -188,7 +190,7 @@ public class ResourceManager {
             }
             Block block = world.getBlockState(pos).getBlock();
             if (!block.equals(node.getResource().getHarvestBlock())) {
-                REMOVAL.add(node);
+                removal.add(node);
                 Constructra.LOGGER.warn("Marked ResourceNode for removal due to block mismatch at " + pos);
             }
         }

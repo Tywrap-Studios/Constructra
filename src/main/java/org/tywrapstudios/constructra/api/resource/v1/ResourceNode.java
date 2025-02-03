@@ -6,6 +6,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -182,6 +184,13 @@ public class ResourceNode<T extends Resource> {
 
         if (isObstructed()) {
             if (totalHarvests >= HARVESTS_TO_DE_OBSTRUCT.get()) {
+                world.playSound(null,
+                        centre.getX(),
+                        centre.getY(),
+                        centre.getZ(),
+                        SoundEvents.ENTITY_ITEM_BREAK,
+                        SoundCategory.BLOCKS,
+                        2.0f, 1.7f);
                 deObstruct();
             }
         }
