@@ -33,7 +33,6 @@ bin/
 run/
 .dev
 logs/
-config/
 mods/
 
 # java
