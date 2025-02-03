@@ -3,7 +3,7 @@ package org.tywrapstudios.constructra.config;
 import blue.endless.jankson.Comment;
 import net.tywrapstudios.blossombridge.api.config.AbstractConfig;
 
-public class ConstructraConfig extends AbstractConfig {
+public class ConstructraServerConfig extends AbstractConfig {
     @Comment("""
             This file has all the configuration options for Constructra.
             Do not change the config_version unless you know what you're doing or else some of your changes may be arbitrarily reset and we will use the default values.""")

@@ -8,7 +8,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.config.ConstructraConfig;
+import org.tywrapstudios.constructra.config.ConstructraServerConfig;
 
 import java.util.Random;
 import java.util.function.IntFunction;
@@ -96,7 +96,7 @@ public enum ResourcePurity implements StringIdentifiable {
      * @return the modifier for harvesting time per purity, specified in the Config.
      */
     public double getMiningTimeMultiplier() {
-        ConstructraConfig.ResourceConfig.PurityModifiers cc = Constructra.config().resources.purity_modifiers;
+        ConstructraServerConfig.ResourceConfig.PurityModifiers cc = Constructra.config().resources.purity_modifiers;
         if (!cc.does_purity_affect_rate) return cc.normal;
 
         return switch (this) {

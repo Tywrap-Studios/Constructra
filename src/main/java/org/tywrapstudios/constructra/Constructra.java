@@ -6,21 +6,21 @@ import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.tywrapstudios.blossombridge.api.config.ConfigManager;
 import net.tywrapstudios.blossombridge.api.logging.LoggingHandler;
-import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.api.resource.v1.ResourceManager;
-import org.tywrapstudios.constructra.config.ConstructraConfig;
+import org.tywrapstudios.constructra.config.ConstructraServerConfig;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 import org.tywrapstudios.constructra.registry.MainRegistry;
 import org.tywrapstudios.constructra.util.Util;
 
 import java.io.File;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 public class Constructra implements ModInitializer {
 	public static final String MOD_ID = "constructra";
-	private static final ConfigManager<ConstructraConfig> CONFIG_MANAGER = new ConfigManager<>(ConstructraConfig.class, new File(FabricLoader.getInstance().getConfigDir().toFile(), "constructra.json5"));
-	public static final LoggingHandler<ConstructraConfig> LOGGER = new LoggingHandler<>("Constructra", CONFIG_MANAGER);
+
+	private static final File FILE = new File(FabricLoader.getInstance().getConfigDir().toFile(), "constructra-server.json5");
+	public static final ConfigManager<ConstructraServerConfig> CONFIG_MANAGER = new ConfigManager<>(ConstructraServerConfig.class, FILE);
+	public static final LoggingHandler<ConstructraServerConfig> LOGGER = new LoggingHandler<>("Constructra", CONFIG_MANAGER);
 
 	@Override
 	public void onInitialize() {
@@ -46,17 +46,7 @@ public class Constructra implements ModInitializer {
 		return Identifier.of(MOD_ID, P);
 	}
 
-	public static ConstructraConfig config() {
+	public static ConstructraServerConfig config() {
 		return CONFIG_MANAGER.getConfig();
-	}
-
-	public static void reloadConfig() {
-		reloadConfig(null);
-	}
-
-	public static void reloadConfig(@Nullable Consumer<ConstructraConfig> runBeforeSaving) {
-		CONFIG_MANAGER.loadConfig();
-		if (runBeforeSaving != null) runBeforeSaving.accept(CONFIG_MANAGER.getConfig());
-		CONFIG_MANAGER.saveConfig();
 	}
 }
