@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.RegistryWrapper;
 import org.tywrapstudios.constructra.Constructra;
+import org.tywrapstudios.constructra.client.logic.PlayTimeSafety;
 import org.tywrapstudios.constructra.registry.ComponentItems;
 import org.tywrapstudios.constructra.registry.MainRegistry;
 import org.tywrapstudios.constructra.registry.FuelItems;
@@ -57,6 +58,12 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("text.constructra.command.purge_end", "End of Node Purge. Purged %s/%s Nodes in World. (%s left)");
         translationBuilder.add("key.constructra.calculator", "Open Calculator Menu");
         translationBuilder.add("key.category.constructra", "Constructra");
+        translationBuilder.add(PlayTimeSafety.TITLE, "Playtime Safety");
+        translationBuilder.add(PlayTimeSafety.DESC_2020, "You have been playing for %s minutes, %s in total.\nIt is suggested to look away for ca. 20 seconds!");
+        translationBuilder.add(PlayTimeSafety.DESC_BREAK, "You have been playing for %s.");
+        translationBuilder.add(PlayTimeSafety.DESC_BREAK$0, "While Nexatek appreciates your hard work, overworking yourself may end up decreasing efficiency. Maybe take a break.");
+        translationBuilder.add(PlayTimeSafety.DESC_BREAK$1, "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.");
+        translationBuilder.add(PlayTimeSafety.DESC_BREAK$2, "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.");
     }
 
     private static void autoGenerateName(TranslationBuilder translationBuilder, ItemConvertible item) {

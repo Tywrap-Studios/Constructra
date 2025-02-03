@@ -26,7 +26,7 @@ public class ClientNodeActionTracker {
     @NotNull
     public static ResourceNode<?> LAST_NODE = ResourceNode.createDefaulted();
 
-    public static void initializeClient(MinecraftClient client) {
+    public static void initializeClient() {
         ClientTickEvents.END_CLIENT_TICK.register(tickedClient -> {
             HitResult hit = tickedClient.crosshairTarget;
             if (hit == null || tickedClient.world == null) return;
@@ -51,8 +51,8 @@ public class ClientNodeActionTracker {
 
         ClientPlayNetworking.registerGlobalReceiver(NodeQueryS2CPayload.ID, (load, ctx) -> CURRENT_NODE = load.node());
 
-        ClientTickEvents.END_WORLD_TICK.register(world -> {
-            if (client.options.attackKey.isPressed() && WATCHING_NODE) {
+        ClientTickEvents.END_CLIENT_TICK.register(tickedClient -> {
+            if (tickedClient.options.attackKey.isPressed() && WATCHING_NODE) {
                 if (HARVESTING_NODE) return;
                 if (CURRENT_NODE == null) return;
                 HARVESTING_NODE = true;

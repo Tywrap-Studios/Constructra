@@ -3,19 +3,22 @@ package org.tywrapstudios.constructra.command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.command.v2.ClientCommandManager;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.command.CommandRegistryAccess;
 import net.minecraft.command.argument.BlockPosArgumentType;
 import net.minecraft.command.argument.RegistryEntryReferenceArgumentType;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.config.ConstructraConfig;
+import org.tywrapstudios.constructra.config.ConstructraServerConfig;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 
 public class CaCommandImpl {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess access) {
-        ConstructraConfig.CommandConfig cc = Constructra.config().commands;
+        ConstructraServerConfig.CommandConfig cc = Constructra.config().commands;
         var constructraCommand = CommandManager
                 .literal("constructra")
                 .executes(CaCommandExecutables::execute).build();
@@ -91,5 +94,25 @@ public class CaCommandImpl {
         posArg2.addChild(rangeArg);
         posArg2.addChild(removeBlockNoRangeArg);
         rangeArg.addChild(removeBlockArg);
+    }
+
+    @Environment(EnvType.CLIENT)
+    public static void registerClient(CommandDispatcher<FabricClientCommandSource> dispatcher) {
+        var constructraClientCommand = ClientCommandManager
+                .literal("constructra-client").build();
+
+        var caClientCommand = ClientCommandManager
+                .literal("ca-client")
+                .redirect(constructraClientCommand).build();
+
+        var reloadCommand = ClientCommandManager
+                .literal("reload")
+                        .executes(CaCommandExecutables::reloadClient).build();
+
+        /* Root */
+        dispatcher.getRoot().addChild(constructraClientCommand);
+        dispatcher.getRoot().addChild(caClientCommand);
+        /* Reload */
+        constructraClientCommand.addChild(reloadCommand);
     }
 }

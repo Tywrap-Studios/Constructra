@@ -2,9 +2,11 @@ package org.tywrapstudios.constructra.command;
 
 import com.mojang.brigadier.arguments.BoolArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.command.argument.BlockPosArgumentType;
 import net.minecraft.command.argument.RegistryEntryReferenceArgumentType;
 import net.minecraft.server.command.ServerCommandSource;
@@ -14,7 +16,7 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.calculation.StringCalculator;
+import org.tywrapstudios.constructra.ConstructraClient;
 import org.tywrapstudios.constructra.api.resource.v1.Resource;
 import org.tywrapstudios.constructra.api.resource.v1.ResourceManager;
 import org.tywrapstudios.constructra.api.resource.v1.ResourceNode;
@@ -26,7 +28,7 @@ public class CaCommandExecutables {
     protected static int reload (CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
         source.sendFeedback(() -> Text.translatable("commands.reload.success"), true);
-        Constructra.reloadConfig();
+        Constructra.CONFIG_MANAGER.loadConfig();
         return 1;
     }
 
@@ -67,6 +69,14 @@ public class CaCommandExecutables {
     protected static int execute(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
         source.sendFeedback(() -> Text.translatable("text.constructra.command.constructra", source.getName()), false);
+        return 1;
+    }
+
+    @Environment(EnvType.CLIENT)
+    protected static int reloadClient (CommandContext<FabricClientCommandSource> ctx) {
+        FabricClientCommandSource source = ctx.getSource();
+        source.sendFeedback(Text.translatable("commands.reload.success"));
+        ConstructraClient.CONFIG_MANAGER.loadConfig();
         return 1;
     }
 }
