@@ -90,6 +90,8 @@
   "item.constructra.wire": "Wire",
   "itemGroup.constructra.components": "Constructra - Components",
   "itemGroup.constructra.fuels": "Constructra - Fuels",
+  "key.category.constructra": "Constructra",
+  "key.constructra.calculator": "Open Calculator Menu",
   "purity.impure": "Impure",
   "purity.none": "None",
   "purity.normal": "Normal",
@@ -111,6 +113,5 @@
   "text.constructra.command.purge_end_inefficient": "The amount of Purged Nodes equalled the initial amount of Nodes in the world.\nFor a more efficient Full Node Removal, consider using nodes flush.",
   "text.constructra.command.purge_start": "Starting Node Purge with range %s...",
   "text.constructra.info.obstructed": "(Obstructed)",
-  "text.constructra.prompt.mining_instruction": "Hold %s to start mining",
-  "text.constructra.prompt.mining_instruction_obstructed": "Hold %s to start mining "
+  "text.constructra.prompt.mining_instruction": "Hold %s to start mining"
 }

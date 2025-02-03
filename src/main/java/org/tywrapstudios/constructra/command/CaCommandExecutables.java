@@ -64,13 +64,6 @@ public class CaCommandExecutables {
         return 1;
     }
 
-    protected static int calc(CommandContext<ServerCommandSource> ctx) {
-        String calc = StringArgumentType.getString(ctx,"calculation");
-        double d = StringCalculator.calculate(calc);
-        ctx.getSource().sendFeedback(() -> Text.literal(String.valueOf(d)), false);
-        return 1;
-    }
-
     protected static int execute(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
         source.sendFeedback(() -> Text.translatable("text.constructra.command.constructra", source.getName()), false);

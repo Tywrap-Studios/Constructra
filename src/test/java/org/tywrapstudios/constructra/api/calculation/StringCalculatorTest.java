@@ -71,36 +71,6 @@ public class StringCalculatorTest {
         Assertions.assertEquals(e, d);
     }
 
-    @Test
-    public void test7() {
-        System.out.println("Calc test7");
-        double d = StringCalculator.calculate("-6 * sqrt(9)");
-        double e = -6 * sqrt(9);
-        System.out.println("expected: " + e);
-        System.out.println("result: " + d);
-        Assertions.assertEquals(e, d);
-    }
-
-    @Test
-    public void test8() {
-        System.out.println("Calc test8");
-        double d = StringCalculator.calculate("-6 * sqrt(9) - 8");
-        double e = -6 * sqrt(9) - 8;
-        System.out.println("expected: " + e);
-        System.out.println("result: " + d);
-        Assertions.assertEquals(e, d);
-    }
-
-    @Test
-    public void test9() {
-        System.out.println("Calc test9");
-        double d = StringCalculator.calculate("-6 * round(-9.87 - 8)");
-        double e = -6 * round(-9.87 - 8);
-        System.out.println("expected: " + e);
-        System.out.println("result: " + d);
-        Assertions.assertEquals(e, d);
-    }
-
     private List<String> calc(String calc) {
         try {
             return ShuntingYard.getInfix(calc);

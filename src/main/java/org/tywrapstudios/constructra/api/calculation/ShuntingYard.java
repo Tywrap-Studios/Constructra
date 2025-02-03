@@ -260,15 +260,15 @@ public class ShuntingYard {
 
     private static String cache(Stack<String> CACHE, List<String> tokens, String reason) {
         StringBuilder cachedTokenBuilder = new StringBuilder();
-        LOGGER.debug("De-caching: " + reason);
+        LOGGER.debug("[ShuntingYard => Cache] De-caching: " + reason);
         for (int i = 0; i < CACHE.size() + i; i++) {
             cachedTokenBuilder.append(CACHE.removeFirst());
-            LOGGER.debug("De-cached: " + cachedTokenBuilder);
+            LOGGER.debug("[ShuntingYard => Cache] De-cached: " + cachedTokenBuilder);
         }
         String cachedToken = cachedTokenBuilder.toString();
-        LOGGER.debug("Final Token: " + cachedToken);
+        LOGGER.debug("[ShuntingYard => Cache] Final Token: " + cachedToken);
         if (!cachedToken.isEmpty()) tokens.add(cachedToken);
-        else LOGGER.debugWarning("Empty, skipping.");
+        else LOGGER.debugWarning("[ShuntingYard => Cache] Empty, skipping.");
         return cachedToken;
     }
 }

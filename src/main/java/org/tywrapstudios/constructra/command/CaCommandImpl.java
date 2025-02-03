@@ -71,13 +71,6 @@ public class CaCommandImpl {
                 .requires(source -> source.hasPermissionLevel(cc.perm_lvl_reload))
                 .executes(CaCommandExecutables::reload).build();
 
-        var calcCommand = CommandManager
-                .literal("calc").build();
-
-        var calcStringArg = CommandManager
-                .argument("calculation", StringArgumentType.string())
-                .executes(CaCommandExecutables::calc).build();
-
         /* Root */
         dispatcher.getRoot().addChild(constructraCommand);
         dispatcher.getRoot().addChild(caCommand);
@@ -98,8 +91,5 @@ public class CaCommandImpl {
         posArg2.addChild(rangeArg);
         posArg2.addChild(removeBlockNoRangeArg);
         rangeArg.addChild(removeBlockArg);
-        /* Calc */
-        constructraCommand.addChild(calcCommand);
-        calcCommand.addChild(calcStringArg);
     }
 }

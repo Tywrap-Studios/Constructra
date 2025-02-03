@@ -23,25 +23,27 @@ public class StringCalculator {
      * @param calculation the calculation in form of a String
      * @return the result of the provided calculation
      */
-    public static double calculate(String calculation) {
+    public static double calculate(String calculation) throws InvalidCalculationException {
         CalculationBuilder builder = new CalculationBuilder();
+        if (calculation == null || calculation.isEmpty()) return NaN;
 
+        List<String> tokens = ShuntingYard.getInfix(calculation);
+        LOGGER.debug("[StringCalculator] Tokens: " + tokens);
+        List<String> postfixTokens = ShuntingYard.execute(tokens);
+        LOGGER.debug("[StringCalculator] Postfix: " + postfixTokens);
+
+        return builder.fromPostfix(postfixTokens).build();
+    }
+
+    public static String calculateStr(String calculation) {
+        double d;
         try {
-            List<String> tokens = ShuntingYard.getInfix(calculation);
-            LOGGER.debug("[StringCalculator] Tokens: " + tokens);
-            List<String> postfixTokens = ShuntingYard.execute(tokens);
-            LOGGER.debug("[StringCalculator] Postfix: " + postfixTokens);
-
-            return builder.fromPostfix(postfixTokens).build();
-        } catch (InvalidCalculationException e) {
-            LOGGER.error("[StringCalculator] Invalid Calculation: Could not get proper Infix Tokens from String: " + calculation);
-            e.printStackTrace();
-            return NaN;
+            d = calculate(calculation);
         } catch (Exception e) {
-            LOGGER.error("[StringCalculator] An unexpected Exception occurred while getting Infix Tokens for " + calculation);
-            e.printStackTrace();
-            return NaN;
+            return calculation;
         }
+        if (Double.isNaN(d)) return calculation;
+        else return Double.toString(d);
     }
 
     public static class CalculationBuilder {
