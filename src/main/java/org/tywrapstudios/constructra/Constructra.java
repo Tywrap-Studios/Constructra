@@ -27,9 +27,13 @@ public class Constructra implements ModInitializer {
 		CONFIG_MANAGER.loadConfig();
 		// WARNING: REMOVE BEFORE FINAL RELEASE. FOR DEV PURPOSES ONLY.
 		config().util_config.debug_mode = true;
+		config().resources.visualize_centres = true;
 		CONFIG_MANAGER.saveConfig();
+
 		if (!Objects.equals(config().config_version, "1.0")) {
-			LOGGER.warn("Constructra config version does not match up, we may use default values: " + config().config_version);
+			LOGGER.warn("Constructra config version does not match up, we may use default values");
+			LOGGER.warn("Expected: 1.0");
+			LOGGER.warn("Got: " + config().config_version);
 		}
 
 		CaRegistries.initialize();
