@@ -20,17 +20,10 @@ public class MainRegistry {
     public static List<ItemConvertible> ALL_ITEM_CONVERTIBLE_CONTENT = new ArrayList<>();
 
     public static void registerAll() {
-        ComponentItems.register();
-        ComponentItems.Group.INSTANCE.register();
-        FuelItems.register();
-        FuelItems.Group.INSTANCE.register();
+        CaItems.register();
+        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(CaItems.ITEMS);
         CommandRegistrationCallback.EVENT.register((dispatcher, access, env) -> CaCommandImpl.register(dispatcher, access));
         Resources.register();
-        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(ComponentItems.COMPONENT_ITEMS);
-        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(ComponentItems.BBlock.COMPONENT_BLOCKS);
-        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(ComponentItems.BBlock.COMPONENT_BLOCKS_NON_CUBE);
-        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(FuelItems.FUEL_ITEMS);
-        ALL_ITEM_CONVERTIBLE_CONTENT.addAll(FuelItems.BIO_FUEL_ITEMS);
         Constructra.LOGGER.debug("ItemConvertible List size: " + ALL_ITEM_CONVERTIBLE_CONTENT.size());
     }
 

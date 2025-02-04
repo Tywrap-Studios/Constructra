@@ -14,11 +14,11 @@ import static org.tywrapstudios.constructra.Constructra.id;
 
 public class Resources {
     public static final Resource IRON;
-    public static final Resource GOLD;
+    public static final Resource COPPER;
 
     static {
-        IRON = create(Items.RAW_IRON, ResourceRarity.STARTER, Blocks.IRON_ORE, Identifier.ofVanilla("iron"));
-        GOLD = create(Items.RAW_GOLD, ResourceRarity.STARTER, Blocks.GOLD_ORE, Identifier.ofVanilla("gold"));
+        IRON = create(CaItems.IRON_ORE, ResourceRarity.STARTER, Blocks.IRON_ORE, Identifier.ofVanilla("iron"));
+        COPPER = create(CaItems.COPPER_ORE, ResourceRarity.STARTER, Blocks.COPPER_ORE, Identifier.ofVanilla("copper"));
     }
 
     private static Resource create(ItemConvertible retrievableItem, ResourceRarity rarity, Block harvestBlock, String id) {

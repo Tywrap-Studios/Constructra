@@ -8,10 +8,6 @@ import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import net.minecraft.client.data.TextureMap;
 import net.minecraft.item.Item;
-import org.tywrapstudios.constructra.registry.ComponentItems;
-import org.tywrapstudios.constructra.registry.FuelItems;
-
-import static org.tywrapstudios.constructra.registry.ComponentItems.BBlock;
 
 public class ModelGeneration extends FabricModelProvider {
     public ModelGeneration(FabricDataOutput output) {
@@ -20,26 +16,26 @@ public class ModelGeneration extends FabricModelProvider {
 
     @Override
     public void generateBlockStateModels(BlockStateModelGenerator generator) {
-        for (Block block : BBlock.COMPONENT_BLOCKS) {
-            if (BBlock.COMPONENT_BLOCKS_NON_CUBE.contains(block) || block == BBlock.STEEL_BEAM) {
-                continue;
-            }
-            generator.registerSimpleCubeAll(block);
-        }
-        generator.registerNorthDefaultHorizontalRotatable(BBlock.STEEL_BEAM, TextureMap.sideFrontTop(BBlock.STEEL_BEAM));
+//        for (Block block : BBlock.COMPONENT_BLOCKS) {
+//            if (BBlock.COMPONENT_BLOCKS_NON_CUBE.contains(block) || block == BBlock.STEEL_BEAM) {
+//                continue;
+//            }
+//            generator.registerSimpleCubeAll(block);
+//        }
+//        generator.registerNorthDefaultHorizontalRotatable(BBlock.STEEL_BEAM, TextureMap.sideFrontTop(BBlock.STEEL_BEAM));
     }
 
     @Override
     public void generateItemModels(ItemModelGenerator generator) {
-        for (Item item : ComponentItems.COMPONENT_ITEMS) {
-            simpleItem(item, generator);
-        }
-        for (Item item : FuelItems.BIO_FUEL_ITEMS) {
-            simpleItem(item, generator);
-        }
-        for (Item item : FuelItems.FUEL_ITEMS) {
-            simpleItem(item, generator);
-        }
+//        for (Item item : ComponentItems.COMPONENT_ITEMS) {
+//            simpleItem(item, generator);
+//        }
+//        for (Item item : FuelItems.BIO_FUEL_ITEMS) {
+//            simpleItem(item, generator);
+//        }
+//        for (Item item : FuelItems.FUEL_ITEMS) {
+//            simpleItem(item, generator);
+//        }
     }
 
     public static void simpleItem(Item item, ItemModelGenerator generator) {

@@ -6,9 +6,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.RegistryWrapper;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.client.logic.PlayTimeSafety;
-import org.tywrapstudios.constructra.registry.ComponentItems;
 import org.tywrapstudios.constructra.registry.MainRegistry;
-import org.tywrapstudios.constructra.registry.FuelItems;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -20,18 +18,15 @@ public class LangGeneration extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         for (ItemConvertible item : MainRegistry.ALL_ITEM_CONVERTIBLE_CONTENT) {
-            if (item.equals(ComponentItems.BBlock.AI_LIMITER)) continue;
+//            if (item.equals(ComponentItems.BBlock.AI_LIMITER)) continue;
             autoGenerateName(translationBuilder, item);
         }
 
-        translationBuilder.add(ComponentItems.BBlock.AI_LIMITER, "AI Limiter");
         translationBuilder.add("tag.item.constructra.industrial_fuels", "Industrial Fuels");
         translationBuilder.add("tag.item.constructra.biological_fuels", "Biological Fuels");
         translationBuilder.add("tag.item.constructra.crafting_components", "Component Items");
         translationBuilder.add("tag.item.constructra.resource_harvestable", "Harvestable");
         translationBuilder.add("tag.block.constructra.resource_harvestable", "Harvestable");
-        translationBuilder.add(ComponentItems.Group.INSTANCE.langEntry, "Constructra - Components");
-        translationBuilder.add(FuelItems.Group.INSTANCE.langEntry, "Constructra - Fuels");
         translationBuilder.add("purity.none", "None");
         translationBuilder.add("purity.impure", "Impure");
         translationBuilder.add("purity.normal", "Normal");

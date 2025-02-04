@@ -9,6 +9,9 @@
 		"Tiazzz"
 	],
 	"contact": {
+		"sources": "https://github.com/Tywrap-Studios/Constructra",
+		"issues": "https://github.com/Tywrap-Studios/Constructra/issues",
+		"homepage": "https://tywrap-studios.notion.site/constructra"
 	},
 	"license": "ARR",
 	"environment": "*",
