@@ -154,10 +154,6 @@ public class ResourceManager {
             Constructra.LOGGER.warn("Flushed all resource nodes: " + reason);
         }
 
-        public static void flush(ServerWorld world) {
-            flush("Unknown reason", world);
-        }
-
         private static void tick(ServerWorld serverWorld) {
             ResourceNodesState state = getOrCreateState(serverWorld);
             List<ResourceNode<?>> REMOVAL = new ArrayList<>();
@@ -219,9 +215,8 @@ public class ResourceManager {
                 }
             });
 
-            ServerPlayNetworking.registerGlobalReceiver(HarvestStartEventC2SPayload.ID, (load, ctx) -> {
-                ctx.server().execute(() -> ResourceHarvestTracker.startHarvesting(ctx.player(), load.pos()));
-            });
+            ServerPlayNetworking.registerGlobalReceiver(HarvestStartEventC2SPayload.ID, (load, ctx) -> ctx.server()
+                    .execute(() -> ResourceHarvestTracker.startHarvesting(ctx.player(), load.pos())));
 
             ServerPlayNetworking.registerGlobalReceiver(HarvestEndEventC2SPayload.ID, (load, ctx) -> ctx.server()
                     .execute(() -> ResourceHarvestTracker.stopHarvesting(ctx.player())));

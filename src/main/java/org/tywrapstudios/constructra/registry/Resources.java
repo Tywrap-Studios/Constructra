@@ -1,9 +1,7 @@
 package org.tywrapstudios.constructra.registry;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.api.resource.v1.ImplementedResource;
