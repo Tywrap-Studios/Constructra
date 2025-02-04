@@ -67,31 +67,31 @@ public class StringCalculator {
          */
         public CalculationBuilder fromPostfix(List<String> postfix) {
             // We make a new stack to store the outputs in
-            Stack<String> N = new Stack<>();
+            Stack<Double> N = new Stack<>();
             for (String s : postfix) {
                 LOGGER.debug("[StringCalculator$CalculationBuilder] Checking Token: " + s);
                 // If the string is not an operator, we push it to the numbers stack
                 if (!OPS.containsKey(s)) {
-                    N.push(s);
+                    N.push(Double.parseDouble(s));
                     LOGGER.debug("[StringCalculator$CalculationBuilder] Pushed: " + s);
                 } else {
                     // If it is, we get it from the OPS list
                     Operator op = OPS.get(s);
                     // We get the right associative digit, by popping it
-                    double right = Double.parseDouble(N.pop());
+                    double right = N.pop();
                     // We try to get the left associative digit too, by popping it.
                     // If it doesn't exist if the operator operates on a single operand
                     // we can always assign it to right here if the check is false,
                     // as Single Operand Operators have Right Associativity
-                    double left = !op.singleOperand ? Double.parseDouble(N.pop()) : right;
+                    double left = !op.singleOperand ? N.pop() : right;
                     // We calculate and push the outcome
-                    double newD = getFromOperation(op, left, right);
-                    LOGGER.debug("[StringCalculator$CalculationBuilder] newD: " + newD);
-                    N.push(String.valueOf(newD));
+                    double result = getFromOperation(op, left, right);
+                    LOGGER.debug("[StringCalculator$CalculationBuilder] result: " + result);
+                    N.push(result);
                 }
             }
             // Finally, we add the outcome of the postfix equation to the builder's total outcome.
-            add(Double.parseDouble(N.pop()));
+            add(N.pop());
             return this;
         }
 
