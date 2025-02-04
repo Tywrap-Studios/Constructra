@@ -72,6 +72,8 @@ public class CaCommandExecutables {
         return 1;
     }
 
+    /* CLIENT COMMANDS */
+
     @Environment(EnvType.CLIENT)
     protected static int reloadClient (CommandContext<FabricClientCommandSource> ctx) {
         FabricClientCommandSource source = ctx.getSource();

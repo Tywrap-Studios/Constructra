@@ -1,9 +1,9 @@
-package org.tywrapstudios.constructra.api.calculation;
+package org.tywrapstudios.constructra.api.math.v1;
 
 import java.util.*;
 
-import static org.tywrapstudios.constructra.api.calculation.Associativity.LEFT;
-import static org.tywrapstudios.constructra.api.calculation.Associativity.RIGHT;
+import static org.tywrapstudios.constructra.api.math.v1.Associativity.LEFT;
+import static org.tywrapstudios.constructra.api.math.v1.Associativity.RIGHT;
 import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**

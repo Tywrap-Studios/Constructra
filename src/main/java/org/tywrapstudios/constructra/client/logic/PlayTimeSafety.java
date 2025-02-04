@@ -38,29 +38,29 @@ public class PlayTimeSafety {
             hours = minutes / 60;
             days = hours / 24;
 
-            Text TITLE_TXT = Text.translatable(TITLE);
+            Text title = Text.translatable(TITLE);
 
             if (hours % 2 == 0) {
                 if (!cc.send_break_reminders) return;
-                sendBreakNotification(tickedClient, TITLE_TXT);
+                sendBreakNotification(tickedClient, title);
                 return;
             }
 
             if (minutes % cc.interval == 0) {
                 if (!cc.send_2020_reminders) return;
-                send2020Notification(tickedClient, cc, TITLE_TXT);
+                send2020Notification(tickedClient, cc, title);
             }
         });
     }
 
-    public static void send2020Notification(MinecraftClient tickedClient, ConstructraClientConfig.PlayTimeSafetyConfig cc, Text TITLE_TXT) {
-        Text $2020 = Text.translatable(DESC_2020, cc.interval, minutes);
-        tickedClient.getToastManager().add(
-                SystemToast.create(tickedClient, SystemToast.Type.PERIODIC_NOTIFICATION, TITLE_TXT, $2020)
+    public static void send2020Notification(MinecraftClient client, ConstructraClientConfig.PlayTimeSafetyConfig cc, Text title) {
+        Text text = Text.translatable(DESC_2020, cc.interval, minutes);
+        client.getToastManager().add(
+                SystemToast.create(client, new SystemToast.Type(15000L), title, text)
         );
     }
 
-    public static void sendBreakNotification(MinecraftClient tickedClient, Text TITLE_TXT) {
+    public static void sendBreakNotification(MinecraftClient client, Text title) {
         String usedTime;
         if (days % 1 == 0) usedTime = days + " days";
         else usedTime = hours + " hours";
@@ -71,13 +71,13 @@ public class PlayTimeSafety {
             default -> DESC_BREAK$2;
         };
 
-        Text BREAK = Text
+        Text text = Text
                 .translatable(DESC_BREAK, usedTime)
                 .append("\n")
                 .append(Text.translatable(variant));
 
-        tickedClient.getToastManager().add(
-                SystemToast.create(tickedClient, SystemToast.Type.PERIODIC_NOTIFICATION, TITLE_TXT, BREAK)
+        client.getToastManager().add(
+                SystemToast.create(client, new SystemToast.Type(15000L), title, text)
         );
     }
 }

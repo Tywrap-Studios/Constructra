@@ -56,6 +56,8 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("text.constructra.command.purge_end_empty", "No Nodes were purged. Perhaps try a larger <range>?");
         translationBuilder.add("text.constructra.command.purge_end_inefficient", "The amount of Purged Nodes equalled the initial amount of Nodes in the world.\nFor a more efficient Full Node Removal, consider using nodes flush.");
         translationBuilder.add("text.constructra.command.purge_end", "End of Node Purge. Purged %s/%s Nodes in World. (%s left)");
+        translationBuilder.add("gui.constructra.calculator", "Calculator Menu");
+        translationBuilder.add("text.constructra.prompt.input_calculation", "Input Calculation");
         translationBuilder.add("key.constructra.calculator", "Open Calculator Menu");
         translationBuilder.add("key.category.constructra", "Constructra");
         translationBuilder.add(PlayTimeSafety.TITLE, "Playtime Safety");

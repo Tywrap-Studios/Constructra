@@ -4,7 +4,6 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
@@ -33,7 +32,7 @@ public class ClientNodeActionTracker {
             if (hit.getType().equals(HitResult.Type.BLOCK)) {
                 BlockPos pos = ((BlockHitResult)hit).getBlockPos();
                 boolean currentIsLast = CURRENT_NODE == LAST_NODE;
-                boolean lastNodeBlockMatches = tickedClient.world.getBlockState(pos).getBlock().equals(LAST_NODE.getResource().getHarvestBlock());
+                boolean lastNodeBlockMatches = tickedClient.world.getBlockState(pos).getBlock().equals(LAST_NODE.getResource().harvestBlock());
                 if (!currentIsLast) {
                     ClientPlayNetworking.send(new NodeQueryC2SPayload(pos));
                 } else if (!lastNodeBlockMatches) {

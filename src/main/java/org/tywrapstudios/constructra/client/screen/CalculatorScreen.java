@@ -6,8 +6,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
-import org.tywrapstudios.constructra.api.calculation.InvalidCalculationException;
-import org.tywrapstudios.constructra.api.calculation.StringCalculator;
+import org.tywrapstudios.constructra.api.math.v1.StringCalculator;
 
 @Environment(EnvType.CLIENT)
 public class CalculatorScreen extends Screen {
@@ -39,5 +38,11 @@ public class CalculatorScreen extends Screen {
         }
 
         if (!calc.isEmpty()) context.drawTooltip(this.textRenderer, Text.literal(lastResult), mouseX, mouseY);
+    }
+
+    @Override
+    public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
+        if (this.client == null) return;
+        if (this.client.world == null) this.renderPanoramaBackground(context, delta);
     }
 }
