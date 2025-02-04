@@ -17,8 +17,8 @@ public class Resources {
     public static final Resource COPPER;
 
     static {
-        IRON = create(CaItems.IRON_ORE, ResourceRarity.STARTER, Blocks.IRON_ORE, Identifier.ofVanilla("iron"));
-        COPPER = create(CaItems.COPPER_ORE, ResourceRarity.STARTER, Blocks.COPPER_ORE, Identifier.ofVanilla("copper"));
+        IRON = create(CaItems.IRON_ORE, ResourceRarity.STARTER, CaBlocks.IRON_ORE, Identifier.ofVanilla("iron"));
+        COPPER = create(CaItems.COPPER_ORE, ResourceRarity.STARTER, CaBlocks.COPPER_ORE, Identifier.ofVanilla("copper"));
     }
 
     private static Resource create(ItemConvertible retrievableItem, ResourceRarity rarity, Block harvestBlock, String id) {

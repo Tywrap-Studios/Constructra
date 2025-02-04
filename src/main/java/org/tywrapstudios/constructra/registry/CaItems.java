@@ -1,6 +1,7 @@
 package org.tywrapstudios.constructra.registry;
 
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.tywrapstudios.constructra.Constructra;
@@ -50,8 +51,18 @@ public class CaItems {
     }
 
     public static class Group extends EasyItemGroup {
+        private static final List<ItemConvertible> ALL = new ArrayList<>();
+
         private Group() {
-            super(Constructra.id("main"), null, ITEMS);
+            super(Constructra.id("main"), null, ALL);
+        }
+
+        @Override
+        public void register() {
+            ALL.addAll(ITEMS);
+            ALL.addAll(CaBlocks.BLOCKS);
+            ENTRIES.addAll(ALL);
+            super.register();
         }
 
         public static final Group INSTANCE = new Group();
