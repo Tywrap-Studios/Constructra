@@ -2,6 +2,7 @@ package org.tywrapstudios.constructra.registry;
 
 import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.registry.*;
+import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.api.resource.v1.Resource;
 
@@ -9,7 +10,7 @@ public class CaRegistries {
     public static final Registry<Resource> RESOURCE;
 
     static {
-        RESOURCE = FabricRegistryBuilder.createSimple(Keys.RESOURCE).buildAndRegister();
+        RESOURCE = FabricRegistryBuilder.createDefaulted(Keys.RESOURCE, Identifier.ofVanilla("iron")).buildAndRegister();
     }
 
     public static class Keys {

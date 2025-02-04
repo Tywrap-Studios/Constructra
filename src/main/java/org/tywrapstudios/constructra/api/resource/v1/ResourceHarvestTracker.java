@@ -1,12 +1,10 @@
-package org.tywrapstudios.constructra.api.resource.v1.harvesting;
+package org.tywrapstudios.constructra.api.resource.v1;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceManager;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceNode;
 
 import java.util.HashMap;
 import java.util.Map;

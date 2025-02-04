@@ -9,16 +9,16 @@ import net.minecraft.util.Identifier;
  * General interface for a Resource.
  */
 public interface Resource {
-    Identifier getIdentifier();
-    ItemConvertible getRetrievableItem();
-    Block getHarvestBlock();
-    ResourceRarity getRarity();
+    Identifier identifier();
+    ItemConvertible retrievableItem();
+    Block harvestBlock();
+    ResourceRarity rarity();
 
     default Text getName() {
         return Text.translatable(getTranslationKey());
     }
 
     default String getTranslationKey() {
-        return "resource." + this.getIdentifier().getNamespace() + "." + this.getIdentifier().getPath();
+        return "resource." + this.identifier().getNamespace() + "." + this.identifier().getPath();
     }
 }

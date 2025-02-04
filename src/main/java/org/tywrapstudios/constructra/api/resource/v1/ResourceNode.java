@@ -35,7 +35,7 @@ public class ResourceNode<T extends Resource> {
         @Override
         public void encode(ByteBuf buf, ResourceNode<?> value) {
             PacketByteBuf packetBuf = new PacketByteBuf(buf);
-            Identifier.PACKET_CODEC.encode(buf, value.getResource().getIdentifier());
+            Identifier.PACKET_CODEC.encode(buf, value.getResource().identifier());
             ResourcePurity.PACKET_CODEC.encode(buf, value.getPurity());
             packetBuf.writeBlockPos(value.getCentre());
             packetBuf.writeBoolean(value.isObstructed());
@@ -52,8 +52,9 @@ public class ResourceNode<T extends Resource> {
     public static final Supplier<Integer> HARVESTS_TO_DE_OBSTRUCT = () -> Constructra.config().resources.consecutive_harvests_for_destruction;
 
     /**
-     * Construct a new ResourceNode. Please note that this will not be in the world unless added using {@link ResourceManager.Nodes#addNode(ResourceNode, World)}!
+     * Construct a new ResourceNode.
      * @see ResourceNode#ResourceNode(Resource, ResourcePurity, BlockPos, boolean)
+     * @apiNote It will not be in the world unless added using {@link ResourceManager.Nodes#addNode(ResourceNode, World)}!
      * @param resource the {@link Resource} that will be held by the Node.
      * @param purity the {@link ResourcePurity} of the Node, which modifies the length of harvest. (or not if specified in the Config)
      * @param centre the position that represents the actual position of the Node, the "centre".
@@ -149,11 +150,11 @@ public class ResourceNode<T extends Resource> {
     protected boolean createOriginBlock(World world) {
         try {
             Constructra.LOGGER.debug("Creating origin block for: " + this);
-            world.setBlockState(centre, resource.getHarvestBlock().getDefaultState());
+            world.setBlockState(centre, resource.harvestBlock().getDefaultState());
             return true;
         } catch (Exception e) {
             if (this.getResource() != null) {
-                Constructra.LOGGER.error("Failed to place Origin for Resource: " + resource.getIdentifier());
+                Constructra.LOGGER.error("Failed to place Origin for Resource: " + resource.identifier());
             }
             e.printStackTrace();
             return false;
@@ -173,7 +174,7 @@ public class ResourceNode<T extends Resource> {
             return false;
         }
 
-        ItemStack harvestStack = new ItemStack(resource.getRetrievableItem());
+        ItemStack harvestStack = new ItemStack(resource.retrievableItem());
         ItemEntity itemEntity = new ItemEntity(world,
                 centre.getX() + 0.5,
                 centre.getY() + 0.5,
@@ -212,7 +213,7 @@ public class ResourceNode<T extends Resource> {
      */
     public String toSimpleString() {
         return "ResourceNode{" +
-                "resource=" + resource.getIdentifier() +
+                "resource=" + resource.identifier() +
                 "}";
     }
 

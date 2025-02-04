@@ -49,8 +49,7 @@ public class TagGeneration {
             }
             getOrCreateTagBuilder(Tags.BBlocks.HARVESTABLE.asItemTag())
                     .add(Blocks.IRON_ORE.asItem())
-                    .add(Blocks.GOLD_ORE.asItem())
-                    .add(Resources.DEV_BLOCK.asItem());
+                    .add(Blocks.GOLD_ORE.asItem());
         }
     }
 
@@ -63,8 +62,7 @@ public class TagGeneration {
         protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
             getOrCreateTagBuilder(Tags.BBlocks.HARVESTABLE.get())
                     .add(Blocks.IRON_ORE)
-                    .add(Blocks.GOLD_ORE)
-                    .add(Resources.DEV_BLOCK);
+                    .add(Blocks.GOLD_ORE);
         }
     }
 }

@@ -11,7 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.resource.v1.harvesting.ResourceHarvestTracker;
 import org.tywrapstudios.constructra.network.payload.HarvestEndEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.HarvestStartEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.NodeQueryC2SPayload;
@@ -189,7 +188,7 @@ public class ResourceManager {
                 return;
             }
             Block block = world.getBlockState(pos).getBlock();
-            if (!block.equals(node.getResource().getHarvestBlock())) {
+            if (!block.equals(node.getResource().harvestBlock())) {
                 removal.add(node);
                 Constructra.LOGGER.warn("Marked ResourceNode for removal due to block mismatch at " + pos);
             }
