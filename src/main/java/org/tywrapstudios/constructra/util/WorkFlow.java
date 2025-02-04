@@ -14,11 +14,11 @@ abstract class WorkFlow {
     /*
         NEXATEK -> Company.
         WICKED (Waste Inspection and Coordination for Kinetic Evaluation and Deployment) -> Changing waste into currency.
-        Terbysium -> Special Alloy only found in the asteroid belt.
+        Terbysium -> Special Alloy only found in the asteroid belt. Very well known for its high conductivity.
         DART (Directly Artificial Research Tree) -> Research Tree.
-        CASU (Controlled Amplified Shock Unit) -> Shock based weapon.
-        Electronic Boomstick -> Stronger version of the CASU.
-        CIO (Computer Integrated Operator) -> AI Personal Assistant.
-        OperAXIS -> HUD Operating System name, to display information.
+        CASU (Controlled Amplified Shock Unit) -> Electronic shock based weapon.
+        CASU-Stick dubbed as the Electronic Boomstick -> Stronger version of the CASU.
+        CIO (Computable Integral Operator) -> AI Personal Assistant.
+        "Build your dream factory. Build the Future, One Bolt at a Time." -> Motto
      */
 }
