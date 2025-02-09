@@ -54,7 +54,7 @@ public class CaItems {
         private static final List<ItemConvertible> ALL = new ArrayList<>();
 
         private Group() {
-            super(Constructra.id("main"), null, ALL);
+            super(Constructra.id("main"), SCREWS, ALL);
         }
 
         @Override

@@ -61,6 +61,7 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add(PlayTimeSafety.DESC_BREAK$0, "While Nexatek appreciates your hard work, overworking yourself may end up decreasing efficiency. Maybe take a break.");
         translationBuilder.add(PlayTimeSafety.DESC_BREAK$1, "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.");
         translationBuilder.add(PlayTimeSafety.DESC_BREAK$2, "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.");
+
     }
 
     private static void autoGenerateName(TranslationBuilder translationBuilder, ItemConvertible item) {
