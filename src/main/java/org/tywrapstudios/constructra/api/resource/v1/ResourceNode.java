@@ -16,6 +16,7 @@ import org.tywrapstudios.constructra.registry.CaRegistries;
 import org.tywrapstudios.constructra.registry.Resources;
 
 import java.util.Random;
+import java.util.function.Consumer;
 import java.util.function.Supplier;
 
 public class ResourceNode<T extends Resource> {
@@ -164,9 +165,11 @@ public class ResourceNode<T extends Resource> {
     /**
      * Tries to harvest the Node, and do all handling for it accordingly.
      * @param world the {@link ServerWorld} handle the harvesting in.
+     * @param harvestResult a Consumer that gives you the ItemStack of the harvest to do what you want with it.
+     * @see #tryHarvest(ServerWorld)
      * @return whether the harvest was successful
      */
-    public boolean tryHarvest(ServerWorld world) {
+    public boolean tryHarvest(ServerWorld world, Consumer<ItemStack> harvestResult) {
         long currentTime = world.getTime();
         long harvestCooldown = (long)(20 * purity.getMiningTimeMultiplier()); // Convert purity to ticks
 
@@ -175,12 +178,7 @@ public class ResourceNode<T extends Resource> {
         }
 
         ItemStack harvestStack = new ItemStack(resource.retrievableItem());
-        ItemEntity itemEntity = new ItemEntity(world,
-                centre.getX() + 0.5,
-                centre.getY() + 0.5,
-                centre.getZ() + 0.5,
-                harvestStack);
-        world.spawnEntity(itemEntity);
+        harvestResult.accept(harvestStack);
         totalHarvests++;
 
         if (isObstructed()) {
@@ -198,6 +196,17 @@ public class ResourceNode<T extends Resource> {
 
         lastHarvestTime = currentTime;
         return true;
+    }
+
+    public boolean tryHarvest(ServerWorld world) {
+        return tryHarvest(world, itemStack -> {
+            ItemEntity itemEntity = new ItemEntity(world,
+                    centre.getX() + 0.5,
+                    centre.getY() + 0.5,
+                    centre.getZ() + 0.5,
+                    itemStack);
+            world.spawnEntity(itemEntity);
+        });
     }
 
     /**
