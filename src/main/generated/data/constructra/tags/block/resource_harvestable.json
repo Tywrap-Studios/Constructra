@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:iron_ore",
-    "minecraft:gold_ore",
-    "constructra:dev_block"
+    "minecraft:gold_ore"
   ]
 }

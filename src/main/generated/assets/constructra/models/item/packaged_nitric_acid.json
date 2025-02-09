@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:item/generated",
-  "textures": {
-    "layer0": "constructra:item/packaged_nitric_acid"
-  }
-}

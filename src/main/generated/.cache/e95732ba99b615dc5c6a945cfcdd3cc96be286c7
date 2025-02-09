@@ -1,5 +1,2 @@
 // 1.21.4	-999999999-01-01T00:00:00	Constructra/Tags for minecraft:item
-6df24487db938486e896b56a1d488cb0b8128ea5 data/constructra/tags/item/biological_fuels.json
-34bc5da5a8b1cba6c91cdede86c3b569dba4f498 data/constructra/tags/item/crafting_components.json
-fc5bf286604a28cfa1f872d17b229483938dbf13 data/constructra/tags/item/industrial_fuels.json
-f5edb8c7f5ac7a3f0b56a7b2d99688ec317186d8 data/constructra/tags/item/resource_harvestable.json
+8af3142f1f5abb971263163a42a06f9b8093cd1a data/constructra/tags/item/resource_harvestable.json

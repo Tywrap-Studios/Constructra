@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "constructra:block/steel_beam"
+    "model": "constructra:block/copper_ore_block"
   }
 }

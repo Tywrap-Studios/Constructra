@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "constructra:item/cable"
+    "model": "constructra:block/portable_miner"
   }
 }
