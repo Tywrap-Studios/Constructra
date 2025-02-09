@@ -17,8 +17,4 @@ public class ResourceBlock extends Block {
                 .pistonBehavior(PistonBehavior.BLOCK)
                 .allowsSpawning(Blocks::never));
     }
-
-    public ResourceBlock() {
-        this(Settings.create());
-    }
 }
