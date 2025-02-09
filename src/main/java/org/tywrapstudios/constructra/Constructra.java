@@ -42,8 +42,8 @@ public class Constructra implements ModInitializer {
 		LOGGER.info(Util.generateInitPhrase());
 	}
 
-	public static Identifier id(String P) {
-		return Identifier.of(MOD_ID, P);
+	public static Identifier id(String s) {
+		return Identifier.of(MOD_ID, s);
 	}
 
 	public static ConstructraServerConfig config() {
