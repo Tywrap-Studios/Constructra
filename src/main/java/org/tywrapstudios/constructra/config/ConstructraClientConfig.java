@@ -26,8 +26,8 @@ public class ConstructraClientConfig implements ConfigClass {
                 Whether to send 2020 reminders.
                 After 20 minutes of playing, look away for 20 seconds.
                 Type: Boolean
-                Default: true""")
-        public boolean send_2020_reminders = true;
+                Default: false""")
+        public boolean send_2020_reminders = false;
         @Comment("""
                 The amount of minutes between 2020 reminders.
                 Only applies if send_2020_reminders is true.
@@ -38,8 +38,8 @@ public class ConstructraClientConfig implements ConfigClass {
         @Comment("""
                 Whether to send reminders to take small breaks after a long while of playing.
                 Type: Boolean
-                Default: true""")
-        public boolean send_break_reminders = true;
+                Default: false""")
+        public boolean send_break_reminders = false;
     }
 
     @Override
