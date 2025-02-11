@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "constructra:block/copper_ore_block"
+    "model": "constructra:item/iron_rod"
   }
 }

@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "constructra:block/iron_ore_block"
+    "model": "constructra:item/iron_ore"
   }
 }

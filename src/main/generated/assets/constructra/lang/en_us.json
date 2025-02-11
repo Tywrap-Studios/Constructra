@@ -1,4 +1,8 @@
 {
+  "block.constructra.copper_spawn": "Copper Spawn",
+  "block.constructra.iron_spawn": "Iron Spawn",
+  "block.constructra.portable_miner": "Portable Miner",
+  "container.constructra.portable_miner": "Portable Miner",
   "gui.constructra.calculator": "Calculator Menu",
   "item.constructra.copper_ingot": "Copper Ingot",
   "item.constructra.copper_ore": "Copper Ore",
@@ -8,6 +12,7 @@
   "item.constructra.iron_rod": "Iron Rod",
   "item.constructra.reinforced_iron_plate": "Reinforced Iron Plate",
   "item.constructra.screws": "Screws",
+  "itemGroup.constructra.main": "Constructra",
   "key.category.constructra": "Constructra",
   "key.constructra.calculator": "Open Calculator Menu",
   "purity.impure": "Impure",
@@ -17,10 +22,6 @@
   "resource.minecraft.gold": "Gold",
   "resource.minecraft.iron": "Iron",
   "tag.block.constructra.resource_harvestable": "Harvestable",
-  "tag.item.constructra.biological_fuels": "Biological Fuels",
-  "tag.item.constructra.crafting_components": "Component Items",
-  "tag.item.constructra.industrial_fuels": "Industrial Fuels",
-  "tag.item.constructra.resource_harvestable": "Harvestable",
   "text.constructra.command.constructra": "Hello %s!\nWelcome to Constructra, a mod centred around the creation of machines, tools and automation.\nYou can access the commands by using /constructra, /ca is a shorthand route!\nIf you don't know where to start, feel free to generate yourself either a codex item or press the keybind button to open the codex menu!\nHave a good day!\nNexatek, Build the Future, One Bolt at a Time.",
   "text.constructra.command.error.invalid_enum": "Invalid enum value",
   "text.constructra.command.error.non-overworld": "Attempted to manually place ResourceNode in non-overworld World. Skipping.",
@@ -38,7 +39,5 @@
   "text.constructra.reminders.break.variant.0": "While Nexatek appreciates your hard work, overworking yourself may end up decreasing efficiency. Maybe take a break.",
   "text.constructra.reminders.break.variant.1": "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.",
   "text.constructra.reminders.break.variant.2": "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.",
-  "text.constructra.reminders.break.variant.3": "Excessive gaming may interfere with normal daily life",
-  "text.constructra.reminders.title": "Playtime Safety",
-  "text.constructra.reminders.title.hours": "You've been playing for greater than 24 hours"
+  "text.constructra.reminders.title": "Playtime Safety"
 }
