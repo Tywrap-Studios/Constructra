@@ -9,10 +9,7 @@ import org.tywrapstudios.constructra.Constructra;
 
 public class Tags {
     public enum IItems {
-        INDUSTRIAL_FUELS("industrial_fuels"),
-        BIOLOGICAL_FUELS("biological_fuels"),
-        CRAFTING_COMPONENTS("crafting_components"),
-        RADIOACTIVE("radioactive"),;
+        EMPTY(null);
 
         private final TagKey<Item> tagKey;
 
@@ -30,7 +27,7 @@ public class Tags {
     }
 
     public enum BBlocks {
-        HARVESTABLE("resource_harvestable"),;
+        HARVESTABLE("harvestable"),;
 
         private final TagKey<Block> tagKey;
 
@@ -40,10 +37,6 @@ public class Tags {
 
         public TagKey<Block> get() {
             return tagKey;
-        }
-
-        public TagKey<Item> asItemTag() {
-            return IItems.of(tagKey.id());
         }
 
         private static TagKey<Block> of(Identifier id) {

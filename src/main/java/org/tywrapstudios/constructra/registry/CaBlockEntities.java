@@ -17,7 +17,10 @@ public class CaBlockEntities {
         PORTABLE_MINER_ENTITY = create("portable_miner_entity", PortableMinerBlockEntity::new, CaBlocks.PORTABLE_MINER);
     }
 
-    public static <T extends BlockEntity> BlockEntityType<T> create(String id, FabricBlockEntityTypeBuilder.Factory<T> factory, Block... blocks) {
+    private static <T extends BlockEntity> BlockEntityType<T> create(String id, FabricBlockEntityTypeBuilder.Factory<T> factory, Block... blocks) {
         return Registry.register(Registries.BLOCK_ENTITY_TYPE, id(id), FabricBlockEntityTypeBuilder.create(factory, blocks).build());
+    }
+
+    public static void register() {
     }
 }

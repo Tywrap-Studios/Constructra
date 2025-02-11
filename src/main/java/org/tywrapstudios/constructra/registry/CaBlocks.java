@@ -18,30 +18,37 @@ import static net.minecraft.block.AbstractBlock.Settings.create;
 
 public class CaBlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
+    public static final List<Block> CUBE_ALL = new ArrayList<>();
 
-    public static final Block IRON_ORE;
-    public static final Block COPPER_ORE;
+    public static final Block IRON_SPAWN;
+    public static final Block COPPER_SPAWN;
     public static final Block PORTABLE_MINER;
 
     static {
-        IRON_ORE = of("iron_ore_block", new ResourceBlock(create()
-                .registryKey(blockKey("iron_ore_block"))));
-        COPPER_ORE = of("copper_ore_block", new ResourceBlock(create()
-                .registryKey(blockKey("copper_ore_block"))));
+        IRON_SPAWN = of("iron_spawn", new ResourceBlock(create()
+                .registryKey(blockKey("iron_spawn"))));
+        COPPER_SPAWN = of("copper_spawn", new ResourceBlock(create()
+                .registryKey(blockKey("copper_spawn"))));
         PORTABLE_MINER = of("portable_miner", new PortableMinerBlock(create()
                 .registryKey(blockKey("portable_miner"))
+                .luminance(PortableMinerBlock::getLuminance)
                 .strength(-1.0f, 3600000.0f)
                 .dropsNothing()
                 .noBlockBreakParticles()
-                .pistonBehavior(PistonBehavior.BLOCK)));
+                .pistonBehavior(PistonBehavior.BLOCK)), false);
     }
 
     private static Block of(String id, Block block) {
+        return of(id, block, true);
+    }
+
+    private static Block of(String id, Block block, boolean cube) {
         BlockItem blockItem = new BlockItem(block, new Item.Settings()
                 .registryKey(itemKey(id))
                 .useBlockPrefixedTranslationKey());
         Registry.register(Registries.ITEM, itemKey(id), blockItem);
         BLOCKS.add(block);
+        if (cube) CUBE_ALL.add(block);
 
         return Registry.register(Registries.BLOCK, blockKey(id), block);
     }

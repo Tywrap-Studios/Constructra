@@ -14,6 +14,7 @@ import static org.tywrapstudios.constructra.registry.MainRegistry.itemKey;
 
 public class CaItems {
     public static final List<Item> ITEMS = new ArrayList<>();
+    public static final List<Item> GENERATED = new ArrayList<>();
 
     public static final Item IRON_ORE;
     public static final Item IRON_INGOT;
@@ -36,13 +37,18 @@ public class CaItems {
     }
 
     private static Item create(String id) {
-        Item item = new Item(new Item.Settings()
-                .registryKey(itemKey(id)));
-        return create(id, item);
+        return create(id, true);
     }
 
-    private static Item create(String id, Item item) {
+    private static Item create(String id, boolean generated) {
+        Item item = new Item(new Item.Settings()
+                .registryKey(itemKey(id)));
+        return create(id, item, generated);
+    }
+
+    private static Item create(String id, Item item, boolean generated) {
         ITEMS.add(item);
+        if (generated) GENERATED.add(item);
         return Registry.register(Registries.ITEM, itemKey(id), item);
     }
 

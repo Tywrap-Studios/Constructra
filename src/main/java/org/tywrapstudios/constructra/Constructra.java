@@ -8,6 +8,7 @@ import net.tywrapstudios.blossombridge.api.config.ConfigManager;
 import net.tywrapstudios.blossombridge.api.logging.LoggingHandler;
 import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.config.ConstructraServerConfig;
+import org.tywrapstudios.constructra.network.CaNetworking;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 import org.tywrapstudios.constructra.registry.MainRegistry;
 import org.tywrapstudios.constructra.util.Util;
@@ -37,6 +38,7 @@ public class Constructra implements ModInitializer {
 		}
 
 		CaRegistries.initialize();
+		CaNetworking.initialize();
 		MainRegistry.registerAll();
 		ResourceManager.Nodes.initializeServer();
 		LOGGER.info(Util.generateInitPhrase());

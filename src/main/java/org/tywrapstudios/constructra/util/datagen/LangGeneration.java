@@ -5,7 +5,8 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.RegistryWrapper;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.client.logic.PlayTimeSafety;
+import org.tywrapstudios.constructra.client.logic.PlayTime;
+import org.tywrapstudios.constructra.registry.CaItems;
 import org.tywrapstudios.constructra.registry.MainRegistry;
 
 import java.util.concurrent.CompletableFuture;
@@ -18,14 +19,10 @@ public class LangGeneration extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder translationBuilder) {
         for (ItemConvertible item : MainRegistry.ALL_ITEM_CONVERTIBLE_CONTENT) {
-//            if (item.equals(ComponentItems.BBlock.AI_LIMITER)) continue;
             autoGenerateName(translationBuilder, item);
         }
 
-        translationBuilder.add("tag.item.constructra.industrial_fuels", "Industrial Fuels");
-        translationBuilder.add("tag.item.constructra.biological_fuels", "Biological Fuels");
-        translationBuilder.add("tag.item.constructra.crafting_components", "Component Items");
-        translationBuilder.add("tag.item.constructra.resource_harvestable", "Harvestable");
+        translationBuilder.add(CaItems.Group.INSTANCE.langEntry, "Constructra");
         translationBuilder.add("tag.block.constructra.resource_harvestable", "Harvestable");
         translationBuilder.add("purity.none", "None");
         translationBuilder.add("purity.impure", "Impure");
@@ -55,12 +52,13 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("text.constructra.prompt.input_calculation", "Input Calculation");
         translationBuilder.add("key.constructra.calculator", "Open Calculator Menu");
         translationBuilder.add("key.category.constructra", "Constructra");
-        translationBuilder.add(PlayTimeSafety.TITLE, "Playtime Safety");
-        translationBuilder.add(PlayTimeSafety.DESC_2020, "You have been playing for %s minutes, %s in total.\nIt is suggested to look away for ca. 20 seconds!");
-        translationBuilder.add(PlayTimeSafety.DESC_BREAK, "You have been playing for %s.");
-        translationBuilder.add(PlayTimeSafety.DESC_BREAK$0, "While Nexatek appreciates your hard work, overworking yourself may end up decreasing efficiency. Maybe take a break.");
-        translationBuilder.add(PlayTimeSafety.DESC_BREAK$1, "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.");
-        translationBuilder.add(PlayTimeSafety.DESC_BREAK$2, "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.");
+        translationBuilder.add(PlayTime.TITLE, "Playtime Safety");
+        translationBuilder.add(PlayTime.DESC_2020, "You have been playing for %s minutes, %s in total.\nIt is suggested to look away for ca. 20 seconds!");
+        translationBuilder.add(PlayTime.DESC_BREAK, "You have been playing for %s.");
+        translationBuilder.add(PlayTime.DESC_BREAK$0, "While Nexatek appreciates your hard work, overworking yourself may end up decreasing efficiency. Maybe take a break.");
+        translationBuilder.add(PlayTime.DESC_BREAK$1, "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.");
+        translationBuilder.add(PlayTime.DESC_BREAK$2, "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.");
+        translationBuilder.add("container.constructra.portable_miner", "Portable Miner");
 
     }
 

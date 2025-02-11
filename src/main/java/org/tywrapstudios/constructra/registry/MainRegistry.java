@@ -22,6 +22,8 @@ public class MainRegistry {
     public static void registerAll() {
         CaItems.register();
         CaBlocks.register();
+        CaBlockEntities.register();
+        CaScreenHandlers.register();
         ALL_ITEM_CONVERTIBLE_CONTENT.addAll(CaItems.ITEMS);
         ALL_ITEM_CONVERTIBLE_CONTENT.addAll(CaBlocks.BLOCKS);
         CommandRegistrationCallback.EVENT.register((dispatcher, access, env) -> CaCommandImpl.register(dispatcher, access));

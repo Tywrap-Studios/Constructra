@@ -7,15 +7,17 @@ import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallba
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.tywrapstudios.blossombridge.api.config.ConfigManager;
 import org.tywrapstudios.constructra.client.key.ClientKeyBinds;
 import org.tywrapstudios.constructra.client.logic.ClientNodeActionTracker;
-import org.tywrapstudios.constructra.client.logic.PlayTimeSafety;
-import org.tywrapstudios.constructra.client.rendering.ResourceNodeHudRenderer;
-import org.tywrapstudios.constructra.client.screen.CalculatorScreen;
+import org.tywrapstudios.constructra.client.logic.PlayTime;
+import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
+import org.tywrapstudios.constructra.client.gui.screen.CalculatorScreen;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
 import org.tywrapstudios.constructra.config.ConstructraClientConfig;
+import org.tywrapstudios.constructra.registry.CaScreenHandlers;
+import org.tywrapstudios.constructra.client.gui.screen.PortableMinerScreen;
 
 import java.io.File;
 
@@ -33,7 +35,7 @@ public class ConstructraClient implements ClientModInitializer {
 
         ClientNodeActionTracker.initializeClient();
         ClientKeyBinds.registerClient();
-        PlayTimeSafety.initializeClient();
+        PlayTime.initializeClient();
 
         HudRenderCallback.EVENT.register((drawContext, tickDelta) -> {
             if (ClientNodeActionTracker.CURRENT_NODE == null) return;
@@ -48,6 +50,8 @@ public class ConstructraClient implements ClientModInitializer {
         });
 
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, access) -> CaCommandImpl.registerClient(dispatcher));
+
+        HandledScreens.register(CaScreenHandlers.PORTABLE_MINER_HANDLER, PortableMinerScreen::new);
     }
 
     public static ConstructraClientConfig config() {

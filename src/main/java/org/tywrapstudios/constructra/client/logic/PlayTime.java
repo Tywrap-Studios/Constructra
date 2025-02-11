@@ -12,8 +12,8 @@ import org.tywrapstudios.constructra.config.ConstructraClientConfig;
 import java.util.Random;
 
 @Environment(EnvType.CLIENT)
-public class PlayTimeSafety {
-    private static double playTime;
+public class PlayTime {
+    public static long playTime;
     public static double seconds;
     public static double minutes;
     public static double hours;
@@ -33,7 +33,7 @@ public class PlayTimeSafety {
         ClientTickEvents.END_CLIENT_TICK.register(tickedClient -> {
             ConstructraClientConfig.PlayTimeSafetyConfig cc = ConstructraClient.config().play_time_safety;
             playTime++;
-            seconds = playTime / 20;
+            seconds = (double) playTime / 20;
             minutes = seconds / 60;
             hours = minutes / 60;
             days = hours / 24;
