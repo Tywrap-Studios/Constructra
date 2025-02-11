@@ -1,11 +1,12 @@
-package org.tywrapstudios.constructra.api.block.v1;
+package org.tywrapstudios.constructra.api.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.piston.PistonBehavior;
+import org.tywrapstudios.constructra.api.resource.ResourceNode;
 
 /**
- * A block that can be used for Resources, as it's indestructible and has a few other forced treats that make it perfect to be inside a {@link org.tywrapstudios.constructra.api.resource.v1.ResourceNode}.
+ * A block that can be used for Resources, as it's indestructible and has a few other forced treats that make it perfect to be inside a {@link ResourceNode}.
  * <p>It is generally suggested to use this, because although there are precautions in place as to not make the blocks inside one be broken, this method is prettier and generally safer.</p>
  */
 public class ResourceBlock extends Block {

@@ -1,15 +1,12 @@
-package org.tywrapstudios.constructra.api.inventory.v1;
+package org.tywrapstudios.constructra.api.inventory;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
-import net.minecraft.util.math.Direction;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -160,12 +157,5 @@ public interface ImplementedInventory extends Inventory {
     @Override
     default boolean canPlayerUse(PlayerEntity player) {
         return true;
-    }
-
-    /* Extra Code, Follows our License */
-
-    @Override
-    default int getMaxCountPerStack() {
-        return 100;
     }
 }

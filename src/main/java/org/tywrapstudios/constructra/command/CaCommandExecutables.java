@@ -17,9 +17,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.ConstructraClient;
-import org.tywrapstudios.constructra.api.resource.v1.Resource;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceManager;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceNode;
+import org.tywrapstudios.constructra.api.resource.Resource;
+import org.tywrapstudios.constructra.api.resource.ResourceManager;
+import org.tywrapstudios.constructra.api.resource.ResourceNode;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 
 import java.util.List;
@@ -62,7 +62,7 @@ public class CaCommandExecutables {
         Resource resource = RegistryEntryReferenceArgumentType.getRegistryEntry(ctx, "type", CaRegistries.Keys.RESOURCE).value();
         boolean obstructed = BoolArgumentType.getBool(ctx,"obstructed");
 
-        ResourceManager.Nodes.addNode(resource, pos, obstructed, ctx.getSource().getWorld());
+        ResourceManager.Nodes.add(resource, pos, obstructed, ctx.getSource().getWorld());
         return 1;
     }
 

@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.math.v1;
+package org.tywrapstudios.constructra.api.math;
 
 /**
  * Because the world has differences and people can't make up their mind, different unit systems exist.

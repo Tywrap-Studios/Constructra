@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.resource.v1;
+package org.tywrapstudios.constructra.api.resource;
 
 import net.minecraft.util.StringIdentifiable;
 

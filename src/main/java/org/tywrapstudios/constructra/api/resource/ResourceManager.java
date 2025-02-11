@@ -1,9 +1,7 @@
-package org.tywrapstudios.constructra.api.resource.v1;
+package org.tywrapstudios.constructra.api.resource;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
-import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
-import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.block.Block;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
@@ -11,10 +9,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.network.payload.HarvestEndEventC2SPayload;
-import org.tywrapstudios.constructra.network.payload.HarvestStartEventC2SPayload;
-import org.tywrapstudios.constructra.network.payload.NodeQueryC2SPayload;
-import org.tywrapstudios.constructra.network.payload.NodeQueryS2CPayload;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,12 +33,12 @@ public class ResourceManager {
 
         /**
          * Adds a node to the network.
-         * @see #addNode(Resource, BlockPos, boolean, World)
-         * @see #addNode(Resource, BlockPos, World)
+         * @see #add(Resource, BlockPos, boolean, World)
+         * @see #add(Resource, BlockPos, World)
          * @param node the Node to add.
          * @param world the world to add it to, preferably a {@link ServerWorld}.
          */
-        public static void addNode(ResourceNode<?> node, World world) {
+        public static void add(ResourceNode<?> node, World world) {
             if (world instanceof ServerWorld serverWorld) {
                 ResourceNodesState state = getOrCreateState(serverWorld);
                 node.createOriginBlock(world);
@@ -53,14 +47,14 @@ public class ResourceManager {
             }
         }
 
-        public static <T extends Resource> void addNode(T resource, BlockPos pos, World world) {
+        public static <T extends Resource> void add(T resource, BlockPos pos, World world) {
             ResourceNode<T> node = new ResourceNode<>(resource, pos);
-            addNode(node, world);
+            add(node, world);
         }
 
-        public static <T extends Resource> void addNode(T resource, BlockPos pos, boolean obstructed, World world) {
+        public static <T extends Resource> void add(T resource, BlockPos pos, boolean obstructed, World world) {
             ResourceNode<T> node = new ResourceNode<>(resource, pos, obstructed);
-            addNode(node, world);
+            add(node, world);
         }
 
         /**
@@ -70,7 +64,7 @@ public class ResourceManager {
          * @return if present, the {@link ResourceNode}.
          */
         @Nullable
-        public static ResourceNode<?> getAtPos(BlockPos pos, ServerWorld world) {
+        public static ResourceNode<?> get(BlockPos pos, ServerWorld world) {
             ResourceNodesState state = getOrCreateState(world);
             for (ResourceNode<?> node : state.getNodes()) {
                 if (node.getCentre().equals(pos)) {
@@ -80,8 +74,8 @@ public class ResourceManager {
             return null;
         }
 
-        public static ResourceNode<?> getAtPos(int x, int y, int z, ServerWorld world) {
-            return getAtPos(new BlockPos(x, y, z), world);
+        public static ResourceNode<?> get(int x, int y, int z, ServerWorld world) {
+            return get(new BlockPos(x, y, z), world);
         }
 
         /**
@@ -202,24 +196,6 @@ public class ResourceManager {
                 }
                 return true;
             });
-
-            PayloadTypeRegistry.playC2S().register(NodeQueryC2SPayload.ID, NodeQueryC2SPayload.CODEC);
-            PayloadTypeRegistry.playS2C().register(NodeQueryS2CPayload.ID, NodeQueryS2CPayload.CODEC);
-            PayloadTypeRegistry.playC2S().register(HarvestStartEventC2SPayload.ID, HarvestStartEventC2SPayload.CODEC);
-            PayloadTypeRegistry.playC2S().register(HarvestEndEventC2SPayload.ID, HarvestEndEventC2SPayload.CODEC);
-
-            ServerPlayNetworking.registerGlobalReceiver(NodeQueryC2SPayload.ID, (load, ctx) -> {
-                ResourceNode<?> node = ResourceManager.Nodes.getAtPos(load.pos(), ctx.server().getOverworld());
-                if (node != null) {
-                    ServerPlayNetworking.send(ctx.player(), new NodeQueryS2CPayload(node));
-                }
-            });
-
-            ServerPlayNetworking.registerGlobalReceiver(HarvestStartEventC2SPayload.ID, (load, ctx) -> ctx.server()
-                    .execute(() -> ResourceHarvestTracker.startHarvesting(ctx.player(), load.pos())));
-
-            ServerPlayNetworking.registerGlobalReceiver(HarvestEndEventC2SPayload.ID, (load, ctx) -> ctx.server()
-                    .execute(() -> ResourceHarvestTracker.stopHarvesting(ctx.player())));
         }
     }
 }

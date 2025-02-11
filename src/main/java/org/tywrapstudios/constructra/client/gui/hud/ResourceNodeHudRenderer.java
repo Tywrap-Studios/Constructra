@@ -1,10 +1,10 @@
-package org.tywrapstudios.constructra.client.rendering;
+package org.tywrapstudios.constructra.client.gui.hud;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceNode;
+import org.tywrapstudios.constructra.api.resource.ResourceNode;
 
 import java.util.ArrayList;
 import java.util.List;

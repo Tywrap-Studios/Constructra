@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.resource.v1;
+package org.tywrapstudios.constructra.api.resource;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.MinecraftServer;
@@ -38,7 +38,7 @@ public class ResourceHarvestTracker {
             PlayerEntity player = entry.getKey();
             BlockPos pos = entry.getValue();
 
-            ResourceNode<?> node = ResourceManager.Nodes.getAtPos(pos, (ServerWorld)player.getWorld());
+            ResourceNode<?> node = ResourceManager.Nodes.get(pos, (ServerWorld)player.getWorld());
             if (node != null) {
                 if (node.tryHarvest((ServerWorld) player.getWorld())) {
                     int currentTime = server.getTicks();

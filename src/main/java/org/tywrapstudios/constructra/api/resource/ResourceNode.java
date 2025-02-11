@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.resource.v1;
+package org.tywrapstudios.constructra.api.resource;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.ItemEntity;
@@ -55,7 +55,7 @@ public class ResourceNode<T extends Resource> {
     /**
      * Construct a new ResourceNode.
      * @see ResourceNode#ResourceNode(Resource, ResourcePurity, BlockPos, boolean)
-     * @apiNote It will not be in the world unless added using {@link ResourceManager.Nodes#addNode(ResourceNode, World)}!
+     * @apiNote It will not be in the world unless added using {@link ResourceManager.Nodes#add(ResourceNode, World)}!
      * @param resource the {@link Resource} that will be held by the Node.
      * @param purity the {@link ResourcePurity} of the Node, which modifies the length of harvest. (or not if specified in the Config)
      * @param centre the position that represents the actual position of the Node, the "centre".

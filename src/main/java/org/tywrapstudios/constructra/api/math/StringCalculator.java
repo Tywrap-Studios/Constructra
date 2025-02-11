@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.math.v1;
+package org.tywrapstudios.constructra.api.math;
 
 import java.util.*;
 

@@ -8,7 +8,7 @@ import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.resource.v1.Resource;
+import org.tywrapstudios.constructra.api.resource.Resource;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
 
 import java.util.ArrayList;

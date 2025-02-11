@@ -4,7 +4,7 @@ import net.fabricmc.fabric.api.event.registry.FabricRegistryBuilder;
 import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.resource.v1.Resource;
+import org.tywrapstudios.constructra.api.resource.Resource;
 
 public class CaRegistries {
     public static final Registry<Resource> RESOURCE;

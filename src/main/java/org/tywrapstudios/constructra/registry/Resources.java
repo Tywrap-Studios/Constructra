@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import org.tywrapstudios.constructra.api.resource.v1.ImplementedResource;
-import org.tywrapstudios.constructra.api.resource.v1.Resource;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceRarity;
+import org.tywrapstudios.constructra.api.resource.ImplementedResource;
+import org.tywrapstudios.constructra.api.resource.Resource;
+import org.tywrapstudios.constructra.api.resource.ResourceRarity;
 
 import static org.tywrapstudios.constructra.Constructra.id;
 

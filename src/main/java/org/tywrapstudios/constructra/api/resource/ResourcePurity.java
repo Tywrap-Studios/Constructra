@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.resource.v1;
+package org.tywrapstudios.constructra.api.resource;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.codec.PacketCodec;

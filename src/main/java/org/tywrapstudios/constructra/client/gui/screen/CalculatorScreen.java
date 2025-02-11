@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.client.screen;
+package org.tywrapstudios.constructra.client.gui.screen;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -6,7 +6,7 @@ import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
-import org.tywrapstudios.constructra.api.math.v1.StringCalculator;
+import org.tywrapstudios.constructra.api.math.StringCalculator;
 
 @Environment(EnvType.CLIENT)
 public class CalculatorScreen extends Screen {

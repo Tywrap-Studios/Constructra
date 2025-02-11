@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.block.v1;
+package org.tywrapstudios.constructra.api.block;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
