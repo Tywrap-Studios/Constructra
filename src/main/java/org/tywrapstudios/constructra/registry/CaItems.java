@@ -5,7 +5,7 @@ import net.minecraft.item.ItemConvertible;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.item.v1.EasyItemGroup;
+import org.tywrapstudios.constructra.api.item.EasyItemGroup;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,6 @@
-package org.tywrapstudios.constructra.api.math;
+package org.tywrapstudios.constructra.api.math.ruleset;
+
+import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
 
 /**
  * Because the world has differences and people can't make up their mind, different unit systems exist.

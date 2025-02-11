@@ -10,7 +10,7 @@ import net.minecraft.util.math.BlockPos;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.api.resource.v1.ResourceNode;
+import org.tywrapstudios.constructra.api.resource.ResourceNode;
 import org.tywrapstudios.constructra.network.payload.HarvestEndEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.HarvestStartEventC2SPayload;
 import org.tywrapstudios.constructra.network.payload.NodeQueryC2SPayload;

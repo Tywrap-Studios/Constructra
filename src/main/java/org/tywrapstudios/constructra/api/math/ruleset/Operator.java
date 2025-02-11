@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.math;
+package org.tywrapstudios.constructra.api.math.ruleset;
 
 /**
  * <h1>Operators</h1>

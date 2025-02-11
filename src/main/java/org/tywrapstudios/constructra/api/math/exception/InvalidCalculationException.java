@@ -1,4 +1,4 @@
-package org.tywrapstudios.constructra.api.math;
+package org.tywrapstudios.constructra.api.math.exception;
 
 public class InvalidCalculationException extends Exception {
     public InvalidCalculationException(String message) {

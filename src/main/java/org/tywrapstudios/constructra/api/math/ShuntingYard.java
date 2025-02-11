@@ -1,9 +1,12 @@
 package org.tywrapstudios.constructra.api.math;
 
+import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
+import org.tywrapstudios.constructra.api.math.ruleset.Operator;
+
 import java.util.*;
 
-import static org.tywrapstudios.constructra.api.math.Associativity.LEFT;
-import static org.tywrapstudios.constructra.api.math.Associativity.RIGHT;
+import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.LEFT;
+import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT;
 import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**

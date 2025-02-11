@@ -1,5 +1,9 @@
 package org.tywrapstudios.constructra.api.math;
 
+import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
+import org.tywrapstudios.constructra.api.math.ruleset.Associativity;
+import org.tywrapstudios.constructra.api.math.ruleset.Operator;
+
 import java.util.*;
 
 import static java.lang.Double.NaN;

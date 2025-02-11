@@ -6,7 +6,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
-import org.tywrapstudios.constructra.api.block.v1.ResourceBlock;
+import org.tywrapstudios.constructra.api.block.ResourceBlock;
 import org.tywrapstudios.constructra.block.PortableMinerBlock;
 
 import java.util.ArrayList;
