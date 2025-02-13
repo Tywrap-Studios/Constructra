@@ -6,6 +6,9 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.sound.PositionedSoundInstance;
+import net.minecraft.client.sound.SoundManager;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
@@ -66,6 +69,11 @@ public abstract class ActionButtonWidget extends ClickableWidget {
     public void onRelease(double mouseX, double mouseY) {
         current = texture;
         super.onRelease(mouseX, mouseY);
+    }
+
+    @Override
+    public void playDownSound(SoundManager soundManager) {
+
     }
 
     public abstract void runAction();

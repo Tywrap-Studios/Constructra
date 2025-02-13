@@ -22,10 +22,10 @@ public enum Operator implements Comparable<Operator> {
     FLOOR("floor", Associativity.RIGHT, 10, true),
     ROUND("round", Associativity.RIGHT, 10, true),;
 
-    final Associativity associativity;
-    final int precedence;
-    final String symbol;
-    final boolean singleOperand;
+    public final Associativity associativity;
+    public final int precedence;
+    public final String symbol;
+    public final boolean singleOperand;
 
     Operator(String symbol, Associativity associativity, int precedence, boolean singleOperand) {
         this.symbol = symbol;

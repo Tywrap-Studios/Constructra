@@ -7,6 +7,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 import org.tywrapstudios.constructra.api.math.StringCalculator;
+import org.tywrapstudios.constructra.client.key.ClientKeyBinds;
 
 @Environment(EnvType.CLIENT)
 public class CalculatorScreen extends Screen {
@@ -38,6 +39,8 @@ public class CalculatorScreen extends Screen {
         }
 
         if (!calc.isEmpty()) context.drawTooltip(this.textRenderer, Text.literal(lastResult), mouseX, mouseY);
+
+        if (ClientKeyBinds.pushCalculation.wasPressed()) input.setText(lastResult);
     }
 
     @Override

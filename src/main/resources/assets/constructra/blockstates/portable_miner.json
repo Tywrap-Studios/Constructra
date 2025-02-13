@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "active=false": {
+      "model": "constructra:block/portable_miner"
+    },
+    "active=true": {
+      "model": "constructra:block/portable_miner1"
+    }
+  }
+}

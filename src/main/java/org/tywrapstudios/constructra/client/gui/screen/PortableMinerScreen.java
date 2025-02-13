@@ -61,19 +61,15 @@ public class PortableMinerScreen extends HandledScreen<PortableMinerScreenHandle
             @Override
             public void runAction() {
                 if (client.world == null || client.player == null) { close(); return; }
-//                PortableMinerBlockEntity entity = (PortableMinerBlockEntity) client.world.getBlockEntity(handler.data);
-//                if (entity != null) {
-//                    ItemStack itemStack1 = entity.removeStack(1);
-//                    client.player.giveItemStack(itemStack1);
-//                    Constructra.LOGGER.debug("HIT: " + entity);
-//                } else Constructra.LOGGER.debug("BRUSH: " + handler.data);
-//                handler.quickMove(client.player, 0);
-                Slot slot = handler.getSlot(0);
-                ItemStack stack = slot.takeStack(slot.getMaxItemCount());
-                slot.markDirty();
-                Constructra.LOGGER.debug("Slot: " + slot + " Stack: " + stack);
-                        //client.player.giveItemStack(stack);
-                Constructra.LOGGER.debug("Slot: " + slot + " Stack: " + stack);
+
+//                // Loop through all slots in the container
+//                for (int i = 0; i < handler.slots.size(); i++) {
+//                    Slot slot = handler.slots.get(i);
+//                    if (!slot.hasStack()) continue;
+//
+//                    // Send packet to server requesting quick transfer for this slot
+//                    ClientPlayNetworking.send(new QuickTransferRequestC2SPayload(i));
+//                }
             }
         };
         addDrawableChild(widget);

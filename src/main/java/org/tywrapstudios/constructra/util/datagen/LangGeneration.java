@@ -51,6 +51,7 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("gui.constructra.calculator", "Calculator Menu");
         translationBuilder.add("text.constructra.prompt.input_calculation", "Input Calculation");
         translationBuilder.add("key.constructra.calculator", "Open Calculator Menu");
+        translationBuilder.add("key.constructra.push_calc", "Push Calculator Outcome");
         translationBuilder.add("key.category.constructra", "Constructra");
         translationBuilder.add(PlayTime.TITLE, "Playtime Safety");
         translationBuilder.add(PlayTime.DESC_2020, "You have been playing for %s minutes, %s in total.\nIt is suggested to look away for ca. 20 seconds!");

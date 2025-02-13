@@ -96,4 +96,10 @@ public class PortableMinerBlockEntity extends BlockEntity implements ExtendedScr
     private static boolean canInsertItemIntoSlot(SimpleInventory inventory, Item output) {
         return inventory.getStack(0).getItem() == output || inventory.getStack(0).isEmpty();
     }
+
+    @Override
+    public void markDirty() {
+        super.markDirty();
+        this.contents.size();
+    }
 }

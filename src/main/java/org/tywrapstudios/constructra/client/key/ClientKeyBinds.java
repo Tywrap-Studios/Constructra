@@ -9,11 +9,16 @@ import org.lwjgl.glfw.GLFW;
 @Environment(EnvType.CLIENT)
 public class ClientKeyBinds {
     public static KeyBinding openCalculator;
+    public static KeyBinding pushCalculation;
 
     static {
         openCalculator = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.constructra.calculator",
                 GLFW.GLFW_KEY_N,
+                "key.category.constructra"));
+        pushCalculation = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.constructra.push_calc",
+                GLFW.GLFW_KEY_ENTER,
                 "key.category.constructra"));
     }
 
