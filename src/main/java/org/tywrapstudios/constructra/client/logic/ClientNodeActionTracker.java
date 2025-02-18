@@ -32,7 +32,7 @@ public class ClientNodeActionTracker {
             if (hit.getType().equals(HitResult.Type.BLOCK)) {
                 BlockPos pos = ((BlockHitResult)hit).getBlockPos();
                 boolean currentIsLast = CURRENT_NODE == LAST_NODE;
-                boolean lastNodeBlockMatches = tickedClient.world.getBlockState(pos).getBlock().equals(LAST_NODE.getResource().harvestBlock());
+                boolean lastNodeBlockMatches = tickedClient.world.getBlockState(pos).getBlock().equals(LAST_NODE.getResource().getHarvestBlock());
                 if (!currentIsLast) {
                     ClientPlayNetworking.send(new NodeQueryC2SPayload(pos));
                 } else if (!lastNodeBlockMatches) {
