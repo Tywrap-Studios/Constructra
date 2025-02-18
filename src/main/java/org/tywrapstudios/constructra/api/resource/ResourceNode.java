@@ -2,6 +2,7 @@ package org.tywrapstudios.constructra.api.resource;
 
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.ItemEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.codec.PacketCodec;
@@ -11,7 +12,9 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.tywrapstudios.constructra.Constructra;
+import org.tywrapstudios.constructra.block.PortableMinerBlockEntity;
 import org.tywrapstudios.constructra.registry.CaRegistries;
 import org.tywrapstudios.constructra.registry.Resources;
 
@@ -36,7 +39,7 @@ public class ResourceNode<T extends Resource> {
         @Override
         public void encode(ByteBuf buf, ResourceNode<?> value) {
             PacketByteBuf packetBuf = new PacketByteBuf(buf);
-            Identifier.PACKET_CODEC.encode(buf, value.getResource().identifier());
+            Identifier.PACKET_CODEC.encode(buf, value.getResource().getIdentifier());
             ResourcePurity.PACKET_CODEC.encode(buf, value.getPurity());
             packetBuf.writeBlockPos(value.getCentre());
             packetBuf.writeBoolean(value.isObstructed());
@@ -62,7 +65,7 @@ public class ResourceNode<T extends Resource> {
      * @param obstructed whether the Node needs is in an obstructed state.
      * @param totalHarvests the amount of total harvests this node has had, this is used for Networking and other Codec shenanigans.
      */
-    public ResourceNode(T resource, ResourcePurity purity, BlockPos centre, boolean obstructed, int totalHarvests) {
+    protected ResourceNode(T resource, ResourcePurity purity, BlockPos centre, boolean obstructed, int totalHarvests) {
         this.resource = resource;
         this.purity = purity;
         this.centre = centre;
@@ -178,7 +181,6 @@ public class ResourceNode<T extends Resource> {
             return false;
         }
 
-        ItemStack harvestStack = new ItemStack(resource.retrievableItem());
         if (harvestSource.source() instanceof PortableMinerBlockEntity && isObstructed()) return false;
 
         ItemStack harvestStack = new ItemStack(resource.getRetrievableItem());
@@ -206,7 +208,7 @@ public class ResourceNode<T extends Resource> {
         return tryHarvest(world, itemStack -> {
             ItemEntity itemEntity = new ItemEntity(world,
                     centre.getX() + 0.5,
-                    centre.getY() + 0.5,
+                    centre.getY() + 1.0,
                     centre.getZ() + 0.5,
                     itemStack);
             world.spawnEntity(itemEntity);
