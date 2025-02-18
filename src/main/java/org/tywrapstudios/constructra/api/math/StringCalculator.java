@@ -26,6 +26,7 @@ public class StringCalculator {
      * <p>For all allowed Operations please consult {@link Operator}</p>
      * @param calculation the calculation in form of a String
      * @return the result of the provided calculation
+     * @throws InvalidCalculationException if the calculation is invalid or wrong.
      */
     public static double calculate(String calculation) throws InvalidCalculationException {
         CalculationBuilder builder = new CalculationBuilder();
@@ -39,6 +40,11 @@ public class StringCalculator {
         return builder.fromPostfix(postfixTokens).build();
     }
 
+    /**
+     * Runs a calculation using {@linkplain #calculate(String)} safely.
+     * @param calculation the calculation in String form.
+     * @return either the result or the input, depending on whether something went wrong.
+     */
     public static String calculateStr(String calculation) {
         double d;
         try {
@@ -99,6 +105,14 @@ public class StringCalculator {
             return this;
         }
 
+        /**
+         * Calculate the result of an operation with one or two operands.
+         * @implNote If the operator is a single digit operand, we are guaranteed to use the d1 value.
+         * @param op the operator to use
+         * @param d1 the first, left digit of the operation
+         * @param d2 the second, right digit of the operation
+         * @return the result of the operation
+         */
         private double getFromOperation(Operator op, double d1, double d2) {
             return switch (op) {
                 case ADDITION -> d1 + d2;

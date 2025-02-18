@@ -15,6 +15,14 @@ import org.tywrapstudios.constructra.Constructra;
 
 import static org.tywrapstudios.constructra.client.logic.PlayTime.playTime;
 
+/**
+ * A class that is used for every general-use Button that performs an Action.
+ * <p>It always has the same dimensions and base textures.</p>
+ *
+ * @implSpec Icon texture files should be 44px by 30px. The actual texture should be 32px by 17px at max.
+ * <p>You must create a non-blinking (#ffaf2e) and a blinking (#ffc059) variant, pressing is handled by the class and always picks the blinking one.
+ * <p>When creating textures for icons you can use the drawing aid at {@code textures/gui/big_button/icon_drawing_aid.png}.
+ */
 @Environment(EnvType.CLIENT)
 public abstract class ActionButtonWidget extends ClickableWidget {
     protected final Identifier texture = Constructra.id("textures/gui/big_button/big_button_base_blink0.png");

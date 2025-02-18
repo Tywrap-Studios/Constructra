@@ -10,7 +10,7 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
 import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**
- * <h1>The Shunting Yard Algorithm</h1>
+ * <h1>Infix, The Reverse Polish Notation and The Shunting Yard Algorithm</h1>
  * As one may know, parsing calculations from Strings can be quite the situation.
  * Especially considering different precedences exist per operator, and other types of rules apply too when it comes to the order of writing and evaluation.
  * <p>The way of writing down your equation is called a notation, and different types exist!
@@ -33,8 +33,8 @@ import static org.tywrapstudios.constructra.Constructra.LOGGER;
  * How does it work?
  * For starters, you may have noticed we simply moved the operators to a different place, and the order of the numbers stayed the same.
  * Also note that this does not say "thirteen plus one-hundred-and-five divided by...", but instead says "one three plus ten five divided by..." Be aware of spaces.
- * <p>Another notable difference is the removal of the brackets, which we're allowed to do now because as postfix is meant to be read completely left to right, no loose ends, zero tricks.
- * If you start reading, and you encounter an operator, you should look at the {@code 2} numbers in front of the operator and evaluate them in the same order.
+ * <p>Another notable difference is the removal of the brackets, which we're allowed to do now because postfix is meant to be read completely left to right, no loose ends, zero tricks.
+ * If you start reading, and you encounter an operator, you should look at the {@code 2} numbers ({@code 1} if the operator operates on only a single digit, see {@link Operator#singleOperand}) in front of the operator and evaluate them in the same order.
  * Reading {@code x y +} would for instance be {@code x + y}, and {@code a b ^} would be {@code a ^ b}.
  * <p>Since a single operation can now be "rewritten" into just a single variable of the equation, which we will call "mock numbers" from now on, these {@code x y +} parts are functioning as brackets on their own.
  * This means they can be reused as a number for the next operation:

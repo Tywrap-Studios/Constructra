@@ -20,6 +20,7 @@ package org.tywrapstudios.constructra.api;
     \ruleset        Contains stuff mostly related to "rules" when it comes to mathematics and algebra.
    \resource        Everything that handles the Resources part of this mod.
     |                   e.g. Nodes, harvesting, saving them to the world, etc.
+   \screen          Classes that help with the creation and utilisation of Screens.
 
     You might be interested in the BlossomBridge API too, which handles Logging and Config.
     See: https://github.com/Tywrap-Studios/BlossomBridge/blob/master/README.md

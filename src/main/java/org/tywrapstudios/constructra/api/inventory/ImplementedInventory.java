@@ -11,7 +11,7 @@ import net.minecraft.util.collection.DefaultedList;
 import java.util.List;
 
 /**
- * A simple {@code Inventory} implementation with only default methods + an item list getter.
+ * A simple {@code SidedInventory} implementation with only default methods + an item list getter.
  *
  * <h2>Reading and writing to tags</h2>
  * Use {@link Inventories#writeNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)} and {@link Inventories#readNbt(NbtCompound, DefaultedList, RegistryWrapper.WrapperLookup)}
@@ -95,7 +95,7 @@ public interface ImplementedInventory extends Inventory {
     /**
      * Takes a stack of the size from the slot.
      *
-     * <p>(default implementation) If there are fewer items in the slot than what are requested,
+     * <p>(default implementation) If there are less items in the slot than what are requested,
      * takes all items in that slot.
      *
      * @param slot the slot

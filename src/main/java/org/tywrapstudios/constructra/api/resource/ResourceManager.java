@@ -100,7 +100,7 @@ public class ResourceManager {
          * @param range the range of the search, in blocks.
          * @param destroyBlock whether we should also destroy the block inside the Node.
          * @param world the {@link ServerWorld} to check in.
-         * @param runWhenFound this allows you to run a certain method every time a Node is found and removed. Can be null in order to not do anything.
+         * @param foundNode this allows you to run a certain method every time a Node is found and removed. Can be null in order to not do anything.
          * @return a list of all the Nodes purged.
          */
         public static List<ResourceNode<?>> purge(BlockPos centre, int range, boolean destroyBlock, ServerWorld world, @Nullable Consumer<ResourceNode<?>> runWhenFound) {

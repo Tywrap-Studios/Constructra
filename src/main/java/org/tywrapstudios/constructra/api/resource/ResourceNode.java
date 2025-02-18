@@ -166,7 +166,8 @@ public class ResourceNode<T extends Resource> {
      * Tries to harvest the Node, and do all handling for it accordingly.
      * @param world the {@link ServerWorld} handle the harvesting in.
      * @param harvestResult a Consumer that gives you the ItemStack of the harvest to do what you want with it.
-     * @see #tryHarvest(ServerWorld)
+     * @param harvestSource a HarvestSource which is used to verify whether the harvest should be valid.
+     * @see #tryHarvest(ServerWorld, HarvestSource)
      * @return whether the harvest was successful
      */
     public boolean tryHarvest(ServerWorld world, Consumer<ItemStack> harvestResult) {
