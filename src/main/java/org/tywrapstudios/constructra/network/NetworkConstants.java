@@ -10,4 +10,5 @@ public class NetworkConstants {
     public static final Identifier HARVEST_START_EVENT = id("start_resource_harvest");
     public static final Identifier HARVEST_END_EVENT = id("end_resource_harvest");
     public static final Identifier PORTABLE_MINER_PICKUP_REQUEST = id("portable_miner_pickup_request");
+    public static final Identifier GRAB_ALL_REQUEST = id("grab_all_request");
 }
