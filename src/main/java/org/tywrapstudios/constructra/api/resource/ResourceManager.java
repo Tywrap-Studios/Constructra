@@ -178,7 +178,7 @@ public class ResourceManager {
                 return;
             }
             Block block = world.getBlockState(pos).getBlock();
-            if (!block.equals(node.getResource().harvestBlock())) {
+            if (!block.equals(node.getResource().getHarvestBlock())) {
                 removal.add(node);
                 Constructra.LOGGER.warn("Marked ResourceNode for removal due to block mismatch at " + pos);
             }

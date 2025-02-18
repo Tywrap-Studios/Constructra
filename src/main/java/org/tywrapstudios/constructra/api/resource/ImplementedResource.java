@@ -19,9 +19,29 @@ public record ImplementedResource(ItemConvertible retrievableItem, ResourceRarit
     @Override
     public String toString() {
         return this.getClass().getSimpleName() + "{" +
-                "harvestBlock=" + harvestBlock +
-                ", rarity=" + rarity +
-                ", retrievableItem=" + retrievableItem +
+                "harvestBlock=" + getHarvestBlock().toString() +
+                ", rarity=" + getRarity().asString() +
+                ", retrievableItem=" + getRetrievableItem().asItem().toString() +
                 '}';
+    }
+
+    @Override
+    public Identifier getIdentifier() {
+        return this.identifier();
+    }
+
+    @Override
+    public ItemConvertible getRetrievableItem() {
+        return this.retrievableItem();
+    }
+
+    @Override
+    public Block getHarvestBlock() {
+        return this.harvestBlock();
+    }
+
+    @Override
+    public ResourceRarity getRarity() {
+        return this.rarity();
     }
 }

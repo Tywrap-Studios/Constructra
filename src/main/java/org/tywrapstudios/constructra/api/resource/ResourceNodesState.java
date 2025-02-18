@@ -32,7 +32,7 @@ public class ResourceNodesState extends PersistentState {
             nodeNbt.putInt("x", node.getCentre().getX());
             nodeNbt.putInt("y", node.getCentre().getY());
             nodeNbt.putInt("z", node.getCentre().getZ());
-            nodeNbt.putString("resource", node.getResource().identifier().toString());
+            nodeNbt.putString("resource", node.getResource().getIdentifier().toString());
             nodeNbt.putInt("purity", node.getPurity().getIndex());
             nodeNbt.putBoolean("obstructed", node.isObstructed());
             nodeNbt.putInt("total_harvests", node.getTotalHarvests());

@@ -151,11 +151,11 @@ public class ResourceNode<T extends Resource> {
     protected boolean createOriginBlock(World world) {
         try {
             Constructra.LOGGER.debug("Creating origin block for: " + this);
-            world.setBlockState(centre, resource.harvestBlock().getDefaultState());
+            world.setBlockState(centre, resource.getHarvestBlock().getDefaultState());
             return true;
         } catch (Exception e) {
             if (this.getResource() != null) {
-                Constructra.LOGGER.error("Failed to place Origin for Resource: " + resource.identifier());
+                Constructra.LOGGER.error("Failed to place Origin for Resource: " + resource.getIdentifier());
             }
             e.printStackTrace();
             return false;
@@ -223,7 +223,7 @@ public class ResourceNode<T extends Resource> {
      */
     public String toSimpleString() {
         return "ResourceNode{" +
-                "resource=" + resource.identifier() +
+                "resource=" + resource.getIdentifier() +
                 "}";
     }
 
