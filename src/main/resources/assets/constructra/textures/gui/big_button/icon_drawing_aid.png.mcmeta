@@ -1,6 +1,7 @@
 {
   "red": "Full button texture outline and middle point.",
   "white": "Full Icon area outline and middle point.",
+  "top right colours": "Button blink and non-blink colour palette.",
   "pink": {
     "Comment": "Indicates Downwards Movement due to the button being 'pressed'.",
     "Old pos": "Top Line.",
