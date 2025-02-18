@@ -5,22 +5,20 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.math.BlockPos;
+import org.tywrapstudios.constructra.api.screen.DataScreenHandler;
 import org.tywrapstudios.constructra.registry.CaScreenHandlers;
 
-public class PortableMinerScreenHandler extends ScreenHandler {
+public class PortableMinerScreenHandler extends DataScreenHandler<BlockPos> {
     private final Inventory inventory;
-    public BlockPos data;
 
     public PortableMinerScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos data) {
-        this(syncId, playerInventory, new SimpleInventory(1));
-        this.data = data;
+        this(syncId, playerInventory, new SimpleInventory(1), data);
     }
 
-    public PortableMinerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(CaScreenHandlers.PORTABLE_MINER_HANDLER, syncId);
+    public PortableMinerScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, BlockPos data) {
+        super(CaScreenHandlers.PORTABLE_MINER_HANDLER, syncId, data);
         checkSize(inventory, 1);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
