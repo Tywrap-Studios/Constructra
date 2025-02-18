@@ -3,19 +3,15 @@ package org.tywrapstudios.constructra.client.gui.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.item.ItemStack;
-import net.minecraft.screen.slot.Slot;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.client.gui.widget.big_button.GrabIconWidget;
 import org.tywrapstudios.constructra.client.gui.widget.big_button.PickupIconWidget;
-import org.tywrapstudios.constructra.network.payload.PortableMinerPickupRequestC2SPayload;
 import org.tywrapstudios.constructra.screen.PortableMinerScreenHandler;
 
 @Environment(EnvType.CLIENT)
@@ -56,14 +52,10 @@ public class PortableMinerScreen extends HandledScreen<PortableMinerScreenHandle
             public void runAction() {
                 if (client.world == null || client.player == null) { close(); return; }
 
-//                // Loop through all slots in the container
-//                for (int i = 0; i < handler.slots.size(); i++) {
-//                    Slot slot = handler.slots.get(i);
-//                    if (!slot.hasStack()) continue;
-//
-//                    // Send packet to server requesting quick transfer for this slot
-//                    ClientPlayNetworking.send(new QuickTransferRequestC2SPayload(i));
-//                }
+                // Loop through all slots in the container
+                for (int i = 0; i < handler.slots.size(); i++) {
+                    if (!handler.slots.get(i).hasStack()) continue;
+                }
             }
         };
         addDrawableChild(widget);
