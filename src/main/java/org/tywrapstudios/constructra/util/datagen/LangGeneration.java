@@ -29,7 +29,7 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("purity.normal", "Normal");
         translationBuilder.add("purity.pure", "Pure");
         translationBuilder.add("resource.minecraft.iron", "Iron");
-        translationBuilder.add("resource.minecraft.gold", "Gold");
+        translationBuilder.add("resource.minecraft.copper", "Copper");
         translationBuilder.add("text.constructra.prompt.mining_instruction", "Hold %s to start mining");
         translationBuilder.add("text.constructra.info.obstructed", "(Obstructed)");
         translationBuilder.add("text.constructra.command.constructra",
@@ -48,9 +48,8 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add("text.constructra.command.purge_end_empty", "No Nodes were purged. Perhaps try a larger <range>?");
         translationBuilder.add("text.constructra.command.purge_end_inefficient", "The amount of Purged Nodes equalled the initial amount of Nodes in the world.\nFor a more efficient Full Node Removal, consider using nodes flush.");
         translationBuilder.add("text.constructra.command.purge_end", "End of Node Purge. Purged %s/%s Nodes in World. (%s left)");
-        translationBuilder.add("gui.constructra.calculator", "Calculator Menu");
-        translationBuilder.add("text.constructra.prompt.input_calculation", "Input Calculation");
-        translationBuilder.add("key.constructra.calculator", "Open Calculator Menu");
+        translationBuilder.add("gui.constructra.info_menu", "Info Menu");
+        translationBuilder.add("key.constructra.info_menu", "Open Info Menu");
         translationBuilder.add("key.constructra.push_calc", "Push Calculator Outcome");
         translationBuilder.add("key.category.constructra", "Constructra");
         translationBuilder.add(PlayTime.TITLE, "Playtime Safety");
