@@ -49,13 +49,7 @@ public class PortableMinerScreen extends HandledScreen<PortableMinerScreenHandle
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2 + 28;
 
-        PickupIconWidget widget = new PickupIconWidget(x + 112, y) {
-            @Override
-            public void runAction() {
-                if (client != null && client.world != null) ClientPlayNetworking.send(new PortableMinerPickupRequestC2SPayload(handler.data, client.world.getRegistryKey().getValue()));
-                close();
-            }
-        };
+        PickupIconWidget widget = PickupIconWidget.builder(x + 112, y, this);
 
         GrabIconWidget widget1 = new GrabIconWidget(x + 20, y) {
             @Override
