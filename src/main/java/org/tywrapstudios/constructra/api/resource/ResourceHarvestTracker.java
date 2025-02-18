@@ -40,7 +40,7 @@ public class ResourceHarvestTracker {
 
             ResourceNode<?> node = ResourceManager.Nodes.get(pos, (ServerWorld)player.getWorld());
             if (node != null) {
-                if (node.tryHarvest((ServerWorld) player.getWorld())) {
+                if (node.tryHarvest((ServerWorld) player.getWorld(), new ResourceNode.HarvestSource<>(player))) {
                     int currentTime = server.getTicks();
                     int ticks = currentTime - TIME_OF_LAST_HARVEST;
                     TIME_OF_LAST_HARVEST = currentTime;

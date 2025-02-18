@@ -170,7 +170,7 @@ public class ResourceNode<T extends Resource> {
      * @see #tryHarvest(ServerWorld, HarvestSource)
      * @return whether the harvest was successful
      */
-    public boolean tryHarvest(ServerWorld world, Consumer<ItemStack> harvestResult) {
+    public boolean tryHarvest(ServerWorld world, Consumer<ItemStack> harvestResult, HarvestSource<?> harvestSource) {
         long currentTime = world.getTime();
         long harvestCooldown = (long)(20 * purity.getMiningTimeMultiplier()); // Convert purity to ticks
 
@@ -179,6 +179,9 @@ public class ResourceNode<T extends Resource> {
         }
 
         ItemStack harvestStack = new ItemStack(resource.retrievableItem());
+        if (harvestSource.source() instanceof PortableMinerBlockEntity && isObstructed()) return false;
+
+        ItemStack harvestStack = new ItemStack(resource.getRetrievableItem());
         harvestResult.accept(harvestStack);
         totalHarvests++;
 
@@ -199,7 +202,7 @@ public class ResourceNode<T extends Resource> {
         return true;
     }
 
-    public boolean tryHarvest(ServerWorld world) {
+    public <S extends LivingEntity> boolean tryHarvest(ServerWorld world, HarvestSource<S> harvestSource) {
         return tryHarvest(world, itemStack -> {
             ItemEntity itemEntity = new ItemEntity(world,
                     centre.getX() + 0.5,
@@ -207,7 +210,15 @@ public class ResourceNode<T extends Resource> {
                     centre.getZ() + 0.5,
                     itemStack);
             world.spawnEntity(itemEntity);
-        });
+        }, harvestSource);
+    }
+
+    /**
+     * A record that is used by {@linkplain #tryHarvest(ServerWorld, Consumer, HarvestSource)} to validate if the source is even allowed to harvest in the first place.
+     * @param source the source itself
+     * @param <S> the type of the source
+     */
+    public record HarvestSource<S>(@NotNull S source) {
     }
 
     /**
