@@ -13,7 +13,7 @@ import org.tywrapstudios.constructra.client.key.ClientKeyBinds;
 import org.tywrapstudios.constructra.client.logic.ClientNodeActionTracker;
 import org.tywrapstudios.constructra.client.logic.PlayTime;
 import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
-import org.tywrapstudios.constructra.client.gui.screen.CalculatorScreen;
+import org.tywrapstudios.constructra.client.gui.screen.InfoMenuScreen;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
 import org.tywrapstudios.constructra.config.ConstructraClientConfig;
 import org.tywrapstudios.constructra.registry.CaScreenHandlers;
@@ -43,9 +43,9 @@ public class ConstructraClient implements ClientModInitializer {
         });
 
         ClientTickEvents.END_CLIENT_TICK.register(tickedClient -> {
-            if (ClientKeyBinds.openCalculator.isPressed()) {
-                if (tickedClient.currentScreen instanceof CalculatorScreen) tickedClient.currentScreen.close();
-                else tickedClient.setScreen(new CalculatorScreen());
+            if (ClientKeyBinds.OPEN_INFO_MENU.isPressed()) {
+                if (tickedClient.currentScreen instanceof InfoMenuScreen) tickedClient.currentScreen.close();
+                else tickedClient.setScreen(new InfoMenuScreen());
             }
         });
 
