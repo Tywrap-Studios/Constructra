@@ -10,18 +10,18 @@ import org.tywrapstudios.constructra.api.math.StringCalculator;
 import org.tywrapstudios.constructra.client.key.ClientKeyBinds;
 
 @Environment(EnvType.CLIENT)
-public class CalculatorScreen extends Screen {
+public class InfoMenuScreen extends Screen {
     public TextFieldWidget input;
     private String lastCalc;
     private String lastResult;
 
-    public CalculatorScreen() {
-        super(Text.translatable("gui.constructra.calculator"));
+    public InfoMenuScreen() {
+        super(Text.translatable("gui.constructra.info_menu"));
     }
 
     @Override
     protected void init() {
-        input = new TextFieldWidget(this.textRenderer, this.width / 2 - 150, this.height / 2 - 70, 300, 20, Text.translatable("text.constructra.prompt.input_calculation"));
+        input = new TextFieldWidget(this.textRenderer, this.width / 2 - 150, this.height / 2 - 70, 300, 20, Text.empty());
 
         input.setMaxLength(2000);
         addDrawableChild(input);
@@ -39,13 +39,20 @@ public class CalculatorScreen extends Screen {
         }
 
         if (!calc.isEmpty()) context.drawTooltip(this.textRenderer, Text.literal(lastResult), mouseX, mouseY);
-
-        if (ClientKeyBinds.pushCalculation.wasPressed()) input.setText(lastResult);
     }
 
     @Override
     public void renderBackground(DrawContext context, int mouseX, int mouseY, float delta) {
         if (this.client == null) return;
         if (this.client.world == null) this.renderPanoramaBackground(context, delta);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        boolean push = ClientKeyBinds.PUSH_CALCULATION.matchesKey(keyCode,scanCode);
+        boolean close = ClientKeyBinds.OPEN_INFO_MENU.matchesKey(keyCode,scanCode);
+        if (push) input.setText(lastResult);
+        if (close) close();
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
 }
