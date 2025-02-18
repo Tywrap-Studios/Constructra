@@ -103,27 +103,25 @@ public class ResourceManager {
          * @param foundNode this allows you to run a certain method every time a Node is found and removed. Can be null in order to not do anything.
          * @return a list of all the Nodes purged.
          */
-        public static List<ResourceNode<?>> purge(BlockPos centre, int range, boolean destroyBlock, ServerWorld world, @Nullable Consumer<ResourceNode<?>> runWhenFound) {
-            List<ResourceNode<?>> REMOVAL = new ArrayList<>();
+        public static List<ResourceNode<?>> purge(BlockPos centre, int range, boolean destroyBlock, ServerWorld world, @Nullable Consumer<ResourceNode<?>> foundNode) {
+            List<ResourceNode<?>> removal = new ArrayList<>();
 
             ResourceNodesState state = getOrCreateState(world);
-            List<ResourceNode<?>> purgedNodes = new ArrayList<>();
             Constructra.LOGGER.info("Attempting purge at: " + centre + " with range " + range);
             for (ResourceNode<?> node : state.getNodes()) {
                 boolean isWithinDistance = node.getCentre().isWithinDistance(centre, range);
-                Constructra.LOGGER.debug("Checking for purge at " + node.getCentre());
-                Constructra.LOGGER.debug("isWithinDistance: " + isWithinDistance + " for range " + range);
+                Constructra.LOGGER.debug("  Checking for purge at " + node.getCentre());
+                Constructra.LOGGER.debug("  isWithinDistance: " + isWithinDistance + " for range " + range);
                 if (isWithinDistance) {
-                    REMOVAL.add(node);
-                    purgedNodes.add(node);
+                    removal.add(node);
                     if (destroyBlock) world.breakBlock(node.getCentre(), false);
-                    if (runWhenFound != null) runWhenFound.accept(node);
-                    Constructra.LOGGER.warn("Marked ResourceNode for removal at " + node.getCentre());
+                    if (foundNode != null) foundNode.accept(node);
+                    Constructra.LOGGER.warn("   Marked ResourceNode for removal at " + node.getCentre());
                 }
             }
             state.markDirty();
-            state.getNodes().removeAll(REMOVAL);
-            return purgedNodes;
+            state.getNodes().removeAll(removal);
+            return removal;
         }
 
         public static List<ResourceNode<?>> purge(BlockPos centre, int range, boolean destroyBlock, ServerWorld world) {
