@@ -8,15 +8,15 @@ import org.lwjgl.glfw.GLFW;
 
 @Environment(EnvType.CLIENT)
 public class ClientKeyBinds {
-    public static KeyBinding openCalculator;
-    public static KeyBinding pushCalculation;
+    public static final KeyBinding OPEN_INFO_MENU;
+    public static final KeyBinding PUSH_CALCULATION;
 
     static {
-        openCalculator = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-                "key.constructra.calculator",
+        OPEN_INFO_MENU = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+                "key.constructra.info_menu",
                 GLFW.GLFW_KEY_N,
                 "key.category.constructra"));
-        pushCalculation = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+        PUSH_CALCULATION = KeyBindingHelper.registerKeyBinding(new KeyBinding(
                 "key.constructra.push_calc",
                 GLFW.GLFW_KEY_ENTER,
                 "key.category.constructra"));
