@@ -6,6 +6,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,7 +19,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.api.inventory.ImplementedInventory;
 import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.api.resource.ResourceNode;
@@ -44,17 +47,12 @@ public class PortableMinerBlockEntity extends BlockEntity implements ExtendedScr
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new PortableMinerScreenHandler(syncId, playerInventory, this);
+        return new PortableMinerScreenHandler(syncId, playerInventory, this, this.getPos());
     }
 
     @Override
     public BlockPos getScreenOpeningData(ServerPlayerEntity player) {
         return this.getPos();
-    }
-
-    @Override
-    public int getMaxCountPerStack() {
-        return 64;
     }
 
     @Override
@@ -76,30 +74,39 @@ public class PortableMinerBlockEntity extends BlockEntity implements ExtendedScr
             if (node != null) {
                 node.tryHarvest(serverWorld, itemStack -> {
                     ItemStack current = entity.getStack(0);
-                    if (!canInsertItemIntoSlot(new SimpleInventory(entity.size()), itemStack.getItem())) {
+                    if (!canInsertItemIntoSlot(this, itemStack.getItem())) {
                         state.with(PortableMinerBlock.ACTIVE, false);
                         return;
                     }
                     if (current.isEmpty()) {
-                        if (!state.get(PortableMinerBlock.ACTIVE)) state.with(PortableMinerBlock.ACTIVE, true);
+                        state.with(PortableMinerBlock.ACTIVE, true);
                         entity.setStack(0, itemStack);
                     }
                     else {
-                        if (!state.get(PortableMinerBlock.ACTIVE)) state.with(PortableMinerBlock.ACTIVE, true);
+                        state.with(PortableMinerBlock.ACTIVE, true);
                         entity.setStack(0, current.copyWithCount(current.getCount() + itemStack.getCount()));
                     }
-                });
+                }, new ResourceNode.HarvestSource<>(this));
             }
         }
     }
 
-    private static boolean canInsertItemIntoSlot(SimpleInventory inventory, Item output) {
+    private static boolean canInsertItemIntoSlot(Inventory inventory, Item output) {
         return inventory.getStack(0).getItem() == output || inventory.getStack(0).isEmpty();
     }
 
     @Override
-    public void markDirty() {
-        super.markDirty();
-        this.contents.size();
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return false;
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        return false;
+    }
+
+    @Override
+    public int getMaxCountPerStack() {
+        return 64;
     }
 }

@@ -86,7 +86,7 @@ public class PortableMinerBlock extends BlockWithEntity implements BlockEntityPr
 
     public static int getLuminance(BlockState currentBlockState) {
         boolean activated = currentBlockState.get(PortableMinerBlock.ACTIVE);
-        return activated ? 4 : 0;
+        return activated ? 8 : 0;
     }
 
     @Override
