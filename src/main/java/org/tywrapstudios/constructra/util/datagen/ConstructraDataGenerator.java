@@ -12,5 +12,6 @@ public class ConstructraDataGenerator implements DataGeneratorEntrypoint {
 		pack.addProvider(TagGeneration.IItems::new);
 		pack.addProvider(TagGeneration.BBlocks::new);
 		pack.addProvider(LangGeneration::new);
+		pack.addProvider(LootTableGeneration::new);
 	}
 }

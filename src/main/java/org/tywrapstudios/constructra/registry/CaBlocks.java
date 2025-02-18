@@ -12,9 +12,8 @@ import org.tywrapstudios.constructra.block.PortableMinerBlock;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.tywrapstudios.constructra.registry.MainRegistry.blockKey;
-import static org.tywrapstudios.constructra.registry.MainRegistry.itemKey;
 import static net.minecraft.block.AbstractBlock.Settings.create;
+import static org.tywrapstudios.constructra.registry.MainRegistry.*;
 
 public class CaBlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
@@ -33,7 +32,6 @@ public class CaBlocks {
                 .registryKey(blockKey("portable_miner"))
                 .luminance(PortableMinerBlock::getLuminance)
                 .strength(-1.0f, 3600000.0f)
-                .dropsNothing()
                 .noBlockBreakParticles()
                 .pistonBehavior(PistonBehavior.BLOCK)), false);
     }
