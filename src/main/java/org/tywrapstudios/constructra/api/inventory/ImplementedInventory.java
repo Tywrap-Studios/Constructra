@@ -3,10 +3,13 @@ package org.tywrapstudios.constructra.api.inventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.util.collection.DefaultedList;
+import net.minecraft.util.math.Direction;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
@@ -21,9 +24,7 @@ import java.util.List;
  * @author Juuz
  */
 @FunctionalInterface
-public interface ImplementedInventory extends Inventory {
-    /* Original CC0 Code */
-
+public interface ImplementedInventory extends SidedInventory {
     /**
      * Gets the item list of this inventory.
      * Must return the same instance every time it's called.
@@ -50,6 +51,56 @@ public interface ImplementedInventory extends Inventory {
      */
     static ImplementedInventory ofSize(int size) {
         return of(DefaultedList.ofSize(size, ItemStack.EMPTY));
+    }
+
+    // SidedInventory
+
+    /**
+     * Gets the available slots to automation on the side.
+     *
+     * <p>The default implementation returns an array of all slots.
+     *
+     * @param side the side
+     * @return the available slots
+     */
+    @Override
+    default int[] getAvailableSlots(Direction side) {
+        int[] result = new int[getItems().size()];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = i;
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns true if the stack can be inserted in the slot at the side.
+     *
+     * <p>The default implementation returns true.
+     *
+     * @param slot the slot
+     * @param stack the stack
+     * @param side the side
+     * @return true if the stack can be inserted
+     */
+    @Override
+    default boolean canInsert(int slot, ItemStack stack, @Nullable Direction side) {
+        return true;
+    }
+
+    /**
+     * Returns true if the stack can be extracted from the slot at the side.
+     *
+     * <p>The default implementation returns true.
+     *
+     * @param slot the slot
+     * @param stack the stack
+     * @param side the side
+     * @return true if the stack can be extracted
+     */
+    @Override
+    default boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return true;
     }
 
     // Inventory
@@ -152,6 +203,7 @@ public interface ImplementedInventory extends Inventory {
 
     @Override
     default void markDirty() {
+        // Override if you want behavior.
     }
 
     @Override
