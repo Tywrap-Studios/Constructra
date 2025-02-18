@@ -49,12 +49,12 @@ public enum ResourcePurity implements StringIdentifiable {
      * @return the purity of the corresponding index, returns NONE by default.
      */
     public static ResourcePurity indexed(int index) {
-        return switch (index) {
-            case 1 -> ResourcePurity.IMPURE;
-            case 2 -> ResourcePurity.NORMAL;
-            case 3 -> ResourcePurity.PURE;
-            default -> ResourcePurity.NONE;
-        };
+        for (ResourcePurity value : ResourcePurity.values()) {
+            if (value.getIndex() == index) {
+                return value;
+            }
+        }
+        return NONE;
     }
 
     /**
@@ -103,7 +103,7 @@ public enum ResourcePurity implements StringIdentifiable {
             case PURE -> cc.pure;
             case NORMAL -> cc.normal;
             case IMPURE -> cc.impure;
-            case NONE -> 0.0f;
+            case NONE -> 0;
         };
     }
 
