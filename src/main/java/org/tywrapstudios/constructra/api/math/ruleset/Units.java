@@ -2,6 +2,8 @@ package org.tywrapstudios.constructra.api.math.ruleset;
 
 import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
 
+import java.util.function.Function;
+
 /**
  * Because the world has differences and people can't make up their mind, different unit systems exist.
  * For the sake of these differences, have a class that has them and can convert from and to them.
@@ -19,22 +21,22 @@ public class Units {
     public static double convert(double d, Measurement from, Measurement to) throws InvalidCalculationException {
         if (from.type != to.type) throw new InvalidCalculationException(String.format("Tried to convert units of inconvertible types %s and %s!", from.type.toString(), to.type.toString()));
         if (from.system.equals(to.system)) return d;
-        else return d * to.conversionFactor;
+        else return to.conversionFactor.apply(d);
     }
 
     public enum Measurement {
-        METERS(System.METRIC, 3.28084, Type.LENGTH),
-        FEET(System.FREEDOM, 0.3048, Type.LENGTH),
-        LITRES(System.METRIC, 0.264172, Type.VOLUME),
-        GALLONS(System.FREEDOM,3.785412, Type.VOLUME),
-        GRAMS(System.METRIC, 0.035274, Type.MASS),
-        OUNCES(System.FREEDOM, 28.34952, Type.MASS),;
+        METRES(System.METRIC, d -> d * 3.28084, Type.LENGTH),
+        FEET(System.FREEDOM, d -> d * 0.3048, Type.LENGTH),
+        LITRES(System.METRIC, d -> d * 0.264172, Type.VOLUME),
+        GALLONS(System.FREEDOM,d -> d * 3.785412, Type.VOLUME),
+        GRAMMES(System.METRIC, d -> d * 0.035274, Type.MASS),
+        OUNCES(System.FREEDOM, d -> d * 28.34952, Type.MASS),;
 
         public final System system;
         public final Type type;
-        public final double conversionFactor;
+        public final Function<Double, Double> conversionFactor;
 
-        Measurement(System system, double conversionFactor, Type type) {
+        Measurement(System system, Function<Double, Double> conversionFactor, Type type) {
             this.system = system;
             this.conversionFactor = conversionFactor;
             this.type = type;
