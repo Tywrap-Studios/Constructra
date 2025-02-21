@@ -221,6 +221,9 @@ public class ResourceNode<T extends Resource> {
      * @param <S> the type of the source
      */
     public record HarvestSource<S>(@NotNull S source) {
+        public S getSource() {
+            return source();
+        }
     }
 
     /**

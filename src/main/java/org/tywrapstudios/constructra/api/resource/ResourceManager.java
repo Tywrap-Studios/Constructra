@@ -3,12 +3,17 @@ package org.tywrapstudios.constructra.api.resource;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.block.Block;
+import net.minecraft.item.ItemConvertible;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKey;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.Constructra;
+import org.tywrapstudios.constructra.registry.CaRegistries;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +24,7 @@ import java.util.function.Consumer;
  */
 public class ResourceManager {
     /**
-     * Inner class dedicated to specifically the network of {@link ResourceNode}{@code s}.
+     * Inner class dedicated to the world's network of {@link ResourceNode}{@code s}.
      */
     public static class Nodes {
         /**
@@ -194,6 +199,27 @@ public class ResourceManager {
                 }
                 return true;
             });
+        }
+    }
+
+    /**
+     * Internal class dedicated for Resource Registry related handling.
+     */
+    public static class Registries {
+        public static RegistryKey<Resource> key(Identifier id) {
+            return RegistryKey.of(CaRegistries.Keys.RESOURCE, id);
+        }
+
+        public static Resource get(Identifier id) {
+            return CaRegistries.RESOURCE.get(id);
+        }
+
+        public static Resource register(ItemConvertible retrievableItem, ResourceRarity rarity, Block harvestBlock, Identifier identifier) {
+            return register(new ImplementedResource(retrievableItem, rarity, harvestBlock, identifier));
+        }
+
+        public static Resource register(Resource resource) {
+            return Registry.register(CaRegistries.RESOURCE, resource.getIdentifier(), resource);
         }
     }
 }
