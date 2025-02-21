@@ -6,7 +6,7 @@ import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
 /**
  * A Type of ScreenHandler that can be used for ensuring there is additional synced data.
  * Supposed to be used with an {@link ExtendedScreenHandlerType} where the data of the handler is the same as here.
- * @param <D> the type of the data to store, is stored by the constructor.
+ * @param <D> the type of data to store
  */
 public abstract class DataScreenHandler<D> extends ScreenHandler {
     private final D data;
