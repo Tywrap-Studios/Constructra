@@ -45,19 +45,8 @@ public class PortableMinerScreen extends HandledScreen<PortableMinerScreenHandle
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2 + 28;
 
-        PickupIconWidget widget = PickupIconWidget.builder(x + 112, y, this);
-
-        GrabIconWidget widget1 = new GrabIconWidget(x + 20, y) {
-            @Override
-            public void runAction() {
-                if (client.world == null || client.player == null) { close(); return; }
-
-                // Loop through all slots in the container
-                for (int i = 0; i < handler.slots.size(); i++) {
-                    if (!handler.slots.get(i).hasStack()) continue;
-                }
-            }
-        };
+        GrabIconWidget widget = GrabIconWidget.builder(x + 20, y, this);
+        PickupIconWidget widget1 = PickupIconWidget.builder(x + 112, y, this);
         addDrawableChild(widget);
         addDrawableChild(widget1);
     }
