@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class Util {
     public static String generateInitPhrase() {
-        final List<String> INIT_PHRASES = List.of(
+        final List<String> phrases = List.of(
                 "I love Config formatting version AAAA it reminds me of my mental health.",
                 "Roses are red, violets are blue, unexpected \"{\" at line 32.",
                 "garlic bread?",
@@ -22,10 +22,16 @@ public class Util {
                 "On dit que pétrire c’est modeler , moi je dit que péter c’est démolir",
                 "Jus Monika",
                 "···· · ···· ·  −−··−−  −−· −−− − −·−· ···· ·−",
-                "Leave your E kittens and go outside get a real size cartboard"
+                "Leave your E kittens and go outside get a real size cartboard",
+                "Policy free fantasy wheels!",
+                "Who took the ram from the ramalamading-dong?",
+                "Powered by org.tywrapstudios.constructra.util.Util#generateInitPhrase",
+                " <- literally nothing ;-;",
+                "I'm not a fusion reactor, I'm a black hole generator.",
+                "God I hate ScreenHandlers"
         );
 
-        return INIT_PHRASES.get(new Random().nextInt(INIT_PHRASES.size()));
+        return phrases.get(new Random().nextInt(phrases.size()));
     }
 
     public static String getModVer(String modId) {

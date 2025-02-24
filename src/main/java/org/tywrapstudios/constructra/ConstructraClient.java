@@ -33,6 +33,7 @@ public class ConstructraClient implements ClientModInitializer {
         CONFIG_MANAGER.loadConfig();
         CONFIG_MANAGER.saveConfig();
 
+        Constructra.LOGGER.debug("Validate test: " + CONFIG_MANAGER.getConfig().play_time_safety.interval);
         ClientNodeActionTracker.initializeClient();
         ClientKeyBinds.registerClient();
         PlayTime.initializeClient();
