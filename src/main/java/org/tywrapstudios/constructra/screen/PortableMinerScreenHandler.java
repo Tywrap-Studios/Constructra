@@ -25,8 +25,7 @@ public class PortableMinerScreenHandler extends DataScreenHandler<BlockPos> {
 
         this.addSlot(new Slot(inventory, 0, 80, 35));
 
-        addPlayerInventory(playerInventory);
-        addPlayerHotbar(playerInventory);
+        this.addPlayerSlots(playerInventory, 8, 84);
     }
 
     @Override
@@ -57,19 +56,5 @@ public class PortableMinerScreenHandler extends DataScreenHandler<BlockPos> {
         }
 
         return newStack;
-    }
-
-    private void addPlayerInventory(PlayerInventory playerInventory) {
-        for (int m = 0; m < 3; ++m) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
-            }
-        }
-    }
-
-    private void addPlayerHotbar(PlayerInventory playerInventory) {
-        for (int m = 0; m < 9; ++m) {
-            this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
-        }
     }
 }
