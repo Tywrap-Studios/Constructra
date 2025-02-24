@@ -59,6 +59,10 @@ public class LangGeneration extends FabricLanguageProvider {
         translationBuilder.add(PlayTime.DESC_BREAK$1, "Note that pills against stress or anxiety from working overtime are not included in your first aid kit.");
         translationBuilder.add(PlayTime.DESC_BREAK$2, "Taking small, 10 minute breaks, from time to time has proven to enhance worker performance by ~18%.");
         translationBuilder.add("container.constructra.portable_miner", "Portable Miner");
+        translationBuilder.add("narration.constructra.empty_button", "Simple button");
+        translationBuilder.add("narration.constructra.grab_button", "Grab all");
+        translationBuilder.add("narration.constructra.insert_button", "Insert all");
+        translationBuilder.add("narration.constructra.pickup_button", "Pickup utilisation");
 
     }
 

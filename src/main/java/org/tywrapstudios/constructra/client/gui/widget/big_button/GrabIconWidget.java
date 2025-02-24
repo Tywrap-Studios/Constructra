@@ -21,7 +21,7 @@ public abstract class GrabIconWidget extends ActionButtonWidget {
 
     @Override
     protected void appendClickableNarrations(NarrationMessageBuilder builder) {
-        builder.put(NarrationPart.USAGE, Text.literal("Grab all"));
+        builder.put(NarrationPart.USAGE, Text.translatable("narration.constructra.grab_button"));
     }
 
     public static <T extends ScreenHandler> GrabIconWidget builder(int x, int y, HandledScreen<T> screen) {

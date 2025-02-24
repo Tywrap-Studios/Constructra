@@ -1,10 +1,10 @@
 package org.tywrapstudios.constructra.client.gui.widget.big_button;
 
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
-import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.client.gui.screen.narration.NarrationPart;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import org.tywrapstudios.constructra.Constructra;
@@ -22,6 +22,7 @@ public abstract class PickupIconWidget extends ActionButtonWidget {
 
     @Override
     protected void appendClickableNarrations(NarrationMessageBuilder builder) {
+        builder.put(NarrationPart.USAGE, Text.translatable("narration.constructra.pickup_button"));
     }
 
     public static <T extends DataScreenHandler<BlockPos>> PickupIconWidget builder(int x, int y, HandledScreen<T> screen) {
