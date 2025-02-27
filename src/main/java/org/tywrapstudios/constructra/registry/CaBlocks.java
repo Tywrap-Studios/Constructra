@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraft.block.AbstractBlock.Settings.create;
-import static org.tywrapstudios.constructra.registry.MainRegistry.*;
+import static org.tywrapstudios.constructra.util.Util.*;
 
 public class CaBlocks {
     public static final List<Block> BLOCKS = new ArrayList<>();
@@ -30,9 +30,9 @@ public class CaBlocks {
                 .registryKey(blockKey("copper_spawn"))));
         PORTABLE_MINER = of("portable_miner", new PortableMinerBlock(create()
                 .registryKey(blockKey("portable_miner"))
+                .lootTable(optionalLootKey("portable_miner"))
                 .luminance(PortableMinerBlock::getLuminance)
                 .strength(-1.0f, 3600000.0f)
-                .noBlockBreakParticles()
                 .pistonBehavior(PistonBehavior.BLOCK)), false);
     }
 
