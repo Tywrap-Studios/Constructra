@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemConvertible;
+import net.minecraft.loot.LootTable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import org.tywrapstudios.constructra.Constructra;
@@ -11,6 +12,7 @@ import org.tywrapstudios.constructra.command.CaCommandImpl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.tywrapstudios.constructra.Constructra.id;
 
@@ -28,13 +30,5 @@ public class MainRegistry {
         CommandRegistrationCallback.EVENT.register((dispatcher, access, env) -> CaCommandImpl.register(dispatcher, access));
         Resources.register();
         Constructra.LOGGER.debug("ItemConvertible List size: " + ALL_ITEM_CONVERTIBLE_CONTENT.size());
-    }
-
-    protected static RegistryKey<Item> itemKey(String s) {
-        return RegistryKey.of(RegistryKeys.ITEM, id(s));
-    }
-
-    protected static RegistryKey<Block> blockKey(String s) {
-        return RegistryKey.of(RegistryKeys.BLOCK, id(s));
     }
 }

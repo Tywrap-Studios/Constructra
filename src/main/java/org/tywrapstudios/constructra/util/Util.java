@@ -1,9 +1,17 @@
 package org.tywrapstudios.constructra.util;
 
 import net.fabricmc.loader.api.FabricLoader;
+import net.minecraft.block.Block;
+import net.minecraft.item.Item;
+import net.minecraft.loot.LootTable;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
+
+import static org.tywrapstudios.constructra.Constructra.id;
 
 public class Util {
     public static String generateInitPhrase() {
@@ -40,5 +48,21 @@ public class Util {
         } else {
             return String.format("\"%s\" version not found, mod isn't loaded.", modId);
         }
+    }
+
+    public static RegistryKey<Item> itemKey(String s) {
+        return RegistryKey.of(RegistryKeys.ITEM, id(s));
+    }
+
+    public static RegistryKey<Block> blockKey(String s) {
+        return RegistryKey.of(RegistryKeys.BLOCK, id(s));
+    }
+
+    public static RegistryKey<LootTable> lootKey(String s) {
+        return RegistryKey.of(RegistryKeys.LOOT_TABLE, id(s));
+    }
+
+    public static Optional<RegistryKey<LootTable>> optionalLootKey(String s) {
+        return Optional.of(lootKey(s));
     }
 }

@@ -10,7 +10,7 @@ import org.tywrapstudios.constructra.api.item.EasyItemGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.tywrapstudios.constructra.registry.MainRegistry.itemKey;
+import static org.tywrapstudios.constructra.util.Util.*;
 
 public class CaItems {
     public static final List<Item> ITEMS = new ArrayList<>();
