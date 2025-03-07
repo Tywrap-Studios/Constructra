@@ -1,7 +1,9 @@
 package org.tywrapstudios.constructra.client.gui.widget.big_button;
 
+import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
 import net.minecraft.client.gui.screen.narration.NarrationPart;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
@@ -17,5 +19,14 @@ public abstract class EmptyIconWidget extends ActionButtonWidget {
     @Override
     protected void appendClickableNarrations(NarrationMessageBuilder builder) {
         builder.put(NarrationPart.USAGE, Text.translatable("narration.constructra.empty_button"));
+    }
+
+    public static EmptyIconWidget builder(int x, int y) {
+        return new EmptyIconWidget(x, y) {
+            @Override
+            public void runAction() {
+                // Do nothing
+            }
+        };
     }
 }
