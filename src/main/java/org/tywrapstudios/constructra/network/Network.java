@@ -7,11 +7,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerSyncHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
 import org.tywrapstudios.constructra.Constructra;
+import org.tywrapstudios.constructra.api.annotation.Unstable;
 import org.tywrapstudios.constructra.api.resource.ResourceHarvestTracker;
 import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.api.resource.ResourceNode;
@@ -75,15 +75,47 @@ public class Network {
                 if (!slot.hasStack()) continue;
                 if (slot.inventory instanceof PlayerInventory) continue;
 
-                ItemStack stack = slot.getStack();
-                boolean b = slot.canTakeItems(player);
-                Constructra.LOGGER.debug(String.format("Can take items: %s %s %s %s %s", b, i, handler.syncId, load.syncId(), slot));
-                if (!b) continue;
-
-                player.giveOrDropStack(stack);
-                slot.setStack(ItemStack.EMPTY);
+                handler.quickMove(player, i);
                 slot.markDirty();
                 handler.updateToClient();
+            }
+        });
+
+        /*
+         * Grabs all the items from the inventory of a player and attempts to give insert them into the slots of a HandledScreen.
+         */
+        ServerPlayNetworking.registerGlobalReceiver(InsertRequestC2SPayload.ID, (load, ctx) -> {
+            @Unstable("May not work as intended")
+            ServerPlayerEntity player = ctx.player();
+            ScreenHandler handler = player.currentScreenHandler;
+
+            if (handler.syncId != load.syncId()) {
+                Constructra.LOGGER.error("ScreenHandler Sync ID did not match up for Grab All request from: " + player.getName());
+                return;
+            }
+
+            PlayerInventory playerInventory = player.getInventory();
+            for (int s = 0; s < handler.slots.size(); s++) {
+                Slot slot = handler.slots.get(s);
+
+                if (!slot.hasStack()) {
+                    for (ItemStack stack : playerInventory.main) {
+                        if (stack == ItemStack.EMPTY) continue;
+                        slot.insertStack(stack);
+                        playerInventory.updateItems();
+                        handler.updateToClient();
+                    }
+                } else {
+                    ItemStack type = slot.getStack();
+                    for (ItemStack stack : playerInventory.main) {
+                        if (stack.equals(type)) {
+                            slot.insertStack(stack);
+                            playerInventory.updateItems();
+                            handler.updateToClient();
+                            break;
+                        }
+                    }
+                }
             }
         });
     }
