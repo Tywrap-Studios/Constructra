@@ -15,6 +15,7 @@ import net.minecraft.server.command.ServerCommandSource;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.config.ConstructraServerConfig;
 import org.tywrapstudios.constructra.registry.CaRegistries;
+import org.tywrapstudios.constructra.util.Util;
 
 public class CaCommandImpl {
     public static void register(CommandDispatcher<ServerCommandSource> dispatcher, CommandRegistryAccess access) {
@@ -94,6 +95,8 @@ public class CaCommandImpl {
         posArg2.addChild(rangeArg);
         posArg2.addChild(removeBlockNoRangeArg);
         rangeArg.addChild(removeBlockArg);
+
+        Util.logInitialisation();
     }
 
     @Environment(EnvType.CLIENT)
@@ -114,5 +117,7 @@ public class CaCommandImpl {
         dispatcher.getRoot().addChild(caClientCommand);
         /* Reload */
         constructraClientCommand.addChild(reloadCommand);
+
+        Util.logInitialisation();
     }
 }

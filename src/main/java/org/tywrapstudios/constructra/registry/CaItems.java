@@ -6,6 +6,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.api.item.EasyItemGroup;
+import org.tywrapstudios.constructra.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +55,7 @@ public class CaItems {
 
     public static void register() {
         Group.INSTANCE.register();
+        Util.logInitialisation();
     }
 
     public static class Group extends EasyItemGroup {

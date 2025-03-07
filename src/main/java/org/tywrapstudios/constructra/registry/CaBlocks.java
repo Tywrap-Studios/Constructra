@@ -8,6 +8,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.tywrapstudios.constructra.api.block.ResourceBlock;
 import org.tywrapstudios.constructra.block.PortableMinerBlock;
+import org.tywrapstudios.constructra.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,5 +53,6 @@ public class CaBlocks {
     }
 
     public static void register() {
+        Util.logInitialisation();
     }
 }

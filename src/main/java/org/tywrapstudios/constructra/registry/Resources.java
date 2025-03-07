@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.api.resource.Resource;
-import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.api.resource.ResourceManager.Registries;
 import org.tywrapstudios.constructra.api.resource.ResourceRarity;
+import org.tywrapstudios.constructra.util.Util;
 
 import static org.tywrapstudios.constructra.Constructra.id;
 
@@ -20,9 +20,10 @@ public class Resources {
     }
 
     private static Resource create(ItemConvertible retrievableItem, ResourceRarity rarity, Block harvestBlock, String id) {
-        return ResourceManager.Registries.register(retrievableItem, rarity, harvestBlock, id(id));
+        return Registries.register(retrievableItem, rarity, harvestBlock, id(id));
     }
 
     public static void register() {
+        Util.logInitialisation();
     }
 }

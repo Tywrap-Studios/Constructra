@@ -4,6 +4,7 @@ import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.item.ItemConvertible;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
+import org.tywrapstudios.constructra.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,5 +23,7 @@ public class MainRegistry {
         CommandRegistrationCallback.EVENT.register((dispatcher, access, env) -> CaCommandImpl.register(dispatcher, access));
         Resources.register();
         Constructra.LOGGER.debug("ItemConvertible List size: " + ALL_ITEM_CONVERTIBLE_CONTENT.size());
+
+        Util.logInitialisation();
     }
 }

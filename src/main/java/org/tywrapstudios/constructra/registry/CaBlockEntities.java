@@ -7,6 +7,7 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import org.tywrapstudios.constructra.block.PortableMinerBlockEntity;
+import org.tywrapstudios.constructra.util.Util;
 
 import static org.tywrapstudios.constructra.Constructra.id;
 
@@ -22,5 +23,6 @@ public class CaBlockEntities {
     }
 
     public static void register() {
+        Util.logInitialisation();
     }
 }

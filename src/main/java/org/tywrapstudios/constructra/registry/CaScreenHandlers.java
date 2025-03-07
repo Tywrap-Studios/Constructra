@@ -11,6 +11,7 @@ import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.math.BlockPos;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.screen.PortableMinerScreenHandler;
+import org.tywrapstudios.constructra.util.Util;
 
 public class CaScreenHandlers {
     public static final ExtendedScreenHandlerType<PortableMinerScreenHandler, BlockPos> PORTABLE_MINER_HANDLER;
@@ -28,5 +29,6 @@ public class CaScreenHandlers {
     }
 
     public static void register() {
+        Util.logInitialisation();
     }
 }

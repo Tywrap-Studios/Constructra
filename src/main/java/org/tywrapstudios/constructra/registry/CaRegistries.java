@@ -5,6 +5,7 @@ import net.minecraft.registry.*;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.api.resource.Resource;
+import org.tywrapstudios.constructra.util.Util;
 
 public class CaRegistries {
     public static final Registry<Resource> RESOURCE;
@@ -22,5 +23,6 @@ public class CaRegistries {
     }
 
     public static void initialize() {
+        Util.logInitialisation();
     }
 }

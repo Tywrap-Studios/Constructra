@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.loot.LootTable;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import org.tywrapstudios.constructra.Constructra;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,6 +15,8 @@ import java.util.Random;
 import static org.tywrapstudios.constructra.Constructra.id;
 
 public class Util {
+    protected static StackWalker STACK_WALKER = StackWalker.getInstance(StackWalker.Option.RETAIN_CLASS_REFERENCE);
+
     public static String generateInitPhrase() {
         final List<String> phrases = List.of(
                 "I love Config formatting version AAAA it reminds me of my mental health.",
@@ -48,6 +51,11 @@ public class Util {
         } else {
             return String.format("\"%s\" version not found, mod isn't loaded.", modId);
         }
+    }
+
+    public static void logInitialisation() {
+        String str = String.format("%s: ready", STACK_WALKER.getCallerClass().getSimpleName());
+        Constructra.LOGGER.debug(str);
     }
 
     public static RegistryKey<Item> itemKey(String s) {

@@ -16,6 +16,7 @@ import org.tywrapstudios.constructra.api.resource.ResourceHarvestTracker;
 import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.api.resource.ResourceNode;
 import org.tywrapstudios.constructra.network.payload.*;
+import org.tywrapstudios.constructra.util.Util;
 
 public class Network {
     public static void initialize() {
@@ -118,5 +119,7 @@ public class Network {
                 }
             }
         });
+
+        Util.logInitialisation();
     }
 }

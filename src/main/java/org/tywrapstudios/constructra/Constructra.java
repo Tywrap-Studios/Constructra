@@ -42,6 +42,7 @@ public class Constructra implements ModInitializer {
 		MainRegistry.registerAll();
 		ResourceManager.Nodes.initializeServer();
 		LOGGER.info(Util.generateInitPhrase());
+		Util.logInitialisation();
 	}
 
 	public static Identifier id(String s) {

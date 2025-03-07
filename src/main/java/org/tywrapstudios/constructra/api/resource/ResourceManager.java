@@ -38,6 +38,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.registry.CaRegistries;
+import org.tywrapstudios.constructra.util.Util;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -223,6 +224,8 @@ public class ResourceManager {
                 }
                 return true;
             });
+
+            Util.logInitialisation();
         }
     }
 

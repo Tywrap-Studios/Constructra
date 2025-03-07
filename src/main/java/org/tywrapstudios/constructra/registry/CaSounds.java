@@ -4,6 +4,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvent;
 import org.tywrapstudios.constructra.Constructra;
+import org.tywrapstudios.constructra.util.Util;
 
 public class CaSounds {
     public static final SoundEvent BIG_BUTTON_CLICK;
@@ -18,5 +19,6 @@ public class CaSounds {
     }
 
     public static void register() {
+        Util.logInitialisation();
     }
 }
