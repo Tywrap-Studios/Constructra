@@ -36,7 +36,7 @@ public class ConstructraClientConfig implements ConfigClass {
                 Default: 20""")
         public int interval = 20;
         @Comment("""
-                Whether to send reminders to take small breaks after a long while of playing.
+                Whether to send reminders to take small breaks after long whiles of playing.
                 Type: Boolean
                 Default: false""")
         public boolean send_break_reminders = false;
@@ -46,7 +46,6 @@ public class ConstructraClientConfig implements ConfigClass {
     public void validate() {
         if (play_time_safety.interval <=0 || play_time_safety.interval > 60) {
             play_time_safety.interval = 20;
-            //throw new InvalidConfigFileException("Option out of range (>0-60): " + play_time_safety.playing_interval);
         }
     }
 }
