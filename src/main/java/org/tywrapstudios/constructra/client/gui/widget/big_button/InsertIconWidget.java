@@ -48,8 +48,8 @@ public abstract class InsertIconWidget extends ActionButtonWidget {
         builder.put(NarrationPart.USAGE, Text.translatable("narration.constructra.insert_button"));
     }
 
-    public static <T extends ScreenHandler> GrabIconWidget builder(int x, int y, HandledScreen<T> screen) {
-        return new GrabIconWidget(x, y) {
+    public static <T extends ScreenHandler> InsertIconWidget builder(int x, int y, HandledScreen<T> screen) {
+        return new InsertIconWidget(x, y) {
             @Override
             public void runAction() {
                 T handler = screen.getScreenHandler();
