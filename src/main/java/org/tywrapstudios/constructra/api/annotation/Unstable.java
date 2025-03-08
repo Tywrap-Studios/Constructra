@@ -25,7 +25,7 @@
 package org.tywrapstudios.constructra.api.annotation;
 
 /**
- * If a method, field, package or class is annotated with {@code @Unstable} logs may throw applicable warnings or errors to notify users or other developers that the feature they are attempting to use may be unstable and not ready for deployment.
+ * You may annotate a method, field, package or class with {@code @Unstable} to notify users or other developers that the feature they are attempting to use may be unstable and not ready for deployment.
  */
 public @interface Unstable {
     /**
