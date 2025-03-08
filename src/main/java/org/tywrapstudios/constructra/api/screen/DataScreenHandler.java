@@ -24,8 +24,8 @@
 
 package org.tywrapstudios.constructra.api.screen;
 
-import net.minecraft.screen.ScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerType;
+import net.minecraft.screen.ScreenHandler;
 
 /**
  * A Type of ScreenHandler that can be used for ensuring there is additional synced data.

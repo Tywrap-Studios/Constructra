@@ -25,14 +25,16 @@
 package org.tywrapstudios.constructra.api.math;
 
 import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
-import org.tywrapstudios.constructra.api.math.ruleset.Associativity;
 import org.tywrapstudios.constructra.api.math.ruleset.Operator;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Stack;
 
 import static java.lang.Double.NaN;
-import static org.tywrapstudios.constructra.Constructra.LOGGER;
 import static java.lang.Math.*;
+import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**
  * A class that can handle calculations directly from Strings.

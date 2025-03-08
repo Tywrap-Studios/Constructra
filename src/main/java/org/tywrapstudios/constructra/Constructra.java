@@ -1,7 +1,6 @@
 package org.tywrapstudios.constructra;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
 import net.tywrapstudios.blossombridge.api.config.ConfigManager;

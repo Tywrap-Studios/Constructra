@@ -4,7 +4,6 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.network.codec.PacketCodec;
 import net.minecraft.network.packet.CustomPayload;
 import net.minecraft.util.math.BlockPos;
-import org.jetbrains.annotations.Nullable;
 import org.tywrapstudios.constructra.network.NetworkConstants;
 
 public record HarvestStartEventC2SPayload(BlockPos pos) implements CustomPayload {

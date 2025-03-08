@@ -29,9 +29,9 @@ import org.tywrapstudios.constructra.api.math.ruleset.Operator;
 
 import java.util.*;
 
+import static org.tywrapstudios.constructra.Constructra.LOGGER;
 import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.LEFT;
 import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT;
-import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**
  * <h1>Infix, The Reverse Polish Notation and The Shunting Yard Algorithm</h1>

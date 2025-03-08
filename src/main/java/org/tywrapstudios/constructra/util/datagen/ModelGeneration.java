@@ -8,8 +8,8 @@ import net.minecraft.client.data.ItemModelGenerator;
 import net.minecraft.client.data.Models;
 import net.minecraft.item.Item;
 
-import static org.tywrapstudios.constructra.registry.CaItems.*;
-import static org.tywrapstudios.constructra.registry.CaBlocks.*;
+import static org.tywrapstudios.constructra.registry.CaBlocks.CUBE_ALL;
+import static org.tywrapstudios.constructra.registry.CaItems.GENERATED;
 
 public class ModelGeneration extends FabricModelProvider {
     public ModelGeneration(FabricDataOutput output) {

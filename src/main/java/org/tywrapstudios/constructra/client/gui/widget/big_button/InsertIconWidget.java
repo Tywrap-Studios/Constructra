@@ -9,7 +9,6 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.api.client.gui.widget.ActionButtonWidget;
-import org.tywrapstudios.constructra.network.payload.GrabRequestC2SPayload;
 import org.tywrapstudios.constructra.network.payload.InsertRequestC2SPayload;
 
 public abstract class InsertIconWidget extends ActionButtonWidget {

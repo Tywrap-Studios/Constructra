@@ -9,15 +9,15 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.tywrapstudios.blossombridge.api.config.ConfigManager;
+import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
+import org.tywrapstudios.constructra.client.gui.screen.InfoMenuScreen;
+import org.tywrapstudios.constructra.client.gui.screen.PortableMinerScreen;
 import org.tywrapstudios.constructra.client.key.ClientKeyBinds;
 import org.tywrapstudios.constructra.client.logic.ClientNodeActionTracker;
 import org.tywrapstudios.constructra.client.logic.PlayTime;
-import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
-import org.tywrapstudios.constructra.client.gui.screen.InfoMenuScreen;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
 import org.tywrapstudios.constructra.config.ConstructraClientConfig;
 import org.tywrapstudios.constructra.registry.CaScreenHandlers;
-import org.tywrapstudios.constructra.client.gui.screen.PortableMinerScreen;
 
 import java.io.File;
 

@@ -11,7 +11,7 @@ import org.tywrapstudios.constructra.util.Util;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.tywrapstudios.constructra.util.Util.*;
+import static org.tywrapstudios.constructra.util.Util.itemKey;
 
 public class CaItems {
     public static final List<Item> ITEMS = new ArrayList<>();

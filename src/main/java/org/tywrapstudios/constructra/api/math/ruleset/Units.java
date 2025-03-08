@@ -26,7 +26,6 @@ package org.tywrapstudios.constructra.api.math.ruleset;
 
 import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
 
-import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
 /**
