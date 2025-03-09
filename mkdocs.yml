@@ -1,4 +1,5 @@
 site_name: Constructra Documentation
+site_description: A comprehensive guide to Constructra, the factory-building Minecraft mod.
 site_url: https://docs.tiazzz.me/Constructra
 theme:
   name: material
@@ -20,15 +21,29 @@ theme:
     - content.tabs.link
     - content.tooltips
     - navigation.footer
+    - navigation.indexes
     - content.code.copy
     - content.code.select
 nav:
   - Home: index.md
+  - Blog:
+    - blog/index.md
   - User Guide:
     - Getting Started:
       - Prerequisites: users/getting-started.md
       - Gameplay: users/getting-started-game.md
   - Playground: playground.md
+plugins:
+  - search
+  - blog:
+      draft_if_future_date: true
+  - tags
+  - rss:
+      match_path: "blog/posts/.*"
+      pretty_print: true
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
@@ -55,4 +70,4 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.snippets
-copyright: Copyright &copy; 2025 Tywrap Studios
+copyright: Copyright &copy; 2025 Tywrap Studios; Released under the MIT License
