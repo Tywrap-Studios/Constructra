@@ -1,5 +1,4 @@
 site_name: Constructra Documentation
-site_url: https://docs.tiazzz.me/constructra
 theme:
   name: material
   palette:
