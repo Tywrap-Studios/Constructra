@@ -26,27 +26,37 @@ package org.tywrapstudios.constructra.api.client.gui.widget;
 
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.gui.DrawContext;
+import net.minecraft.client.gui.screen.narration.NarrationMessageBuilder;
+import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundManager;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.registry.CaSounds;
 
+import static org.tywrapstudios.constructra.client.logic.PlayTime.playTime;
+
 /**
- * A class that is used for every general-use Button that performs an Action.
+ * A class that is used for every big round button that initiates an action.
  * <p>It always has the same dimensions and base textures.</p>
  *
- * @implSpec Icon texture files should be 44px by 30px. The actual texture should be 32px by 17px at max.
- * <p>You must create a non-blinking (#ffaf2e) and a blinking (#ffc059) variant, pressing is handled by the class and always picks the blinking one.
- * <p>When creating textures for icons you can use the drawing aid at {@code textures/gui/big_button/icon_drawing_aid.png}.
+ * @implSpec Icon texture files should be 0px by 0px. The actual texture should be 0px by 0px at max.
+ * <p>You must create a non-blinking (0) and a blinking (0) variant, pressing is handled by the class and always picks the blinking one.
+ * <p>When creating textures for icons you can use the drawing aid at {@code textures/gui/initiator_button/icon_drawing_aid.png}.
  */
 @Environment(EnvType.CLIENT)
-public abstract class ActionButtonWidget extends PressableButtonWidget {
+public abstract class RoundInitiatorButtonWidget extends PressableButtonWidget {
 
-    public ActionButtonWidget(int x, int y, Identifier icon, Identifier icon_blink) {
-        super(x, y, 44, 30, 2, icon, icon_blink);
+    public RoundInitiatorButtonWidget(int x, int y, Identifier icon, Identifier icon_blink) {
+        super(x, y, 96, 96, 1, icon, icon_blink);
     }
 
     @Override
     public void playDownSound(SoundManager soundManager) {
-        soundManager.play(clickSound(CaSounds.BIG_BUTTON_CLICK));
+
     }
 }
