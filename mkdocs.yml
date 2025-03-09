@@ -17,6 +17,7 @@ theme:
         primary: deep purple
         accent: pink
   logo: assets/Main_Transparent.png
+  favicon: assets/favicon.png
   features:
     - content.tabs.link
     - content.tooltips
@@ -35,6 +36,7 @@ nav:
   - Playground: playground.md
 plugins:
   - search
+  - meta
   - blog:
       draft_if_future_date: true
   - tags
