@@ -1,17 +1,24 @@
 # Welcome to Constructra
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+???+ warning "This mod is still in development!"
+    Do not expect an official public release any time soon, and especially not a stable one.  
+    The info on this page and the rest of the documentation may be inaccurate, unfinished or subject to change.
 
-## Commands
+## Introduction
+Constructra tries to be a totally new take on tech mods.  
+Want to create spaghetti belt systems? Go ahead, if it works, it works, and bonus points if it's more efficient too.  
+Wanna absolutely deforest your entire world ending the life of circa 274 organisms to make space for your next big bio nuclear cluster bomb factory? Go. Ahead.
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+---
+All jokes - which corporate has forced me to call them - aside, you can create almost anything to achieve your goal in some way or another.  
+This mod aims to add a more streamlined game flow of building _your_ future. No more loose ends, just a straight to the point storyline that will force you to expand in only one direction, with optional alternatives of course, but it all ends up the same.
 
-## Project layout
+## Guides
+=== "Users"
+    [Getting Started :fontawesome-solid-paper-plane:](users/getting-started.md){ .md-button }  
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    [Gameplay :fontawesome-solid-gamepad:](users/getting-started-game.md){ .md-button }
+=== "Developers"
+    [API Documentation :fontawesome-solid-code:](developers/api.md){ .md-button }  
+
+    [Creating an Addon :material-plus-circle-outline:](developers/creating-an-addon.md){ .md-button }

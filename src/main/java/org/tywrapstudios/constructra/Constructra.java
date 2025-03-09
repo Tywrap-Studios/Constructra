@@ -38,7 +38,7 @@ import org.tywrapstudios.constructra.util.Util;
 
 import java.io.File;
 import java.util.Objects;
-
+// -8<- [start:constructra]
 public class Constructra implements ModInitializer {
 	public static final String MOD_ID = "constructra";
 
@@ -60,12 +60,14 @@ public class Constructra implements ModInitializer {
 			LOGGER.warn("Got: " + config().config_version);
 		}
 
+		// -8<- [start:constructra-initialize]
 		CaRegistries.initialize();
 		Network.initialize();
 		MainRegistry.registerAll();
 		ResourceManager.Nodes.initializeServer();
 		LOGGER.info(Util.generateInitPhrase());
 		Util.logInitialisation();
+		// -8<- [end:constructra-initialize]
 	}
 
 	public static Identifier id(String s) {
@@ -76,3 +78,4 @@ public class Constructra implements ModInitializer {
 		return CONFIG_MANAGER.getConfig();
 	}
 }
+// -8<- [end:constructra]
