@@ -40,10 +40,10 @@ Firstly, obtain a `constructra-<version>-sources.jar` from any of the following 
 === "Building"
     You can do this by cloning the repository and running `./gradlew build` in the root directory of the project. Your sources jar will be in a folder called `build/libs`.
 === "GitHub Actions"
-    1. On the main page of the Repository, click "Actions" in the navigation bar on top.
-    2. On the left hand side, there is a list of Workflows/Actions, click the one named `build`.
+    1. On the main page of the Repository, click "Actions" :octicons-play-16: in the navigation bar on top.
+    2. On the left hand side, there is a list of Workflows :octicons-workflow-16:, click the one named `build`.
     3. Click into the top {==NON-FAILED==} action.
-        1. You may filter by branch or release tag using the filters on the right side, or target a specific build in the list. This may be handy if you don't want to end up with an in-dev, unstable or broken version.
+        1. You may filter by branch :octicons-git-branch-16: or release tag :octicons-tag-16: using the filters :octicons-filter-16: on the right side, or target a specific build in the list. This may be handy if you don't want to end up with an in-dev, unstable or broken version.
     4. Scroll down until you see a text named "Artifacts", after you click this a zip file containing the main jar and the sources jar will be downloaded onto your machine. Extract these jars and use the one that is affixed with `-sources.jar`.
 After obtaining said file, it is best to make a new directory in your project called `libs/`, and put the jar inside of it.
 
