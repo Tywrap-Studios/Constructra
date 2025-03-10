@@ -1,0 +1,9 @@
+{
+	// Several configurations for utility features.
+	"util_config": {
+		// Whether to display debug information in the console.
+		"debug_mode": false,
+		// Whether to suppress all warnings from this mod. NOT RECOMMENDED.
+		"suppress_warns": false
+	}
+}

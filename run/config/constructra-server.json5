@@ -1,0 +1,88 @@
+{
+	/* (2)
+	   This file has all the configuration options for Constructra.
+	   Do not change the config_version unless you know what you're doing or else some of your changes may be arbitrarily reset and we will use the default values.
+	*/
+	"config_version": "1.0",
+	// Config related to Resources.
+	"resources": {
+		/* The default purity of each Resource in your world.
+		   Choices: NONE, IMPURE, NORMAL, PURE or RANDOM.
+		   Type: String (from Set)
+		   Default: RANDOM
+		*/
+		"default_resource_purity": "RANDOM",
+		/* Whether Nodes can be obstructed. When set to false, Nodes don't need to be destructed first in order to be harvested from.
+		   Type: Boolean
+		   Default: true
+		*/
+		"do_obstructions": true,
+		/* The amount of times you have to consecutively harvest from a Node to be able to de-obstruct it.
+		   Only applies if do_obstructions is true.
+		   Type: Integer
+		   Default: 3
+		*/
+		"consecutive_harvests_for_destruction": 3,
+		// Certain Modifiers for ResourceNode Purity Related Mechanics.
+		"purity_modifiers": {
+			/* Whether the Purity of a ResourceNode affects at which rate the resource is given.
+			   If false is chosen, we will use the rate of a NORMAL node, so feel free to tweak that value.
+			   ResourceNodes will still have their Purity displayed!
+			   Type: Boolean
+			   Default: true
+			*/
+			"does_purity_affect_rate": true,
+			/* The Rate at which a PURE node should give its Resource.
+			   Type: Double (in seconds)
+			   Default: 0.8
+			*/
+			"pure": 0.8,
+			/* The Rate at which a NORMAL node should give its Resource.
+			   Type: Double (in seconds)
+			   Default: 1.2
+			*/
+			"normal": 1.2,
+			/* The Rate at which an IMPURE node should give its Resource.
+			   Type: Double (in seconds)
+			   Default: 1.9
+			*/
+			"impure": 1.9
+		},
+		/* Whether to display certain visual hints as to what block is the exact ResourceNode Centre. e.g. through the use of particles.
+		   Type: Boolean
+		   Default: false
+		*/
+		"visualize_centres": true
+	},
+	// Config related to Commands.
+	"commands": {
+		/* The command alias for the Constructra command. Change this if you're having compatibility issues with other mods.
+		   Type: String
+		   Default: ca
+		*/
+		"command_alias": "ca",
+		/* The permission level required to use the Node commands in general.
+		   Type: Integer
+		   Default: 2
+		*/
+		"perm_lvl_nodes": 2,
+		/* The permission level required to remove Nodes from the world. (Both nodes flush and nodes purge.)
+		   Note that this is a dangerous permission to give as it can break the entire world!
+		   Type: Integer
+		   Default: 4
+		*/
+		"perm_lvl_nodes_removal": 4,
+		/* The permission level required to reload the Constructra config.
+		   Type: Integer
+		   Default: 2
+		*/
+		"perm_lvl_reload": 2
+	},
+	// Several configurations for utility features.
+	"util_config": {
+		// Whether to display debug information in the console.
+		"debug_mode": true,
+		// Whether to suppress all warnings from this mod. NOT RECOMMENDED.
+		"suppress_warns": false
+	}
+}

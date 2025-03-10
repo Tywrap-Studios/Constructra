@@ -1,0 +1,50 @@
+/ca calc "2*(6-3)"
+/ca calc "6 ^ 2"
+/ca calc "2*(6-3)"
+/ca calc "2(6-3)"
+/ca calc "2*(6-3)"
+/kill @e
+/time set noon
+/weather clear
+/tp -24 88 23
+/kill
+/ca nodes flush
+/ca nodes spawn ~ ~ ~ minecraft:iron
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/ca nodes spawn ~ ~ ~ minecraft:iron true
+/ca pt-safety 1
+/ca pt-safety 2
+/ca pt-safety 1
+/ca pt-safety 2
+/ca-client reload
+/ca nodes spawn ~ ~ ~ minecraft:iron true
+/ca-client test
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/ca nodes spawn ~ ~ ~ minecraft:copper false
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/ca nodes spawn ~ ~ ~ minecraft:iron
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/effect give TywrapStudiosYT minecraft:water_breathing infinite 255
+/effect give TywrapStudiosYT minecraft:instant_health infinite 255
+/effect give TywrapStudiosYT minecraft:saturation infinite 255
+/fill -24 68 -27
+/fill -24 68 -27 -20 87 -31 sand
+/effect clear
+/time set midnight
+/ca nodes spawn ~ ~ ~ minecraft:copper true
+/time set noon
+/ca nodes spawn ~ ~ ~ minecraft:copper true
+/ca nodes spawn ~ ~ ~ minecraft:iron
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/locate structure minecraft:stronghold
+/tp @s 1264 ~ -864
+/tp 0 0 0
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/kill @e[type=!minecraft:player]
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/ca nodes purge ~ ~ ~ 20 true
+/ca nodes spawn ~ ~ ~ minecraft:iron false
+/weather clear
+/ca nodes spawn -21 87 -21 minecraft:copper
+/ca nodes spawn ~ ~ ~ minecraft:copper false
+/ca nodes spawn ~ ~ ~ minecraft:copper true

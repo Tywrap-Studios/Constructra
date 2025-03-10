@@ -1,0 +1,36 @@
+{
+	/* (1)
+	   This file has all the configuration options for Constructra on the client side.
+	   Changes here will not affect a dedicated server (nor other players online)!
+	   
+	   The following value is irrelevant, do not change it, though.
+	*/
+	"run_info": "None",
+	/* The Unit System to use for Measurements.
+	   Choices: METRIC, FREEDOM
+	   Type: String (from set)
+	   Default: METRIC
+	*/
+	"measure_units": "METRIC",
+	// Config related to your Play Time Safety.
+	"play_time_safety": {
+		/* Whether to send 2020 reminders.
+		   After 20 minutes of playing, look away for 20 seconds.
+		   Type: Boolean
+		   Default: false
+		*/
+		"send_2020_reminders": false,
+		/* The amount of minutes between 2020 reminders.
+		   Only applies if send_2020_reminders is true.
+		   Type: Integer
+		   Range: >0-60
+		   Default: 20
+		*/
+		"interval": 20,
+		/* Whether to send reminders to take small breaks after long whiles of playing.
+		   Type: Boolean
+		   Default: false
+		*/
+		"send_break_reminders": true
+	}
+}
