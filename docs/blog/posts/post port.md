@@ -8,7 +8,7 @@ authors:
 
 # Have the tiazzz.me post here!
 
-In [the last blog](post%20port.md) I told you to go look at my personal post somewhere else, but tbh that site is kind of shitty, so just have it here in a quote:
+In [the last blog](new%20site.md) I told you to go look at my personal post somewhere else, but tbh that site is kind of shitty, so just have it here in a quote:
 
 <!-- more -->
 
