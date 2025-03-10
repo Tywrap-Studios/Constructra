@@ -29,6 +29,7 @@ import net.tywrapstudios.blossombridge.api.config.AbstractConfig;
 
 public class ConstructraServerConfig extends AbstractConfig {
     @Comment("""
+            (2)
             This file has all the configuration options for Constructra.
             Do not change the config_version unless you know what you're doing or else some of your changes may be arbitrarily reset and we will use the default values.""")
     public String config_version = "1.0";

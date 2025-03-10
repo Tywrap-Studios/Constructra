@@ -32,6 +32,7 @@ import net.tywrapstudios.blossombridge.api.config.ConfigClass;
 @Environment(EnvType.CLIENT)
 public class ConstructraClientConfig implements ConfigClass {
     @Comment("""
+            (1)
             This file has all the configuration options for Constructra on the client side.
             Changes here will not affect a dedicated server (nor other players online)!
             

@@ -1,43 +1,79 @@
 site_name: Constructra Documentation
 site_description: A comprehensive guide to Constructra, the factory-building Minecraft mod.
 site_url: https://docs.tiazzz.me/Constructra
+repo_url: https://github.com/Tywrap-Studios/Constructra
 theme:
   name: material
   palette:
       - scheme: slate
         toggle:
-          icon: material/weather-sunny
-          name: Dark mode
+          icon: octicons/sun-16 #material/weather-sunny
+          name: Switch to Dark mode
         primary: deep purple
         accent: pink
       - scheme: default
         toggle:
-          icon: material/weather-night
-          name: Light mode
+          icon: octicons/moon-16 #material/weather-night
+          name: Switch to Light mode
         primary: deep purple
         accent: pink
   logo: assets/Main_Transparent.png
   favicon: assets/favicon.png
+  icon:
+    annotation: material/star-four-points-circle
+    admonition:
+      note: octicons/tag-16
+      abstract: octicons/checklist-16
+      info: octicons/info-16
+      tip: octicons/zap-16
+      success: octicons/check-16
+      question: octicons/question-16
+      warning: octicons/alert-16
+      failure: octicons/x-circle-16
+      danger: fontawesome/solid/skull
+      bug: octicons/bug-16
+      example: octicons/beaker-16
+      quote: fontawesome/solid/quote-left
   features:
     - content.tabs.link
     - content.tooltips
     - navigation.footer
     - navigation.indexes
     - content.code.copy
-    - content.code.select
+    - content.annotations
+    - content.code.annotate
 nav:
   - Home: index.md
-  - Blog:
-    - blog/index.md
   - User Guide:
     - Getting Started:
-      - Prerequisites: users/getting-started.md
-      - Gameplay: users/getting-started-game.md
+        - users/getting-started/index.md
+    - Configuration:
+        - users/configuration/index.md
+        - Client Config: users/configuration/client-config.md
+        - Server Config: users/configuration/server-config.md
+  - Developer Guide:
+      - Getting Started:
+        - developers/getting-started.md
+  - Reference:
+      - API:
+        - reference/api/index.md
+      - Content:
+        - reference/content/index.md
+  - Blog:
+      - blog/index.md
+  - Documentation Tags: tags.md
   - Playground: playground.md
 plugins:
   - search
   - meta
   - blog:
+      archive: false
+      categories_allowed:
+        - Development
+        - Documentation
+        - Documentation Internals
+        - Team Building
+        - Update Logs
       draft_if_future_date: true
   - tags
   - rss:
@@ -48,6 +84,9 @@ plugins:
         as_update: date.updated
 markdown_extensions:
   - attr_list
+  - admonition
+  - footnotes
+  - md_in_html
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
@@ -62,14 +101,11 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.tabbed:
       alternate_style: true
-  - admonition
   - pymdownx.details
-  - pymdownx.critic
   - pymdownx.caret
   - pymdownx.keys
-  - pymdownx.mark
   - pymdownx.tilde
-  - pymdownx.highlight
   - pymdownx.inlinehilite
   - pymdownx.snippets
+  - pymdownx.critic
 copyright: Copyright &copy; 2025 Tywrap Studios; Released under the MIT License
