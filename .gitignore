@@ -31,12 +31,17 @@ bin/
 # fabric
 
 .dev
+
+# run dir
+
 logs/
 crash-reports/
 .mixin.out/
 .fabric/
 debug/
 downloads/
+options.txt
+usercache.json
 
 
 # java
