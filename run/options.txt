@@ -12,7 +12,7 @@ darknessEffectScale:1.0
 glintSpeed:0.5
 glintStrength:0.75
 prioritizeChunkUpdates:0
-fullscreen:false
+fullscreen:true
 gamma:1.0
 graphicsMode:1
 guiScale:3
@@ -124,7 +124,7 @@ key_key.hotbar.7:key.keyboard.7
 key_key.hotbar.8:key.keyboard.8
 key_key.hotbar.9:key.keyboard.9
 key_key.constructra.info_menu:key.keyboard.n
-key_key.constructra.push_calc:key.keyboard.u
+key_key.constructra.push_calc:key.keyboard.enter
 soundCategory_master:1.0
 soundCategory_music:0.0
 soundCategory_record:0.30985915492957744
