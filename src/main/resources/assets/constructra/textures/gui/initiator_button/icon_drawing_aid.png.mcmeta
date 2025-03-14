@@ -1,0 +1,10 @@
+{
+  "grey": "Marks icon drawing space, it is suggested to stay within its parameter, but leaving it is still theoretically possible.",
+  "dimmed area": "Off limits icon drawing space.",
+  "top right colours": "Button blink and non-blink colour palette.",
+  "pink": {
+    "Comment": "Indicates Downwards Movement due to the button being 'pressed'.",
+    "Old pos": "Top Line.",
+    "New pos": "Bottom Line."
+  }
+}

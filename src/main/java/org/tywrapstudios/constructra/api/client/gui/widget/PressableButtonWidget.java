@@ -44,30 +44,35 @@ import static org.tywrapstudios.constructra.client.logic.PlayTime.playTime;
 
 @Environment(EnvType.CLIENT)
 public abstract class PressableButtonWidget extends ClickableWidget {
-    protected final Identifier texture = Constructra.id("textures/gui/big_button/big_button_base_blink0.png");
-    protected final Identifier texture_blink = Constructra.id("textures/gui/big_button/big_button_base_blink1.png");
-    protected final Identifier texture_pressed = Constructra.id("textures/gui/big_button/big_button_base_pressed.png");
+    protected final Identifier texture;
+    protected final Identifier texture_blink;
+    protected final Identifier texture_pressed;
     protected Identifier current;
     protected MinecraftClient client;
     protected final int pressOffset;
     protected final Identifier icon;
     protected final Identifier icon_blink;
     protected Identifier current_icon;
+    protected final int blinkTickInterval;
     private double cachedTickAmount;
 
-    public PressableButtonWidget(int x, int y, int width, int height, int pressOffset, Identifier icon, Identifier icon_blink) {
+    public PressableButtonWidget(int x, int y, int width, int height, int pressOffset, Identifier texture, Identifier texture_blink, Identifier texture_pressed, Identifier icon, Identifier icon_blink, int blinkTickInterval) {
         super(x, y, width, height, Text.empty());
         this.pressOffset = pressOffset;
         this.icon = icon;
         this.icon_blink = icon_blink;
         this.current_icon = this.icon;
+        this.texture = texture;
+        this.texture_blink = texture_blink;
+        this.texture_pressed = texture_pressed;
         this.current = this.texture;
         this.client = MinecraftClient.getInstance();
+        this.blinkTickInterval = blinkTickInterval;
     }
 
     @Override
     protected void renderWidget(DrawContext context, int mouseX, int mouseY, float delta) {
-        if (playTime % 20 == 0 && cachedTickAmount != playTime) {
+        if (playTime % this.blinkTickInterval == 0 && cachedTickAmount != playTime) {
             cachedTickAmount = playTime;
             if (current == texture) {
                 current = texture_blink;

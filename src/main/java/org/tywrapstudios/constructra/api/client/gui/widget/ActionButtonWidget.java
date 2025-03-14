@@ -28,6 +28,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.util.Identifier;
+import org.tywrapstudios.constructra.Constructra;
 import org.tywrapstudios.constructra.registry.CaSounds;
 
 /**
@@ -40,9 +41,12 @@ import org.tywrapstudios.constructra.registry.CaSounds;
  */
 @Environment(EnvType.CLIENT)
 public abstract class ActionButtonWidget extends PressableButtonWidget {
+    protected static final Identifier TEXTURE = Constructra.id("textures/gui/big_button/big_button_base_blink0.png");
+    protected static final Identifier BLINK = Constructra.id("textures/gui/big_button/big_button_base_blink1.png");
+    protected static final Identifier PRESSED = Constructra.id("textures/gui/big_button/big_button_base_pressed.png");
 
     public ActionButtonWidget(int x, int y, Identifier icon, Identifier icon_blink) {
-        super(x, y, 44, 30, 2, icon, icon_blink);
+        super(x, y, 44, 30, 2, TEXTURE, BLINK, PRESSED, icon, icon_blink, 20);
     }
 
     @Override

@@ -41,7 +41,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.tywrapstudios.constructra.registry.CaBlockEntities;
 
-public class PortableMinerBlock extends BlockWithEntity implements BlockEntityProvider {
+public class PortableMinerBlock extends BlockWithEntity {
     public static final BooleanProperty ACTIVE = BooleanProperty.of("active");
 
     public PortableMinerBlock(Settings settings) {

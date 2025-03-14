@@ -74,9 +74,7 @@ public class InfoMenuScreen extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         boolean push = ClientKeyBinds.PUSH_CALCULATION.matchesKey(keyCode,scanCode);
-        boolean close = ClientKeyBinds.OPEN_INFO_MENU.matchesKey(keyCode,scanCode);
         if (push) input.setText(lastResult);
-        if (close) close();
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 }

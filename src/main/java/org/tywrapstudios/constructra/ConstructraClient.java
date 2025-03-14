@@ -27,11 +27,13 @@ package org.tywrapstudios.constructra;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
+import net.minecraft.client.render.RenderLayer;
 import net.tywrapstudios.blossombridge.api.config.ConfigManager;
 import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
 import org.tywrapstudios.constructra.client.gui.screen.InfoMenuScreen;
@@ -41,6 +43,7 @@ import org.tywrapstudios.constructra.client.logic.ClientNodeActionTracker;
 import org.tywrapstudios.constructra.client.logic.PlayTime;
 import org.tywrapstudios.constructra.command.CaCommandImpl;
 import org.tywrapstudios.constructra.config.ConstructraClientConfig;
+import org.tywrapstudios.constructra.registry.CaBlocks;
 import org.tywrapstudios.constructra.registry.CaScreenHandlers;
 
 import java.io.File;
@@ -77,6 +80,8 @@ public class ConstructraClient implements ClientModInitializer {
         ClientCommandRegistrationCallback.EVENT.register((dispatcher, access) -> CaCommandImpl.registerClient(dispatcher));
 
         HandledScreens.register(CaScreenHandlers.PORTABLE_MINER_HANDLER, PortableMinerScreen::new);
+
+        BlockRenderLayerMap.INSTANCE.putBlock(CaBlocks.PORTABLE_MINER, RenderLayer.getCutout());
     }
 
     public static ConstructraClientConfig config() {
