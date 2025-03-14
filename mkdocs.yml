@@ -53,7 +53,7 @@ nav:
         - Server Config: users/configuration/server-config.md
   - Developer Guide:
       - Getting Started:
-        - developers/getting-started.md
+        - developers/index.md
   - Reference:
       - API:
         - reference/api/index.md

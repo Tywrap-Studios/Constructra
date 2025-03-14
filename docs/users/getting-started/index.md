@@ -2,6 +2,7 @@
 title: Getting Started
 tags:
   - User Guides
+  - Has pre-release info
 ---
 ## Installation
 ### Dependencies

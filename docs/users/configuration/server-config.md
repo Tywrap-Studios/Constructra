@@ -2,6 +2,8 @@
 title: Server Config
 tags:
   - Configuration
+  - Has pre-release info
+draft: true
 ---
 
 ??? info annotate "Reference Sheet"

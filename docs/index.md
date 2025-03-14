@@ -1,3 +1,8 @@
+---
+tags:
+  - Has pre-release info
+---
+
 # Welcome to Constructra
 
 ???+ danger "This mod is still in development!"
@@ -19,6 +24,6 @@ This mod aims to add a more streamlined game flow of building _your_ future. No 
     [Content :octicons-package-16:](reference/content/index.md){.md-button}
     [Configuration :octicons-gear-16:](users/configuration/index.md){.md-button}
 === "For Developers"
-    [Creating an Addon :material-plus-circle-outline:](developers/getting-started.md){.md-button}
+    [Creating an Addon :material-plus-circle-outline:](developers/index.md){.md-button}
     [API Reference :fontawesome-solid-code:](reference/api/index.md){.md-button}
     

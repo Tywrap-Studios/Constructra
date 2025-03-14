@@ -3,6 +3,7 @@ title: Getting Started
 tags:
   - Developer Guides
   - Addons
+  - Has pre-release info
 ---
 !!! tip "Status"
     This mod is not yet stable enough to fully support addons.  
@@ -58,10 +59,14 @@ Now you can manually add it to your repositories and dependencies:
     }
     ```
 
+### Finalizing
 Finally, add the following to your `gradle.properties` file:
 ```properties
 constructra_version=x.y.z
 ```
 And replace `x.y.z` with your major, minor and patch version, e.g. {==1.0.0==}.
-??? tip "Tip: Local versioning"
+???+ tip "When using JitPack"
+    As the repository doesn't have any releases, you can't use release tags, instead, go to the JitPack page and look at how you can instead import a branch.  
+    JitPack might not have made an Artifact yet, before trying to use it, if you can properly import the branch by looking at the build status.
+???+ tip "Tip: Local versioning"
     If you are using a local jar, check if the version in the file name corresponds with the version you're trying to use.
