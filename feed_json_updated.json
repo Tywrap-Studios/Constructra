@@ -1,0 +1,40 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Constructra Documentation",
+    "home_page_url": "https://docs.tiazzz.me/Constructra/",
+    "feed_url": "https://docs.tiazzz.me/Constructra/feed_json_updated.json",
+    "description": "A comprehensive guide to Constructra, the factory-building Minecraft mod.",
+    "icon": null,
+    "authors": [],
+    "language": "en",
+    "items": [
+        {
+            "id": "https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/",
+            "url": "https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/",
+            "title": "New Site Yay",
+            "content_html": "<h1>New Site Yay</h1>\n<p>We got a new site kiddos, and it's a lot better than the old one.</p>",
+            "image": null,
+            "date_modified": "2025-03-14T18:41:36+00:00",
+            "authors": [
+                {
+                    "name": "ItsTiazzz"
+                }
+            ],
+            "tags": null
+        },
+        {
+            "id": "https://docs.tiazzz.me/Constructra/blog/2025/03/10/have-the-tiazzzme-post-here/",
+            "url": "https://docs.tiazzz.me/Constructra/blog/2025/03/10/have-the-tiazzzme-post-here/",
+            "title": "Have the tiazzz.me post here!",
+            "content_html": "<h1>Have the tiazzz.me post here!</h1>\n<p>In <a href=\"new%20site.md\">the last blog</a> I told you to go look at my personal post somewhere else, but tbh that site is kind of shitty, so just have it here in a quote:</p>",
+            "image": null,
+            "date_modified": "2025-03-14T18:41:36+00:00",
+            "authors": [
+                {
+                    "name": "ItsTiazzz"
+                }
+            ],
+            "tags": null
+        }
+    ]
+}
