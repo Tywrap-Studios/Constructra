@@ -1,26 +1,38 @@
-name: ci
-on: [push]
+name: Release Documentation
+
+on:
+  release:
+    types: [published]
+
 permissions:
   contents: write
+
 jobs:
-  deploy:
+  docs:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Configure Git Credentials
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Git credentials
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      - uses: actions/setup-python@v5
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git remote set-url origin https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git
+
+      - name: Set up python 3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.x
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: pip install mkdocs-material
-      - run: pip install mkdocs-rss-plugin
-      - run: mkdocs gh-deploy --force
+
+      - name: Install mkdocs, plugins and mike
+        run: pip install mkdocs-material mkdocs-rss-plugin mike
+
+      - name: Deploy docs
+        run: mike deploy --push --update-aliases ${{ github.event.release.tag_name }} latest
+
+      - name: Set default
+        run: mike set-default --push latest

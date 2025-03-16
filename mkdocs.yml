@@ -7,13 +7,13 @@ theme:
   palette:
       - scheme: slate
         toggle:
-          icon: octicons/sun-16 #material/weather-sunny
+          icon: octicons/sun-16
           name: Switch to Dark mode
         primary: deep purple
         accent: pink
       - scheme: default
         toggle:
-          icon: octicons/moon-16 #material/weather-night
+          icon: octicons/moon-16
           name: Switch to Light mode
         primary: deep purple
         accent: pink
