@@ -9,7 +9,10 @@ tags:
 To install Constructra, you need to have {==Fabric Loader==} installed. You can download it from [here](https://fabricmc.net/use/).
 On said page, there is also a download link to the {==Fabric API==}, which is also required for Constructra to run.
 
-At the moment, another API install is needed, {==BlossomBridge API 1.1.1==} or higher, as it's not bundled with the mod's jar. You can get it [here](https://modrinth.com/mod/blossombridge/versions).
+At the moment, another API install is needed, {==Fabric Language Kotlin==}. BlossomBridge, 
+an API we extensively use, is coded in Kotlin :simple-kotlin: as per 2.0.0+, while BlossomBridge is bundled with the Constructra jar, 
+the Kotlin adapter is not.  
+You should get it manually [here](https://modrinth.com/mod/fabric-language-kotlin/versions) on Modrinth :simple-modrinth: or [here](https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files) on CurseForge :simple-curseforge:.
 
 ### Getting a Mod Jar file
 === "Downloading"
@@ -26,4 +29,4 @@ At the moment, another API install is needed, {==BlossomBridge API 1.1.1==} or h
     4. Scroll down until you see a text named "Artifacts", after you click this a zip file containing the main jar and the sources jar will be downloaded onto your machine. Extract these jars and use the one that is not affixed with `-sources.jar`.
 
 ### Finalizing
-After you've properly downloaded and setup Fabric Loader, input all the files into your `mods` folder, and start the game.
+After you've properly downloaded and setup Fabric Loader, input all the jars :octicons-file-zip-16: into your `mods` folder, and start the game.

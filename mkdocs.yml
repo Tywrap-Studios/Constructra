@@ -4,6 +4,7 @@ site_url: https://docs.tiazzz.me/Constructra
 repo_url: https://github.com/Tywrap-Studios/Constructra
 theme:
   name: material
+  custom_dir: doc-overrides
   palette:
       - scheme: slate
         toggle:

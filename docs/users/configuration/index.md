@@ -9,8 +9,8 @@ If you happen to be stuck, or don't like a particular part of the gameplay, you 
 
 There are {==two==} types of config files:
 
-- Server Side;
-- Client Side.
+- Server Side [:octicons-arrow-right-16:](server-config.md)
+- Client Side [:octicons-arrow-right-16:](client-config.md)
 
 Both of these files can be found in the `run/config` directory, and are json5 files, meaning they support comments, which aim to be as informative as possible
 

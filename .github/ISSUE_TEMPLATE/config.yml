@@ -3,3 +3,6 @@ contact_links:
   - name: I have a question.
     url: https://discord.gg/kcm8scfCwK
     about: Please ask and answer questions here.
+  - name: My config is acting up.
+    url: https://github.com/Tywrap-Studios/BlossomBridge
+    about: Config bugs should be reported to BlossomBridge.

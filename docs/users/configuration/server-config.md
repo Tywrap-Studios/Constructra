@@ -3,9 +3,11 @@ title: Server Config
 tags:
   - Configuration
   - Has pre-release info
-draft: true
+hide:
+  - toc
+  - navigation
 ---
-
+[:octicons-arrow-left-16:](index.md){.md-button}
 ??? info annotate "Reference Sheet"
     ### `"value_name": <default_value>`
     - Use: Explains use case.
