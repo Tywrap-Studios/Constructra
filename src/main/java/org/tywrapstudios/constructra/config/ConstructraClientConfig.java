@@ -27,7 +27,7 @@ package org.tywrapstudios.constructra.config;
 import blue.endless.jankson.Comment;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.tywrapstudios.blossombridge.api.config.ConfigClass;
+import org.tywrapstudios.blossombridge.api.config.ConfigClass;
 
 @Environment(EnvType.CLIENT)
 public class ConstructraClientConfig implements ConfigClass {

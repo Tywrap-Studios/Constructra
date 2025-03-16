@@ -25,9 +25,9 @@
 package org.tywrapstudios.constructra.config;
 
 import blue.endless.jankson.Comment;
-import net.tywrapstudios.blossombridge.api.config.AbstractConfig;
+import org.tywrapstudios.blossombridge.api.config.BasicConfigClass;
 
-public class ConstructraServerConfig extends AbstractConfig {
+public class ConstructraServerConfig extends BasicConfigClass {
     @Comment("""
             (2)
             This file has all the configuration options for Constructra.
@@ -109,5 +109,10 @@ public class ConstructraServerConfig extends AbstractConfig {
                 Type: Integer
                 Default: 2""")
         public int perm_lvl_reload = 2;
+    }
+
+    @Override
+    public void validate() {
+
     }
 }

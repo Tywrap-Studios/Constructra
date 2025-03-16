@@ -27,8 +27,8 @@ package org.tywrapstudios.constructra;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
-import net.tywrapstudios.blossombridge.api.config.ConfigManager;
-import net.tywrapstudios.blossombridge.api.logging.LoggingHandler;
+import org.tywrapstudios.blossombridge.api.config.ConfigManager;
+import org.tywrapstudios.blossombridge.api.logging.LoggingHandler;
 import org.tywrapstudios.constructra.api.resource.ResourceManager;
 import org.tywrapstudios.constructra.config.ConstructraServerConfig;
 import org.tywrapstudios.constructra.network.Network;
@@ -50,7 +50,7 @@ public class Constructra implements ModInitializer {
 	public void onInitialize() {
 		CONFIG_MANAGER.loadConfig();
 		// WARNING: REMOVE BEFORE FINAL RELEASE. FOR DEV PURPOSES ONLY.
-		config().util_config.debug_mode = true;
+		config().getUtil_config().setDebug_mode(true);
 		config().resources.visualize_centres = true;
 		CONFIG_MANAGER.saveConfig();
 

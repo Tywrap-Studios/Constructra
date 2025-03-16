@@ -43,7 +43,7 @@ dependencies {
 	// Jankson
 	implementation include("blue.endless:jankson:${project.jankson_version}")
 	// BlossomBridge
-	modImplementation "com.github.Tywrap-Studios:BlossomBridge:${project.blossombridge_version}"
+	modImplementation include("com.github.Tywrap-Studios:BlossomBridge:${project.blossombridge_version}")
 }
 
 test {

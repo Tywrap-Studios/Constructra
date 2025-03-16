@@ -34,7 +34,8 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
-import net.tywrapstudios.blossombridge.api.config.ConfigManager;
+import org.tywrapstudios.blossombridge.api.config.ConfigManager;
+import org.tywrapstudios.blossombridge.api.config.InvalidConfigFileException;
 import org.tywrapstudios.constructra.client.gui.hud.ResourceNodeHudRenderer;
 import org.tywrapstudios.constructra.client.gui.screen.InfoMenuScreen;
 import org.tywrapstudios.constructra.client.gui.screen.PortableMinerScreen;
@@ -60,6 +61,7 @@ public class ConstructraClient implements ClientModInitializer {
         CONFIG_MANAGER.loadConfig();
         CONFIG_MANAGER.saveConfig();
 
+        if (CONFIG_MANAGER.getConfig() == null) throw new InvalidConfigFileException("Config returned as null, please check the file, its version and if BlossomBridge is correctly installed.");
         Constructra.LOGGER.debug("Validate test: " + CONFIG_MANAGER.getConfig().play_time_safety.interval);
         ClientNodeActionTracker.initializeClient();
         ClientKeyBinds.registerClient();

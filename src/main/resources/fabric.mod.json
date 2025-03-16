@@ -6,12 +6,12 @@
 	"description": "Build your dream factory. Build the Future, One Bolt at a Time.",
 	"authors": [
 		"Tywrap Studios:",
-		"Tiazzz"
+		"Tiazzz - Coding"
 	],
 	"contact": {
 		"sources": "https://github.com/Tywrap-Studios/Constructra",
 		"issues": "https://github.com/Tywrap-Studios/Constructra/issues",
-		"homepage": "https://tywrap-studios.notion.site/constructra"
+		"homepage": "https://docs.tiazzz.me/Constructra"
 	},
 	"license": "MIT",
 	"environment": "*",
@@ -34,8 +34,6 @@
 		"minecraft": "~1.21.4",
 		"java": ">=21",
 		"fabric-api": "*",
-		"blossombridge": ">=1.1.1"
-	},
-	"suggests": {
+		"blossombridge": ">=2.0.0"
 	}
 }
