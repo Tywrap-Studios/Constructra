@@ -57,8 +57,9 @@ nav:
         - developers/index.md
   - Reference:
       - API:
-        - reference/api/index.md
+        - Redirect: https://github.com/Tywrap-Studios/Constructra/tree/1.21.4-dev/src/main/java/org/tywrapstudios/constructra/api
       - Content:
+        - reference/content/index.md
         - Commands:
             - Common:
               - Constructra (root): reference/content/commands/common/ca.md

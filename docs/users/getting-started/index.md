@@ -10,7 +10,7 @@ To install Constructra, you need to have {==Fabric Loader==} installed. You can 
 On said page, there is also a download link to the {==Fabric API==}, which is also required for Constructra to run.
 
 At the moment, another API install is needed, {==Fabric Language Kotlin==}. BlossomBridge, 
-an API we extensively use, is coded in Kotlin :simple-kotlin: as per 2.0.0+, while BlossomBridge is bundled with the Constructra jar, 
+an API we extensively use, is coded in Kotlin :simple-kotlin: as per 2.0.0+. While BlossomBridge itself is bundled with the Constructra jar, 
 the Kotlin adapter is not.  
 You should get it manually [here](https://modrinth.com/mod/fabric-language-kotlin/versions) on Modrinth :simple-modrinth: or [here](https://www.curseforge.com/minecraft/mc-mods/fabric-language-kotlin/files) on CurseForge :simple-curseforge:.
 

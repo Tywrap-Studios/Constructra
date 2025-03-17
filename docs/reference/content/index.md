@@ -1,8 +1,9 @@
 ---
-title: Welcome to the Content Reference!
 tags:
-  - References
+  - Reference
 ---
 
-???+ warning "Work In Progress"
-    This part is a work in progress, meaning some stuff may not be accurate (enough).
+# Content Index
+- Commands
+    - Common: Contains info about all the Common side commands (server and client)
+    - Client: Contains info about all the Client side commands

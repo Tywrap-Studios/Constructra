@@ -25,5 +25,4 @@ This mod aims to add a more streamlined game flow of building _your_ future. No 
     [Configuration :octicons-gear-16:](users/configuration/index.md){.md-button}
 === "For Developers"
     [Creating an Addon :material-plus-circle-outline:](developers/index.md){.md-button}
-    [API Reference :fontawesome-solid-code:](reference/api/index.md){.md-button}
     
