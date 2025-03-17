@@ -13,8 +13,8 @@
     <language>en</language>
 
     
-    <pubDate>Fri, 14 Mar 2025 18:46:23 -0000</pubDate>
-    <lastBuildDate>Fri, 14 Mar 2025 18:46:23 -0000</lastBuildDate>
+    <pubDate>Mon, 17 Mar 2025 12:54:20 -0000</pubDate>
+    <lastBuildDate>Mon, 17 Mar 2025 12:54:20 -0000</lastBuildDate>
     <ttl>1440</ttl>
 
     
@@ -32,26 +32,6 @@
     
     
     <item>
-      <title>New Site Yay</title>
-      
-      
-        
-      <author>ItsTiazzz</author>
-        
-      
-      
-      
-      <description>&lt;h1&gt;New Site Yay&lt;/h1&gt;
-&lt;p&gt;We got a new site kiddos, and it&#39;s a lot better than the old one.&lt;/p&gt;</description>
-      <link>https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/</link>
-      <pubDate>Fri, 14 Mar 2025 18:41:36 +0000</pubDate>
-      <source url="https://docs.tiazzz.me/Constructra/feed_rss_updated.xml">Constructra Documentation</source>
-      
-      <guid isPermaLink="true">https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/</guid>
-      
-    </item>
-    
-    <item>
       <title>Have the tiazzz.me post here!</title>
       
       
@@ -64,10 +44,30 @@
       <description>&lt;h1&gt;Have the tiazzz.me post here!&lt;/h1&gt;
 &lt;p&gt;In &lt;a href=&#34;new%20site.md&#34;&gt;the last blog&lt;/a&gt; I told you to go look at my personal post somewhere else, but tbh that site is kind of shitty, so just have it here in a quote:&lt;/p&gt;</description>
       <link>https://docs.tiazzz.me/Constructra/blog/2025/03/10/have-the-tiazzzme-post-here/</link>
-      <pubDate>Fri, 14 Mar 2025 18:41:36 +0000</pubDate>
+      <pubDate>Mon, 10 Mar 2025 17:58:43 +0000</pubDate>
       <source url="https://docs.tiazzz.me/Constructra/feed_rss_updated.xml">Constructra Documentation</source>
       
       <guid isPermaLink="true">https://docs.tiazzz.me/Constructra/blog/2025/03/10/have-the-tiazzzme-post-here/</guid>
+      
+    </item>
+    
+    <item>
+      <title>New Site Yay</title>
+      
+      
+        
+      <author>ItsTiazzz</author>
+        
+      
+      
+      
+      <description>&lt;h1&gt;New Site Yay&lt;/h1&gt;
+&lt;p&gt;We got a new site kiddos, and it&#39;s a lot better than the old one.&lt;/p&gt;</description>
+      <link>https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/</link>
+      <pubDate>Mon, 10 Mar 2025 04:28:02 +0000</pubDate>
+      <source url="https://docs.tiazzz.me/Constructra/feed_rss_updated.xml">Constructra Documentation</source>
+      
+      <guid isPermaLink="true">https://docs.tiazzz.me/Constructra/blog/2025/03/09/new-site-yay/</guid>
       
     </item>
     
