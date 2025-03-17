@@ -3,6 +3,7 @@ title: Client Config
 tags:
   - Configuration
   - Has pre-release info
+  - Client Exclusive
 hide:
   - toc
   - navigation

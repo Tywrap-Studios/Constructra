@@ -59,7 +59,16 @@ nav:
       - API:
         - reference/api/index.md
       - Content:
-        - reference/content/index.md
+        - Commands:
+            - Common:
+              - Constructra (root): reference/content/commands/common/ca.md
+              - Reload: reference/content/commands/common/ca-reload.md
+              - Nodes Flush: reference/content/commands/common/ca-nodes-flush.md
+              - Nodes Spawn: reference/content/commands/common/ca-nodes-spawn.md
+              - Nodes Purge: reference/content/commands/common/ca-nodes-purge.md
+            - Client:
+              - Constructra-client (root): reference/content/commands/client/ca-client.md
+              - Reload: reference/content/commands/client/ca-client-reload.md
   - Blog:
       - blog/index.md
   - Documentation Tags: tags.md
