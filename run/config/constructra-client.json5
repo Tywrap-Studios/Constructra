@@ -31,6 +31,6 @@
 		   Type: Boolean
 		   Default: false
 		*/
-		"send_break_reminders": true
+		"send_break_reminders": false
 	}
 }
