@@ -50,7 +50,7 @@ public class Constructra implements ModInitializer {
 	public void onInitialize() {
 		CONFIG_MANAGER.loadConfig();
 		// WARNING: REMOVE BEFORE FINAL RELEASE. FOR DEV PURPOSES ONLY.
-		config().getUtil_config().setDebug_mode(true);
+		config().util_config.debug_mode = true;
 		config().resources.visualize_centres = true;
 		CONFIG_MANAGER.saveConfig();
 

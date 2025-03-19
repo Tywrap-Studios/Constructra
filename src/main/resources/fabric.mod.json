@@ -34,6 +34,6 @@
 		"minecraft": "~1.21.4",
 		"java": ">=21",
 		"fabric-api": "*",
-		"blossombridge": ">=2.0.0"
+		"blossombridge": ">=2.0.2"
 	}
 }
