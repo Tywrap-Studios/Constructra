@@ -238,7 +238,7 @@ public class ShuntingYard {
                 .replaceAll(" ", "")    // Ensure everything is next to each other
                 .replaceAll(",", ".");  // Ensure there are no "," decimal points, as Java will only recognise "."
 
-        Stack<String> CACHE = new Stack<>();
+        Stack<String> cache = new Stack<>();
         List<String> tokens = new ArrayList<>();
 
         LOGGER.debug("[ShuntingYard => Prerequisites] Checking calculation: " + calculation);
@@ -249,47 +249,44 @@ public class ShuntingYard {
         for (int i = 0; i < chars.size(); i++) {
             char c = chars.get(i);
             String s = String.valueOf(c);
+            boolean safe = false;
             if (s.matches("\\d|[.]")) {
-                CACHE.push(s);
+                cache.push(s);
+                safe = true;
                 LOGGER.debug("[ShuntingYard => Prerequisites] Pushed to cache: " + s);
             } else if (s.matches("[-+*/%^()]")) {
-                String finalizedCachedToken = cache(CACHE, tokens, "Found operator, time to add the cache before it.");
+                String finalizedCachedToken = deCache(cache, tokens, "Found operator, time to add the cache before it.");
                 LOGGER.debug("[ShuntingYard => Prerequisites] finalizedCachedToken: " + finalizedCachedToken);
                 tokens.add(s);
+                safe = true;
                 LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: " + s);
-            } else if (s.matches("s")) {
-                tokens.add("sqrt");
-                LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: sqrt");
-                i = i + 3;
-            } else if (s.matches("c")) {
-                tokens.add("ceil");
-                LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: ceil");
-                i = i + 3;
-            } else if (s.matches("f")) {
-                tokens.add("floor");
-                LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: floor");
-                i = i + 4;
-            } else if (s.matches("r")) {
-                tokens.add("round");
-                LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: round");
-                i = i + 4;
-            } else {
-                CACHE.clear();
-                throw new InvalidCalculationException("Infix Calculation contained non-mathematical character: " + s);
+            }
+            for (Operator op : OPS.values()) {
+                if (s.matches(String.valueOf(op.symbol.toCharArray()[0]))) {
+                    tokens.add(op.symbol);
+                    LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: " + op.symbol);
+                    i = i + op.symbol.length() - 1;
+                    safe = true;
+                }
+            }
+
+            if (!safe) {
+                cache.clear();
+                throw new InvalidCalculationException("Infix Calculation was not marked safe and probably contained a non-mathematical character: " + s);
             }
         }
 
-        cache(CACHE, tokens, "The cache might still have a number as the last Operand, we need to add it.");
+        deCache(cache, tokens, "The cache might still have a number as the last Operand, we need to add it.");
         LOGGER.debug("Final infix List: " + tokens);
 
         return tokens;
     }
 
-    private static String cache(Stack<String> CACHE, List<String> tokens, String reason) {
+    private static String deCache(Stack<String> cache, List<String> tokens, String reason) {
         StringBuilder cachedTokenBuilder = new StringBuilder();
         LOGGER.debug("[ShuntingYard => Cache] De-caching: " + reason);
-        for (int i = 0; i < CACHE.size() + i; i++) {
-            cachedTokenBuilder.append(CACHE.removeFirst());
+        for (int i = 0; i < cache.size() + i; i++) {
+            cachedTokenBuilder.append(cache.removeFirst());
             LOGGER.debug("[ShuntingYard => Cache] De-cached: " + cachedTokenBuilder);
         }
         String cachedToken = cachedTokenBuilder.toString();

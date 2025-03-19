@@ -35,34 +35,40 @@ package org.tywrapstudios.constructra.api.math.ruleset;
  * (Do note {@link Associativity} applies)</p>
  */
 public enum Operator implements Comparable<Operator> {
-    ADDITION("+", Associativity.LEFT, 0),
-    SUBTRACTION("-", Associativity.LEFT, 0),
-    DIVISION("/", Associativity.LEFT, 5),
-    MULTIPLICATION("*", Associativity.LEFT, 5),
-    MODULUS("%", Associativity.LEFT, 5),
-    POWER("^", Associativity.RIGHT, 10),
-    SQRT("sqrt", Associativity.RIGHT, 10, true),
-    CEIL("ceil", Associativity.RIGHT, 10, true),
-    FLOOR("floor", Associativity.RIGHT, 10, true),
-    ROUND("round", Associativity.RIGHT, 10, true),;
+    ADDITION("+", Associativity.LEFT, 0, Double::sum),
+    SUBTRACTION("-", Associativity.LEFT, 0, Double::min),
+    DIVISION("/", Associativity.LEFT, 5, (left, right) -> left / right),
+    MULTIPLICATION("*", Associativity.LEFT, 5, (left, right) -> left * right),
+    MODULUS("%", Associativity.LEFT, 5, (left, right) -> left % right),
+    POWER("^", Associativity.RIGHT, 10, Math::pow),
+    SQRT("sqrt", Associativity.RIGHT, 10, true, (left, right) -> Math.sqrt(right)),
+    CEIL("ceil", Associativity.RIGHT, 10, true, (left, right) -> Math.ceil(right)),
+    FLOOR("floor", Associativity.RIGHT, 10, true, (left, right) -> Math.floor(right)),
+    ROUND("round", Associativity.RIGHT, 10, true, (left, right) -> Math.round(right)),;
 
     public final Associativity associativity;
     public final int precedence;
     public final String symbol;
     public final boolean singleOperand;
+    public final Operation operation;
 
-    Operator(String symbol, Associativity associativity, int precedence, boolean singleOperand) {
+    Operator(String symbol, Associativity associativity, int precedence, boolean singleOperand, Operation operation) {
         this.symbol = symbol;
         this.associativity = associativity;
         this.precedence = precedence;
         this.singleOperand = singleOperand;
+        this.operation = operation;
     }
 
-    Operator(String symbol, Associativity associativity, int precedence) {
-        this(symbol, associativity, precedence, false);
+    Operator(String symbol, Associativity associativity, int precedence, Operation operation) {
+        this(symbol, associativity, precedence, false, operation);
     }
 
     public int comparePrecedence(Operator operator) {
         return this.precedence - operator.precedence;
+    }
+
+    public interface Operation {
+        double operate(double left, double right);
     }
 }

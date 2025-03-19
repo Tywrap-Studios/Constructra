@@ -139,18 +139,7 @@ public class StringCalculator {
          * @return the result of the operation
          */
         private double getFromOperation(Operator op, double d1, double d2) {
-            return switch (op) {
-                case ADDITION -> d1 + d2;
-                case SUBTRACTION -> d1 - d2;
-                case MULTIPLICATION -> d1 * d2;
-                case DIVISION -> d1 / d2;
-                case MODULUS -> d1 % d2;
-                case POWER -> pow(d1, d2);
-                case SQRT -> sqrt(d1);
-                case CEIL -> ceil(d1);
-                case FLOOR -> floor(d1);
-                case ROUND -> round(d1);
-            };
+            return op.operation.operate(d1, d2);
         }
 
         /**
@@ -160,11 +149,8 @@ public class StringCalculator {
          * @return this builder
          */
         public CalculationBuilder doOperation(Operator op, double d1, double d2) {
-            return switch (op) {
-                case ADDITION -> this.add(d1);
-                case SUBTRACTION -> this.subtract(d1);
-                default -> this.add(getFromOperation(op, d1, d2));
-            };
+            this.add(op.operation.operate(d1, d2));
+            return this;
         }
 
         /**
