@@ -24,6 +24,8 @@
 
 package org.tywrapstudios.constructra.api.math;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
 import org.tywrapstudios.constructra.api.math.ruleset.Operator;
 
@@ -33,8 +35,6 @@ import java.util.Map;
 import java.util.Stack;
 
 import static java.lang.Double.NaN;
-import static java.lang.Math.*;
-import static org.tywrapstudios.constructra.Constructra.LOGGER;
 
 /**
  * A class that can handle calculations directly from Strings.
@@ -44,6 +44,7 @@ import static org.tywrapstudios.constructra.Constructra.LOGGER;
  * @see StringCalculator.CalculationBuilder#fromPostfix(List) 
  */
 public class StringCalculator {
+    private static final Logger LOGGER = LoggerFactory.getLogger(StringCalculator.class);
     
     /**
      * Returns a double, which is the result of the expression you provide.

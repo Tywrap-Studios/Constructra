@@ -24,12 +24,13 @@
 
 package org.tywrapstudios.constructra.api.math;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
 import org.tywrapstudios.constructra.api.math.ruleset.Operator;
 
 import java.util.*;
 
-import static org.tywrapstudios.constructra.Constructra.LOGGER;
 import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.LEFT;
 import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT;
 
@@ -77,7 +78,7 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
  * <li>Try to keep the order of the numbers themselves as consistent with the infix equation as possible.
  * <li>If you come across an operation that is followed by an operation with a higher precedence, first handle the one with the higher precedence and then figure out where the lower precedent one fits in with it. This may cause you to break rule 1, but that's acceptable.
  * <li>Having loose numbers in front of an operation is not bad as long as there is another operator behind the operation.</li>
- * <p>Lets do another example, feel free to grab a piece of paper to put notes on:
+ * <p>Let's do another example, feel free to grab a piece of paper to put notes on:
  * <blockquote><pre>
  *     // We start in infix
  *     1 + 2 * (6 - 2)
@@ -93,7 +94,7 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
  * <h2>Negatives</h2>
  * Negative values are never fun to work with, and that's why it deserves its own chapter.
  * <p>A negative value in infix is simply the integer prefixed with a {@code -}, though in postfix this is slightly different.
- * <p>Lets put two next to each other again:
+ * <p>Let's put two next to each other again:
  * <blockquote><pre>
  *     // We start in infix
  *     -4 * -6 - 4 + -3
@@ -102,7 +103,7 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
  *     // Again, start with the highest precedence, in this case [-4 * -6]
  *     -4 -6 * - 4 - 3
  * </pre></blockquote>
- * <p>This isn't really good. From our knowledge, we know that operator symbols should probably be behind the numbers to properly work.
+ * <p>This isn't perfect. From our knowledge, we know that operator symbols should probably be behind the numbers to properly work.
  * Although plain numbers prefixed with a {@code -} are technically still considered integers by the JVM, during parsing and using Stacks it might cause issues due to the parser not being able to differentiate between prefixes and operators.
  * This means that we will have to try to fulfil the act of putting all operators behind the numbers they operate on:
  * <blockquote><pre>
@@ -132,6 +133,8 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
  */
 public class ShuntingYard {
     private static final Map<String, Operator> OPS = new HashMap<>();
+    private static final Map<String, Operator> FUNCTIONS = new HashMap<>();
+    private static final Logger LOGGER = LoggerFactory.getLogger(ShuntingYard.class);
 
     static {
         // We build a map with all the existing Operators by iterating over the existing Enum
@@ -139,6 +142,9 @@ public class ShuntingYard {
         // <K,V> = <Character, Operator(Character, Associativity, Precedence)>
         for (Operator operator : Operator.values()) {
             OPS.put(operator.symbol, operator);
+            if (operator.symbol.length() > 1) {
+                FUNCTIONS.put(operator.symbol, operator);
+            }
         }
     }
 
@@ -250,6 +256,7 @@ public class ShuntingYard {
             char c = chars.get(i);
             String s = String.valueOf(c);
             boolean safe = false;
+            LOGGER.debug("[ShuntingYard => Prerequisites] Checking char: " + s);
             if (s.matches("\\d|[.]")) {
                 cache.push(s);
                 safe = true;
@@ -261,7 +268,7 @@ public class ShuntingYard {
                 safe = true;
                 LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: " + s);
             }
-            for (Operator op : OPS.values()) {
+            for (Operator op : FUNCTIONS.values()) {
                 if (s.matches(String.valueOf(op.symbol.toCharArray()[0]))) {
                     tokens.add(op.symbol);
                     LOGGER.debug("[ShuntingYard => Prerequisites] Add to tokens: " + op.symbol);
@@ -292,7 +299,7 @@ public class ShuntingYard {
         String cachedToken = cachedTokenBuilder.toString();
         LOGGER.debug("[ShuntingYard => Cache] Final Token: " + cachedToken);
         if (!cachedToken.isEmpty()) tokens.add(cachedToken);
-        else LOGGER.debugWarning("[ShuntingYard => Cache] Empty, skipping.");
+        else LOGGER.debug("[ShuntingYard => Cache] Empty, skipping.");
         return cachedToken;
     }
 }
