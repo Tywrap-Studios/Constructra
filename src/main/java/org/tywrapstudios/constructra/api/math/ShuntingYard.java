@@ -39,7 +39,7 @@ import static org.tywrapstudios.constructra.api.math.ruleset.Associativity.RIGHT
  * As one may know, parsing calculations from Strings can be quite the situation.
  * Especially considering different precedences exist per operator, and other types of rules apply too when it comes to the order of writing and evaluation.
  * <p>The way of writing down your equation is called a notation, and different types exist!
- * <p>The mostly used one being infix:
+ * <p>The most commonly used one being "infix":
  * <blockquote><pre>
  *     1 + 3 - 4 / 5 * ( 1 + 5 )
  * </pre></blockquote>
@@ -139,7 +139,7 @@ public class ShuntingYard {
     static {
         // We build a map with all the existing Operators by iterating over the existing Enum
         // and filling up the map with:
-        // <K,V> = <Character, Operator(Character, Associativity, Precedence)>
+        // <K,V> = <Character, Operator>
         for (Operator operator : Operator.values()) {
             OPS.put(operator.symbol, operator);
             if (operator.symbol.length() > 1) {

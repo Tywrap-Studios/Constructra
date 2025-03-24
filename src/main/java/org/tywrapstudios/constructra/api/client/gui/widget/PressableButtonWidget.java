@@ -34,11 +34,8 @@ import net.minecraft.client.sound.PositionedSoundInstance;
 import net.minecraft.client.sound.SoundInstance;
 import net.minecraft.client.sound.SoundManager;
 import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
-import org.tywrapstudios.constructra.Constructra;
-import org.tywrapstudios.constructra.registry.CaSounds;
 
 import static org.tywrapstudios.constructra.client.logic.PlayTime.playTime;
 

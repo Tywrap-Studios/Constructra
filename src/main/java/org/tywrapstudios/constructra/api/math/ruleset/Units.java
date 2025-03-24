@@ -24,8 +24,6 @@
 
 package org.tywrapstudios.constructra.api.math.ruleset;
 
-import org.tywrapstudios.constructra.api.math.exception.InvalidCalculationException;
-
 import java.util.function.UnaryOperator;
 
 /**
@@ -35,21 +33,7 @@ import java.util.function.UnaryOperator;
 public class Units {
 
     /**
-     * Converts a double from one Measurement to another, this method tries to be as accurate as possible.
-     * @param d the original number to convert
-     * @param from the Measurement that the double is in
-     * @param to the Measurement the double should be converted into
-     * @return the converted double
-     * @throws InvalidCalculationException if something goes wrong
-     */
-    public static double convert(double d, Measurement from, Measurement to) throws InvalidCalculationException {
-        if (from.type != to.type) throw new InvalidCalculationException(String.format("Tried to convert units of inconvertible types %s and %s!", from.type.toString(), to.type.toString()));
-        if (from.system.equals(to.system)) return d;
-        else return to.conversionFactor.apply(d);
-    }
-
-    /**
-     * Converts a double to another measurement, please note that we do not ensure any checks that the conversion should even be done in the first place, so be careful.
+     * Converts a double to another measurement, we do not ensure that the conversion should even be done in the first place, so be careful.
      * @param d the original number to convert
      * @param to the Measurement the double should be converted into
      * @return the converted double
@@ -59,12 +43,13 @@ public class Units {
     }
 
     public enum Measurement {
-        METRES(System.METRIC, d -> d * 3.28084, Type.LENGTH),
-        FEET(System.FREEDOM, d -> d * 0.3048, Type.LENGTH),
-        LITRES(System.METRIC, d -> d * 0.264172, Type.VOLUME),
-        GALLONS(System.FREEDOM, d -> d * 3.785412, Type.VOLUME),
-        GRAMMES(System.METRIC, d -> d * 0.035274, Type.MASS),
-        OUNCES(System.FREEDOM, d -> d * 28.34952, Type.MASS),;
+        METRES(System.METRIC, d -> d / 3.28084, Type.LENGTH),
+        FEET(System.FREEDOM, d -> d * 3.28084, Type.LENGTH),
+        LITRES(System.METRIC, d -> d * 3.785412, Type.VOLUME),
+        GALLONS(System.FREEDOM, d -> d / 3.785412, Type.VOLUME),
+        GRAMMES(System.METRIC, d -> d * 28.34952, Type.MASS),
+        OUNCES(System.FREEDOM, d -> d / 28.34952, Type.MASS),
+        KELVIN(System.SCIENTIFIC, d -> d + 273.15, Type.TEMPERATURE),; // Kelvin won't be converted to anything else, but stems from Celsius
 
         public final System system;
         public final Type type;
@@ -80,11 +65,13 @@ public class Units {
     public enum Type {
         MASS,
         VOLUME,
-        LENGTH
+        LENGTH,
+        TEMPERATURE
     }
 
     public enum System {
         METRIC,
-        FREEDOM
+        FREEDOM,
+        SCIENTIFIC
     }
 }

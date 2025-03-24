@@ -63,7 +63,8 @@ public class Util {
                 "Powered by org.tywrapstudios.constructra.util.Util#generateInitPhrase",
                 " <- literally nothing ;-;",
                 "I'm not a fusion reactor, I'm a black hole generator.",
-                "God I hate ScreenHandlers"
+                "God I hate ScreenHandlers",
+                "Stella octangula"
         );
 
         return phrases.get(new Random().nextInt(phrases.size()));
