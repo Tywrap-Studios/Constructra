@@ -53,9 +53,7 @@ public class ProgressTests {
         node3.addChild(node4);
         node4.addChild(node5);
 
-        node.print();
-        node2.print();
-        Assertions.assertEquals(node.print(""), node2.print(""));
+        Assertions.assertEquals(node.print(), node2.print());
 
         manager.addRoot(node);
         manager.getRoot().print();

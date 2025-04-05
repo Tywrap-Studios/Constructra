@@ -22,24 +22,11 @@
  * SOFTWARE.
  */
 
-package org.tywrapstudios.constructra.api.progression;
+package org.tywrapstudios.constructra.progression;
 
-public class ProgressManager<S> {
-    private final RootProgressNode<S> root;
+import net.minecraft.entity.player.PlayerEntity;
+import org.tywrapstudios.constructra.api.progression.ProgressManager;
 
-    public ProgressManager() {
-        this.root = new RootProgressNode<>();
-    }
-
-    public void addRoot(ProgressNode<S> node) {
-        this.root.addChild(node);
-    }
-
-    public RootProgressNode<S> getRoot() {
-        return this.root;
-    }
-
-    public ProgressBuilder<S> literal(String name) {
-        return ProgressBuilder.literal(name);
-    }
+public class CaProgressManager extends ProgressManager<PlayerEntity> {
+    public static final CaProgressManager INSTANCE = new CaProgressManager();
 }

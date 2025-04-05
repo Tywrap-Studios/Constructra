@@ -90,19 +90,13 @@ public class ProgressNode<S> {
         return this.modPath(s -> parentPath + "." + s);
     }
 
-    public void print() {
+    public String print() {
         System.out.println(this);
+        StringBuilder str = new StringBuilder(this.toString());
         for (ProgressNode<S> child : children) {
-            child.print();
+            str.append("\n").append(child.print());
         }
-    }
-
-    public String print(String origin) {
-        origin = this.toString();
-        for (ProgressNode<S> child : children) {
-            origin += "\n" + child.print(origin);
-        }
-        return origin;
+        return str.toString();
     }
 
     @Override
