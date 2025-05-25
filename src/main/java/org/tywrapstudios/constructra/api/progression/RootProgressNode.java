@@ -24,6 +24,8 @@
 
 package org.tywrapstudios.constructra.api.progression;
 
+import java.util.function.Function;
+
 public class RootProgressNode<S> extends ProgressNode<S> {
     protected RootProgressNode() {
         super("", (s) -> true);
@@ -34,5 +36,11 @@ public class RootProgressNode<S> extends ProgressNode<S> {
     public ProgressNode<S> addChild(ProgressNode<S> child) {
         child.locked = false;
         return super.addChild(child);
+    }
+
+    @Override
+    public ProgressNode<S> addChild(ProgressNode<S> child, Function<String, String> path) {
+        child.locked = false;
+        return super.addChild(child, path);
     }
 }
