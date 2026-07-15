@@ -1,7 +1,7 @@
 > [!IMPORTANT]  
 > If you haven't noticed yet, this mod is still in development!  
 > Do not expect an official public release any time soon, and especially not a stable one.  
-> The following info in this README file may be inaccurate, unfinished or subject to change.
+> The following info in this README file may be inaccurate, unfinished or subject to change. 
 
 # Constructra
 Constructra tries to be a totally new take on tech mods.  
