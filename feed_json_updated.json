@@ -1,5 +1,5 @@
 {
-    "version": "https://jsonfeed.org/version/1",
+    "version": "https://jsonfeed.org/version/1.1",
     "title": "Constructra Documentation",
     "home_page_url": "https://docs.tiazzz.me/Constructra/",
     "feed_url": "https://docs.tiazzz.me/Constructra/feed_json_updated.json",
@@ -15,6 +15,7 @@
             "content_html": "<h1>Have the tiazzz.me post here!</h1>\n<p>In <a href=\"new%20site.md\">the last blog</a> I told you to go look at my personal post somewhere else, but tbh that site is kind of shitty, so just have it here in a quote:</p>",
             "image": null,
             "date_modified": "2025-03-10T17:58:43+00:00",
+            "date_published": "2025-03-10T04:28:02+00:00",
             "authors": [
                 {
                     "name": "ItsTiazzz"
@@ -29,6 +30,7 @@
             "content_html": "<h1>New Site Yay</h1>\n<p>We got a new site kiddos, and it's a lot better than the old one.</p>",
             "image": null,
             "date_modified": "2025-03-10T04:28:02+00:00",
+            "date_published": "2025-03-09T20:17:51+00:00",
             "authors": [
                 {
                     "name": "ItsTiazzz"
